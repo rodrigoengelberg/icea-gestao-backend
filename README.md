@@ -3,7 +3,7 @@
 </p> -->
 
 <h1 align="center">
-    <img alt="ICEA" title="#sistemaLindao" src=".github/logo.svg" width="250px" />
+    <img alt="ICEA" title="#sistemaLindao" src=".github/logo.png" width="250px" />
 </h1>
 
 <h4 align="center">
@@ -15,11 +15,11 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/rodrigoengelberg/icea-gestao-backend">
   
-  <a href="https://github.com/rodrigoengelberg/osiris-backend/commits/master">
+  <a href="https://github.com/rodrigoengelberg/icea-gestao-backend/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rodrigoengelberg/icea-gestao-backend">
   </a>
 
-  <a href="https://github.com/rodrigoengelberg/osiris-backend/issues">
+  <a href="https://github.com/rodrigoengelberg/icea-gestao-backend/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/rodrigoengelberg/icea-gestao-backend">
   </a>
 
@@ -41,7 +41,7 @@ Esse projeto está sendo desenvolvido em NodeJS utilizando modernas ferramentas 
 
 ## 🎨 Layout
 
-O Layout do Frontend pode ser visualizado no repositório [Osiris Frontend ](https://github.com/rodrigoengelberg/icea-gestao-frontend)
+O Layout do Frontend pode ser visualizado no repositório [ICEA Gestão Frontend ](https://github.com/rodrigoengelberg/icea-gestao-frontend)
 
 ## :rocket: Tecnologias
 
