@@ -3,7 +3,7 @@
 </p> -->
 
 <h1 align="center">
-    <img alt="ICEA" title="#sistemaLindao" src=".github/logo.png" width="250px" />
+    <img alt="ICEA" title="#sistemaLindao" src=".github/logo-nova.png" width="250px" />
 </h1>
 
 <h4 align="center">
