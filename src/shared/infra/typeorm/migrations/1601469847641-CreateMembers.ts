@@ -5,7 +5,7 @@ export default class CreateAppointments1601469847641
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'appointments',
+        name: 'members',
         columns: [
           {
             name: 'id',
@@ -15,8 +15,9 @@ export default class CreateAppointments1601469847641
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'provider',
+            name: 'email',
             type: 'varchar',
+            isUnique: true
           },
           {
             name: 'date',
