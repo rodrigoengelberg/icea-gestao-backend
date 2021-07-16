@@ -9,16 +9,16 @@ module.exports = [
     // "password": "docker",
     // "database": "gostack_gobarber",
     "entities": [
-      //"./src/modules/**/infra/typeorm/entities/*.ts"
-      "./dist/modules/**/infra/typeorm/entities/*.js"
+      "./src/modules/**/infra/typeorm/entities/*.ts"
+      //"./dist/modules/**/infra/typeorm/entities/*.js"
     ],
     "migrations": [
-      // "./src/shared/infra/typeorm/migrations/*.ts"
-      "./dist/shared/infra/typeorm/migrations/*.js"
+      "./src/shared/infra/typeorm/migrations/*.ts"
+      //"./dist/shared/infra/typeorm/migrations/*.js"
     ],
     "cli": {
-      // "migrationsDir": "./src/shared/infra/typeorm/migrations"
-      "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+      "migrationsDir": "./src/shared/infra/typeorm/migrations"
+      //"migrationsDir": "./dist/shared/infra/typeorm/migrations"
     }
   },
   // {
