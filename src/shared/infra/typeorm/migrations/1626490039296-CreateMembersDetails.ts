@@ -20,6 +20,11 @@ export class CreateMembersDetails1626490039296 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
+                        name: 'avatar',
+                        type: 'varchar',
+                        isNullable: true,
+                    },
+                    {
                         name: 'occupation',
                         type: 'varchar',
                     },
@@ -54,12 +59,12 @@ export class CreateMembersDetails1626490039296 implements MigrationInterface {
         await queryRunner.createForeignKey(
             'membersDetails',
             new TableForeignKey({
-              name: 'FKMembersDetails',
-              columnNames: ['member_id'],
-              referencedColumnNames: ['id'],
-              referencedTableName: 'members',
-              onDelete: 'SET NULL',
-              onUpdate: 'CASCADE',
+                name: 'FKMembersDetails',
+                columnNames: ['member_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'members',
+                onDelete: 'SET NULL',
+                onUpdate: 'CASCADE',
             }),
         );
     }
