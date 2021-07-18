@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import { 
+    MigrationInterface, 
+    QueryRunner, 
+    Table, 
+    TableForeignKey 
+} from 'typeorm'
 
 export class CreateMembersContact1626411035714 implements MigrationInterface {
 
@@ -67,7 +72,7 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                 onDelete: 'SET NULL',
                 onUpdate: 'CASCADE',
             }),
-        );
+        )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

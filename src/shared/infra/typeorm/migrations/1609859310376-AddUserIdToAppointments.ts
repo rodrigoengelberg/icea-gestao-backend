@@ -3,7 +3,7 @@ import {
   QueryRunner,
   TableColumn,
   TableForeignKey,
-} from 'typeorm';
+} from 'typeorm'
 
 export default class AddUserIdToAppointments1609859310376
   implements MigrationInterface {
@@ -15,7 +15,7 @@ export default class AddUserIdToAppointments1609859310376
         type: 'uuid',
         isNullable: true,
       }),
-    );
+    )
 
     await queryRunner.createForeignKey(
       'appointments',
@@ -27,11 +27,11 @@ export default class AddUserIdToAppointments1609859310376
         onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       }),
-    );
+    )
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('appointments', 'AppointmentUser');
-    await queryRunner.dropColumn('appointments', 'user_id');
+    await queryRunner.dropForeignKey('appointments', 'AppointmentUser')
+    await queryRunner.dropColumn('appointments', 'user_id')
   }
 }

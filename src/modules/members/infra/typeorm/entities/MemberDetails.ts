@@ -8,11 +8,19 @@ import {
 import { Expose } from 'class-transformer'
 
 import uploadConfig from '@config/upload'
+import Member from './Member';
 
 @Entity('membersDetails')
 class MemberDetails {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  member_id: string;
+
+  @OneToOne(() => Member)
+  @JoinColumn({ name: 'member_id' })
+  member: Member;
 
   @Column()
   avatar: string;
