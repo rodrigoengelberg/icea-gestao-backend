@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
 
 export class CreateMembersContact1626411035714 implements MigrationInterface {
 
@@ -13,6 +13,11 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                         isPrimary: true,
                         generationStrategy: 'uuid',
                         default: 'uuid_generate_v4()',
+                    },
+                    {
+                        name: 'member_id',
+                        type: 'uuid',
+                        isNullable: true,
                     },
                     {
                         name: 'lougradouro',
@@ -51,10 +56,23 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                 ]
             })
         )
+
+        await queryRunner.createForeignKey(
+            'membersContact',
+            new TableForeignKey({
+                name: 'FKMemberContact',
+                columnNames: ['member_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'members',
+                onDelete: 'SET NULL',
+                onUpdate: 'CASCADE',
+            }),
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('membersContact');
+        await queryRunner.dropForeignKey('membersContact', 'FKMemberContact')
+        await queryRunner.dropTable('membersContact')
     }
 
 }
