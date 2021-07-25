@@ -1,42 +1,42 @@
 import { uuid } from 'uuidv4'
 
-import IMembersRepository from '@src/modules/members/repositories/IMembersRepository'
-import ICreateMemberDTO from '@modules/members/dtos/ICreateMemberDTO'
+import IMembersContactRepository from '../IMembersContactRepository'
+import ICreateMemberContactDTO from '@modules/members/dtos/ICreateMemberContactDTO'
 
 import MemberContact from '../../infra/typeorm/entities/MemberContact'
 
-class FakeUsersRepository implements IMembersRepository {
-  private users: Member[] = []
+class FakeMembersContactRepository implements IMembersContactRepository {
+  private membersContact: MemberContact[] = []
 
   public async findById(id: string): Promise<MemberContact | undefined> {
-    const findUser = this.users.find(user => user.id === id)
+    const findUser = this.membersContact.find(memberContact => memberContact.id === id)
 
     return findUser
   }
 
-  public async findByEmail(email: string): Promise<MemberContact | undefined> {
-    const findUser = this.users.find(user => user.email === email)
+  public async findByMemberId(memberId: string): Promise<MemberContact | undefined> {
+    const findUser = this.membersContact.find(memberContact => memberContact.member_id === memberId)
 
     return findUser
   }
 
-  public async create(userData: ICreateMemberDTO): Promise<MemberContact> {
-    const user = new MemberContact()
+  public async create(memberContactData: ICreateMemberContactDTO): Promise<MemberContact> {
+    const memberContact = new MemberContact()
 
-    Object.assign(user, { id: uuid() }, userData)
+    Object.assign(memberContact, { id: uuid() }, memberContactData)
 
-    this.users.push(user)
+    this.membersContact.push(memberContact)
 
-    return user
+    return memberContact
   }
 
-  public async save(user: Member): Promise<Member> {
-    const findIndex = this.users.findIndex(findMember => findMember.id === user.id)
+  public async save(memberContact: MemberContact): Promise<MemberContact> {
+    const findIndex = this.membersContact.findIndex(findMemberContact => findMemberContact.id === memberContact.id)
 
-    this.users[findIndex] = user
+    this.membersContact[findIndex] = memberContact
 
-    return user
+    return memberContact
   }
 }
 
-export default FakeUsersRepository
+export default FakeMembersContactRepository
