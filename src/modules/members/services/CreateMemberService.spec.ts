@@ -1,51 +1,63 @@
 import AppError from '@shared/errors/AppError'
 
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
-// import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
-// import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider'
-// import CreateUserService from './CreateUserService'
+import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository';
+import CreateMemberService from './CreateMemberService'
 
-// let fakeUsersRepository: FakeUsersRepository
-// let fakeHashProvider: FakeHashProvider
+let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
-// let createUser: CreateUserService
+let createMember: CreateMemberService
 
-describe('CreateUser', () => {
+describe('CreateMember', () => {
   beforeEach(() => {
-    // fakeUsersRepository = new FakeUsersRepository()
-    // fakeHashProvider = new FakeHashProvider()
+    fakeMembersRepository = new FakeMembersRepository()
     fakeCacheProvider = new FakeCacheProvider()
 
-    // createUser = new CreateUserService(
-    //   fakeUsersRepository,
-    //   fakeHashProvider,
-    //   fakeCacheProvider,
-    // );
+    createMember = new CreateMemberService(
+      fakeMembersRepository,
+      fakeCacheProvider,
+    );
   });
 
-  it('should be able to create a new user', async () => {
-    // const user = await createUser.execute({
-    //   name: 'John Doe',
-    //   email: 'johndoe@example.com',
-    //   password: '123123',
-    // });
+  it('should be able to create a new member', async () => {
+    const member = await createMember.execute({
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'johndoe@example.com',
+      gender: 'Male',
+      member_type: 'Ativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
+    });
 
-    // expect(user).toHaveProperty('id')
+    expect(member).toHaveProperty('id')
   });
 
-  it('should not be able to create a new user with email from another', async () => {
-    // await createUser.execute({
-    //   name: 'John Doe',
-    //   email: 'johndoe@example.com',
-    //   password: '123123',
-    // });
+  it('should not be able to create a new member with email from another', async () => {
+    await createMember.execute({
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'johndoe@example.com',
+      gender: 'Male',
+      member_type: 'Ativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
+    });
 
-    // await expect(
-    //   createUser.execute({
-    //     name: 'John Doe',
-    //     email: 'johndoe@example.com',
-    //     password: '123123',
-    //   }),
-    // ).rejects.toBeInstanceOf(AppError)
+    await expect(
+      createMember.execute({
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'johndoe@example.com',
+        gender: 'Male',
+        member_type: 'Ativo',
+        marital_status: 'Casado',
+        nationality: 'Brasileiro',
+        birth_date: new Date()
+      }),
+    ).rejects.toBeInstanceOf(AppError)
   });
+  
 });

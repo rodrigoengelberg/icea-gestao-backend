@@ -3,10 +3,9 @@
     "target": "es2017",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": ".",
+    "rootDir": "./src",
     "lib": ["es6"],
     "removeComments": true,
-    //"strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "allowJs": true,
@@ -25,14 +24,9 @@
       "./src/@types"
     ],
     "resolveJsonModule": true
-  }
-  // "include": [
-  //   "src",
-  //   "src/**/*.ts",
-  //   "@types/**/*.d.ts"
-  // ],
-  // "exclude": [
-  //   "**/*.spec.ts",
-  //   "**/*.test.ts"
-  // ]
+  },
+  "include": [
+    "src/**/*",
+    "@types/**/*.d.ts"
+  ]
 }

@@ -28,10 +28,10 @@ class CreateMemberService {
   ) { }
 
   public async execute({ first_name, last_name, email, gender, member_type, marital_status, nationality, birth_date }: IRequest): Promise<Member> {
-    const checkUserExists = await this.membersRepository.findByEmail(email);
+    const checkUserExists = await this.membersRepository.findByEmail(email)
 
     if (checkUserExists) {
-      throw new AppError('Email address already used.');
+      throw new AppError('Email address already used.')
     }
 
     const user = await this.membersRepository.create({
@@ -43,11 +43,11 @@ class CreateMemberService {
       marital_status,
       nationality,
       birth_date
-    });
+    })
 
-    await this.cacheProvider.invalidatePrefix('providers-list');
+    await this.cacheProvider.invalidatePrefix('providers-list')
 
-    return user;
+    return user
   }
 }
 
