@@ -1,7 +1,7 @@
 import { getRepository, Repository } from 'typeorm'
 
-import ICreateMemberDTO from '@src/modules/members/dtos/ICreateMemberDTO'
-import IMembersRepository from '@src/modules/members/repositories/IMembersRepository'
+import ICreateMemberDTO from '@modules/members/dtos/ICreateMemberDTO'
+import IMembersRepository from '@modules/members/repositories/IMembersRepository'
 
 import Member from '../entities/Member'
 

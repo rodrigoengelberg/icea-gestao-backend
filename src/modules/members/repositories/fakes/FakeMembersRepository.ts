@@ -1,6 +1,6 @@
 import { uuid } from 'uuidv4'
 
-import IMembersRepository from '@src/modules/members/repositories/IMembersRepository'
+import IMembersRepository from '@modules/members/repositories/IMembersRepository'
 import ICreateMemberDTO from '@modules/members/dtos/ICreateMemberDTO'
 
 import Member from '../../infra/typeorm/entities/Member'

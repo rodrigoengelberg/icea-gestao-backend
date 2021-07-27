@@ -1,30 +1,38 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
+    "rootDir": ".",
+    "lib": ["es6"],
+    "removeComments": true,
+    //"strict": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "allowJs": true,
     "paths": {
-      "@src/*": ["*"],
-      "@modules/*": ["modules/*"],
-      "@config/*": ["config/*"],
-      "@shared/*": ["shared/*"]
+      "@modules/*": ["./src/modules/*"],
+      "@config/*": ["./src/config/*"],
+      "@shared/*": ["./src/shared/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ]
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "resolveJsonModule": true
+  }
+  // "include": [
+  //   "src",
+  //   "src/**/*.ts",
+  //   "@types/**/*.d.ts"
+  // ],
+  // "exclude": [
+  //   "**/*.spec.ts",
+  //   "**/*.test.ts"
+  // ]
 }

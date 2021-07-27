@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm'
 
-import IMembersContactRepository from '@src/modules/members/repositories/IMembersContactRepository'
+import IMembersContactRepository from '@modules/members/repositories/IMembersContactRepository'
 import ICreateMemberContactDTO from '@modules/members/dtos/ICreateMemberContactDTO'
 
 import MemberContact from '../entities/MemberContact'
