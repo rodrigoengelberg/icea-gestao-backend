@@ -13,25 +13,31 @@ class MembersRepository implements IMembersRepository {
   }
 
   public async findById(id: string): Promise<Member | undefined> {
-    const findAppointment = await this.ormRepository.findOne(id)
+    const findMembers = await this.ormRepository.findOne(id)
 
-    return findAppointment
+    return findMembers
+  }
+
+  public async findAllMembers(): Promise<Member[] | undefined> {
+    const findMembers = await this.ormRepository.find()
+
+    return findMembers
   }
 
   public async findByEmail(email: string): Promise<Member | undefined> {
-    const findAppointment = await this.ormRepository.findOne({
+    const findMembers = await this.ormRepository.findOne({
       where: { email },
     })
 
-    return findAppointment
+    return findMembers
   }
 
-  public async create(userData: ICreateMemberDTO): Promise<Member> {
-    const user = this.ormRepository.create(userData)
+  public async create(memberData: ICreateMemberDTO): Promise<Member> {
+    const member = this.ormRepository.create(memberData)
 
-    await this.ormRepository.save(user)
+    await this.ormRepository.save(member)
 
-    return user
+    return member
   }
 
   public async save(user: Member): Promise<Member> {
