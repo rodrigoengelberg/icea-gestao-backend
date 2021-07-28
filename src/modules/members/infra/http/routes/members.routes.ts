@@ -1,10 +1,14 @@
-import { Router } from 'express'
 import { celebrate, Joi, Segments } from 'celebrate'
-
+import { Router } from 'express'
+import MembersContactController from '../controllers/MembersContactController'
 import MembersController from '../controllers/MembersController'
+import MembersDetailsController from '../controllers/MembersDetailsController'
 
-const membersRouter = Router();
+
+const membersRouter = Router()
 const membersController = new MembersController()
+const membersContactController = new MembersContactController()
+const membersDetailsController = new MembersDetailsController()
 
 membersRouter.post(
   '/',
@@ -20,7 +24,36 @@ membersRouter.post(
       birth_date: Joi.date().required()
     },
   }),
-  membersController.create,
-);
+  membersController.create
+)
+
+membersRouter.post(
+  '/contact',
+  celebrate({
+    [Segments.BODY]: {
+      street: Joi.string().required(),
+      state: Joi.string().required(),
+      city: Joi.string().required(),
+      zipcode: Joi.number().required(),
+      phoneType: Joi.string().required(),
+      phoneNumber: Joi.number().required()
+    },
+  }),
+  membersContactController.create
+)
+
+membersRouter.post(
+  '/details',
+  celebrate({
+    [Segments.BODY]: {
+      avatar: Joi.string().required(),
+      occupation: Joi.string().required(),
+      schooling: Joi.string().required(),
+      facebook_link: Joi.string().required(),
+      instagram_link: Joi.string().required()
+    },
+  }),
+  membersDetailsController.create
+)
 
 export default membersRouter

@@ -1,12 +1,12 @@
-import { Router } from 'express';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { Router } from 'express'
+import { celebrate, Joi, Segments } from 'celebrate'
 
-import ForgotPasswordController from '../controllers/ForgotPasswordController';
-import ResetPasswordController from '../controllers/ResetPasswordController';
+import ForgotPasswordController from '../controllers/ForgotPasswordController'
+import ResetPasswordController from '../controllers/ResetPasswordController'
 
-const passwordRouter = Router();
-const forgotPasswordController = new ForgotPasswordController();
-const resetPasswordController = new ResetPasswordController();
+const passwordRouter = Router()
+const forgotPasswordController = new ForgotPasswordController()
+const resetPasswordController = new ResetPasswordController()
 
 passwordRouter.post(
   '/forgot',
@@ -16,7 +16,7 @@ passwordRouter.post(
     },
   }),
   forgotPasswordController.create,
-);
+)
 
 passwordRouter.post(
   '/reset',
@@ -28,6 +28,6 @@ passwordRouter.post(
     },
   }),
   resetPasswordController.create,
-);
+)
 
-export default passwordRouter;
+export default passwordRouter
