@@ -34,7 +34,7 @@ class CreateMemberService {
       throw new AppError('Email address already used.')
     }
 
-    const user = await this.membersRepository.create({
+    const members = await this.membersRepository.create({
       first_name,
       last_name,
       email,
@@ -45,9 +45,9 @@ class CreateMemberService {
       birth_date
     })
 
-    await this.cacheProvider.invalidatePrefix('providers-list')
+    await this.cacheProvider.invalidatePrefix('members-list')
 
-    return user
+    return members
   }
 }
 
