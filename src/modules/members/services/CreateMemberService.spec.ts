@@ -59,5 +59,5 @@ describe('CreateMember', () => {
       }),
     ).rejects.toBeInstanceOf(AppError)
   });
-  
+
 });

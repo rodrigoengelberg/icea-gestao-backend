@@ -1,9 +1,17 @@
 import { injectable, inject } from 'tsyringe'
 
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
-import ICreateMemberContactDTO from '../dtos/ICreateMemberContactDTO'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
 import IMembersContactRepository from '../repositories/IMembersContactRepository'
+
+interface IRequest {
+  street: string
+  state: string
+  city: string
+  zipcode: number
+  phoneType: string
+  phoneNumber: number
+}
 
 @injectable()
 class CreateMemberService {
@@ -15,11 +23,18 @@ class CreateMemberService {
     private cacheProvider: ICacheProvider
   ) { }
 
-  public async execute(memberData: ICreateMemberContactDTO): Promise<MemberContact> {
+  public async execute({ street, state, city, zipcode, phoneType, phoneNumber }: IRequest): Promise<MemberContact> {
 
-    const memberContactData = await this.membersContactRepository.create(memberData)
+    const memberContactData = await this.membersContactRepository.create({
+      street,
+      state,
+      city,
+      zipcode,
+      phoneType,
+      phoneNumber
+    })
 
-    await this.cacheProvider.invalidatePrefix('membersContact-list');
+    await this.cacheProvider.invalidatePrefix('membersContact-list')
 
     return memberContactData
   }

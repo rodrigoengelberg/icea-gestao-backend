@@ -1,63 +1,32 @@
-import AppError from '@shared/errors/AppError'
-
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
-import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository';
-import CreateMemberService from './CreateMemberService'
+import FakeMembersDetailsRepository from '../repositories/fakes/FakeMembersDetailsRepository'
+import CreateMemberDetailsService from './CreateMemberDetailsService'
 
-let fakeMembersRepository: FakeMembersRepository
+let fakeMembersDetailsRepository: FakeMembersDetailsRepository
 let fakeCacheProvider: FakeCacheProvider
-let createMember: CreateMemberService
+let createMemberDetails: CreateMemberDetailsService
 
 describe('CreateMember', () => {
   beforeEach(() => {
-    fakeMembersRepository = new FakeMembersRepository()
+    fakeMembersDetailsRepository = new FakeMembersDetailsRepository()
     fakeCacheProvider = new FakeCacheProvider()
 
-    createMember = new CreateMemberService(
-      fakeMembersRepository,
+    createMemberDetails = new CreateMemberDetailsService(
+      fakeMembersDetailsRepository,
       fakeCacheProvider,
-    );
-  });
+    )
+  })
 
   it('should be able to create a new member', async () => {
-    const member = await createMember.execute({
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'johndoe@example.com',
-      gender: 'Male',
-      member_type: 'Ativo',
-      marital_status: 'Casado',
-      nationality: 'Brasileiro',
-      birth_date: new Date()
-    });
+    const memberDetails = await createMemberDetails.execute({
+      avatar: '/endereco/avatar.png',
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole'
+    })
 
-    expect(member).toHaveProperty('id')
-  });
+    expect(memberDetails).toHaveProperty('id')
+  })
 
-  it('should not be able to create a new member with email from another', async () => {
-    await createMember.execute({
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'johndoe@example.com',
-      gender: 'Male',
-      member_type: 'Ativo',
-      marital_status: 'Casado',
-      nationality: 'Brasileiro',
-      birth_date: new Date()
-    });
-
-    await expect(
-      createMember.execute({
-        first_name: 'John',
-        last_name: 'Doe',
-        email: 'johndoe@example.com',
-        gender: 'Male',
-        member_type: 'Ativo',
-        marital_status: 'Casado',
-        nationality: 'Brasileiro',
-        birth_date: new Date()
-      }),
-    ).rejects.toBeInstanceOf(AppError)
-  });
-  
-});
+})
