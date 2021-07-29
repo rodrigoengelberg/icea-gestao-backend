@@ -4,7 +4,6 @@ import MembersContactController from '../controllers/MembersContactController'
 import MembersController from '../controllers/MembersController'
 import MembersDetailsController from '../controllers/MembersDetailsController'
 
-
 const membersRouter = Router()
 const membersController = new MembersController()
 const membersContactController = new MembersContactController()
