@@ -9,6 +9,7 @@ let createMemberContact: CreateMemberContactService
 describe('CreateMemberContact', () => {
   beforeEach(() => {
     fakeMembersContactRepository = new FakeMembersContactRepository()
+    fakeCacheProvider = new FakeCacheProvider()
 
     createMemberContact = new CreateMemberContactService(
       fakeMembersContactRepository,

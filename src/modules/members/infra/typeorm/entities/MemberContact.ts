@@ -23,22 +23,22 @@ class MemberContact {
   member: Member;
 
   @Column()
-  lougradouro: string;
+  street: string;
 
   @Column()
-  estado: string;
+  state: string;
 
   @Column()
-  cidade: string;
+  city: string;
 
   @Column()
-  cep: number;
+  zipcode: number;
 
   @Column()
-  tipoTelefone: string;
+  phoneType: string;
 
   @Column()
-  numeroTelefone: number;
+  phoneNumber: number;
 
   @CreateDateColumn()
   created_at: Date;
