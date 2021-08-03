@@ -5,5 +5,5 @@ export default interface IMembersContactRepository {
   findById(id: string): Promise<MemberContact | undefined>
   findByMemberId(memberId: string): Promise<MemberContact | undefined>
   create(data: ICreateMemberContactDTO): Promise<MemberContact>
-  save(user: MemberContact): Promise<MemberContact>
+  save(memberContact: MemberContact): Promise<MemberContact>
 }

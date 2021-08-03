@@ -3,8 +3,14 @@ import { container } from 'tsyringe'
 import '@modules/users/providers'
 import './providers'
 
-import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository'
-import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository'
+import IMembersRepository from '@modules/members/repositories/IMembersRepository'
+import MembersRepository from '@modules/members/infra/typeorm/repositories/MembersRepository'
+
+import IMembersContactRepository from '@modules/members/repositories/IMembersContactRepository'
+import MembersContactRepository from '@modules/members/infra/typeorm/repositories/MembersContactRepository'
+
+import IMembersDetailsRepository from '@modules/members/repositories/IMembersDetailsRepository'
+import MembersDetailsRepository from '@modules/members/infra/typeorm/repositories/MembersDetailsRepository'
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository'
 import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository'
@@ -15,9 +21,19 @@ import UserTokensRepository from '@modules/users/infra/typeorm/repositories/User
 import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository'
 import NotificationsRepository from '@modules/notifications/infra/typeorm/repositories/NotificationsRepository'
 
-container.registerSingleton<IAppointmentsRepository>(
-  'AppointmentsRepository',
-  AppointmentsRepository,
+container.registerSingleton<IMembersRepository>(
+  'MembersRepository',
+  MembersRepository,
+)
+
+container.registerSingleton<IMembersContactRepository>(
+  'MembersContactRepository',
+  MembersContactRepository,
+)
+
+container.registerSingleton<IMembersDetailsRepository>(
+  'MembersDetailsRepository',
+  MembersDetailsRepository,
 )
 
 container.registerSingleton<IUsersRepository>(

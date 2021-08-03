@@ -5,5 +5,5 @@ export default interface IMembersDetailsRepository {
   findById(id: string): Promise<MemberDetails | undefined>
   findByMemberId(email: string): Promise<MemberDetails | undefined>
   create(data: ICreateMemberDetailsDTO): Promise<MemberDetails>
-  save(user: MemberDetails): Promise<MemberDetails>
+  save(memberDetails: MemberDetails): Promise<MemberDetails>
 }

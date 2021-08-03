@@ -13,25 +13,25 @@ class MembersDetailsRepository implements IMembersDetailsRepository {
   }
 
   public async findById(id: string): Promise<MemberDetails | undefined> {
-    const findAppointment = await this.ormRepository.findOne(id)
+    const findMember = await this.ormRepository.findOne(id)
 
-    return findAppointment
+    return findMember
   }
 
   public async findByMemberId(member_id: string): Promise<MemberDetails | undefined> {
-    const findAppointment = await this.ormRepository.findOne({
+    const findMember = await this.ormRepository.findOne({
       where: { member_id },
     })
 
-    return findAppointment
+    return findMember
   }
 
-  public async create(userData: ICreateMemberDetailsDTO): Promise<MemberDetails> {
-    const user = this.ormRepository.create(userData)
+  public async create(memberDetailsData: ICreateMemberDetailsDTO): Promise<MemberDetails> {
+    const memberDetails = this.ormRepository.create(memberDetailsData)
 
-    await this.ormRepository.save(user)
+    await this.ormRepository.save(memberDetails)
 
-    return user
+    return memberDetails
   }
 
   public async save(user: MemberDetails): Promise<MemberDetails> {

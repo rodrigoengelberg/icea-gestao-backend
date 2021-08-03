@@ -5,7 +5,7 @@ import ICreateMemberContactDTO from '@modules/members/dtos/ICreateMemberContactD
 
 import MemberContact from '../entities/MemberContact'
 
-class UsersRepository implements IMembersContactRepository {
+class MembersContactRepository implements IMembersContactRepository {
   private ormRepository: Repository<MemberContact>
 
   constructor() {
@@ -13,17 +13,17 @@ class UsersRepository implements IMembersContactRepository {
   }
 
   public async findById(id: string): Promise<MemberContact | undefined> {
-    const findAppointment = await this.ormRepository.findOne(id)
+    const findMember = await this.ormRepository.findOne(id)
 
-    return findAppointment
+    return findMember
   }
 
   public async findByMemberId(member_id: string): Promise<MemberContact | undefined> {
-    const findAppointment = await this.ormRepository.findOne({
+    const findMember = await this.ormRepository.findOne({
       where: { member_id },
     })
 
-    return findAppointment
+    return findMember
   }
 
   public async create(membersContactData: ICreateMemberContactDTO): Promise<MemberContact> {
@@ -39,4 +39,4 @@ class UsersRepository implements IMembersContactRepository {
   }
 }
 
-export default UsersRepository
+export default MembersContactRepository

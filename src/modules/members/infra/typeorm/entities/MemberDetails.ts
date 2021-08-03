@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
+
 import { Expose } from 'class-transformer'
 
 import uploadConfig from '@config/upload'
