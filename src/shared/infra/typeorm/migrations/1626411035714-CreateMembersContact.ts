@@ -38,7 +38,7 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                     },
                     {
                         name: 'cep',
-                        type: 'number',
+                        type: 'integer',
                     },
                     {
                         name: 'tipoTelefone',
@@ -46,7 +46,7 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                     },
                     {
                         name: 'numeroTelefone',
-                        type: 'number',
+                        type: 'integer',
                     },
                     {
                         name: 'created_at',
