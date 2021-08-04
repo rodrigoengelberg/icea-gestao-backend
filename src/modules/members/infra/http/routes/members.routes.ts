@@ -1,4 +1,5 @@
 import { celebrate, Joi, Segments } from 'celebrate'
+import { JoiDate } from '@hapi/joi-date'
 import { Router } from 'express'
 import MembersContactController from '../controllers/MembersContactController'
 import MembersController from '../controllers/MembersController'
@@ -20,10 +21,26 @@ membersRouter.post(
       member_type: Joi.string().required(),
       marital_status: Joi.string().required(),
       nationality: Joi.string().required(),
-      birth_date: Joi.date().required()
+      birth_date: JoiDate.date().format('DD/MM/YYYY').required()
     },
   }),
   membersController.create
+)
+membersRouter.put(
+  '/:member_id',
+  celebrate({
+    [Segments.BODY]: {
+      first_name: Joi.string().required(),
+      last_name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      gender: Joi.string().required(),
+      member_type: Joi.string().required(),
+      marital_status: Joi.string().required(),
+      nationality: Joi.string().required(),
+      birth_date: JoiDate.date().format('DD/MM/YYYY').required()
+    },
+  }),
+  membersController.update,
 )
 
 membersRouter.post(

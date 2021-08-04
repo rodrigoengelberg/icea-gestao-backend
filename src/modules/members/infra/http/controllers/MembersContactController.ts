@@ -4,7 +4,7 @@ import { classToClass } from 'class-transformer'
 
 import CreateMemberContactService from '@modules/members/services/CreateMemberContactService'
 
-export default class SessionsController {
+export default class MembersContactController {
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       street,

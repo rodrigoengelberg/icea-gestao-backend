@@ -4,7 +4,7 @@ import { classToClass } from 'class-transformer'
 
 import CreateMemberDetailsService from '@modules/members/services/CreateMemberDetailsService'
 
-export default class SessionsController {
+export default class MembersDetailsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       avatar,
