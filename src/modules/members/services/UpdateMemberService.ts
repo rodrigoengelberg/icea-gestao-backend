@@ -32,20 +32,21 @@ class UpdateMemberService {
 
     const member = await this.membersRepository.findById(member_id)
 
+    if (!member) {
+      throw new AppError('Member not found')
+    }
+
     const checkUserExists = await this.membersRepository.findByEmail(email)
 
-    if (checkUserExists) {
+    if (checkUserExists && checkUserExists.id !== member_id) {
       throw new AppError('Email address already used.')
     }
 
-    member.first_name = first_name
-    member.last_name = last_name
-    member.email = email
-    member.gender = gender
-    member.member_type = member_type
-    member.marital_status = marital_status
-    member.nationality = nationality
-    member.birth_date = birth_date
+    Object.assign(
+      member,
+      { id: member_id },
+      { first_name, last_name, email, gender, member_type, marital_status, nationality, birth_date }
+    )
 
     await this.membersRepository.save(member)
 

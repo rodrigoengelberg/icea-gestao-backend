@@ -1,15 +1,21 @@
 import { celebrate, Joi, Segments } from 'celebrate'
-import { JoiDate } from '@hapi/joi-date'
 import { Router } from 'express'
 import MembersContactController from '../controllers/MembersContactController'
 import MembersController from '../controllers/MembersController'
 import MembersDetailsController from '../controllers/MembersDetailsController'
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated'
+
 const membersRouter = Router()
+
 const membersController = new MembersController()
 const membersContactController = new MembersContactController()
 const membersDetailsController = new MembersDetailsController()
 
+membersRouter.use(ensureAuthenticated)
+
+membersRouter.get('/', membersController.show)
+membersRouter.get('/:member_id', membersController.showById)
 membersRouter.post(
   '/',
   celebrate({
@@ -21,7 +27,7 @@ membersRouter.post(
       member_type: Joi.string().required(),
       marital_status: Joi.string().required(),
       nationality: Joi.string().required(),
-      birth_date: JoiDate.date().format('DD/MM/YYYY').required()
+      birth_date: Joi.date().iso().required()
     },
   }),
   membersController.create
@@ -30,6 +36,7 @@ membersRouter.put(
   '/:member_id',
   celebrate({
     [Segments.BODY]: {
+      id: Joi.string().optional(),
       first_name: Joi.string().required(),
       last_name: Joi.string().required(),
       email: Joi.string().email().required(),
@@ -37,7 +44,9 @@ membersRouter.put(
       member_type: Joi.string().required(),
       marital_status: Joi.string().required(),
       nationality: Joi.string().required(),
-      birth_date: JoiDate.date().format('DD/MM/YYYY').required()
+      birth_date: Joi.date().iso().required(),
+      created_at: Joi.string().optional(),
+      updated_at: Joi.string().optional()
     },
   }),
   membersController.update,

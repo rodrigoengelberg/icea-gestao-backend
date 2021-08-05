@@ -4,41 +4,100 @@ import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/F
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
 
-let fakeUsersRepository: FakeMembersRepository
+let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
 let updateMemberService: UpdateMemberService
 
 describe('UpdateUserAvatar', () => {
   beforeEach(() => {
-    fakeUsersRepository = new FakeMembersRepository()
+    fakeMembersRepository = new FakeMembersRepository()
     fakeCacheProvider = new FakeCacheProvider()
 
     updateMemberService = new UpdateMemberService(
-      fakeUsersRepository,
+      fakeMembersRepository,
       fakeCacheProvider,
     )
   })
 
   it('should be able to create a new member', async () => {
-    const user = await fakeUsersRepository.create({
-      name: 'John Doe',
+    const member = await fakeMembersRepository.create({
+      first_name: 'John',
+      last_name: 'Doe',
       email: 'johndoe@example.com',
-      password: '123456',
+      gender: 'Male',
+      member_type: 'Ativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
     })
 
-    await updateUserAvatar.execute({
-      user_id: user.id,
-      avatarFilename: 'avatar.jpg',
+    await updateMemberService.execute({
+      member_id: member.id,
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'johndoe_new@example.com',
+      gender: 'Male',
+      member_type: 'Inativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
     })
 
-    expect(user.avatar).toBe('avatar.jpg')
+    expect(member.member_type).toBe('Inativo')
+    expect(member.email).toBe('johndoe_new@example.com')
   })
 
   it('should not be able update member from non existing member', async () => {
     await expect(
-      updateUserAvatar.execute({
-        user_id: 'non-existing-user',
-        avatarFilename: 'avatar.jpg',
+      updateMemberService.execute({
+        member_id: 'non-existing-user',
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'johndoe@example.com',
+        gender: 'Male',
+        member_type: 'Inativo',
+        marital_status: 'Casado',
+        nationality: 'Brasileiro',
+        birth_date: new Date()
+      }),
+    ).rejects.toBeInstanceOf(AppError)
+  })
+
+  it('should not be able update member with existing email', async () => {
+
+    await fakeMembersRepository.create({
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'johndoe@example.com',
+      gender: 'Male',
+      member_type: 'Ativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
+    })
+
+    const member = await fakeMembersRepository.create({
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'johndoe_new@example.com',
+      gender: 'Male',
+      member_type: 'Ativo',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date()
+    })
+
+    await expect(
+      updateMemberService.execute({
+        member_id: member.id,
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'johndoe@example.com',
+        gender: 'Male',
+        member_type: 'Inativo',
+        marital_status: 'Casado',
+        nationality: 'Brasileiro',
+        birth_date: new Date()
       }),
     ).rejects.toBeInstanceOf(AppError)
   })
