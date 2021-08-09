@@ -1,5 +1,6 @@
 export default interface ICreateMemberContactDTO {
-  street: string
+  member_id: string
+  address: string
   state: string
   city: string
   zipcode: number

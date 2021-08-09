@@ -5,7 +5,8 @@ import MemberContact from '../infra/typeorm/entities/MemberContact'
 import IMembersContactRepository from '../repositories/IMembersContactRepository'
 
 interface IRequest {
-  street: string
+  member_id: string
+  address: string
   state: string
   city: string
   zipcode: number
@@ -23,10 +24,11 @@ class CreateMemberService {
     private cacheProvider: ICacheProvider
   ) { }
 
-  public async execute({ street, state, city, zipcode, phoneType, phoneNumber }: IRequest): Promise<MemberContact> {
+  public async execute({ member_id, address, state, city, zipcode, phoneType, phoneNumber }: IRequest): Promise<MemberContact> {
 
     const memberContactData = await this.membersContactRepository.create({
-      street,
+      member_id,
+      address,
       state,
       city,
       zipcode,

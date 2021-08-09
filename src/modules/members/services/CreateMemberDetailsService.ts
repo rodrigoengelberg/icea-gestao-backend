@@ -5,6 +5,7 @@ import MemberDetails from '../infra/typeorm/entities/MemberDetails'
 import IMembersDetailsRepository from '../repositories/IMembersDetailsRepository'
 
 interface IRequest {
+  member_id: string
   avatar: string
   occupation: string
   schooling: string
@@ -22,9 +23,10 @@ class CreateMemberDetailsService {
     private cacheProvider: ICacheProvider
   ) { }
 
-  public async execute({ avatar, occupation, schooling, facebook_link, instagram_link }: IRequest): Promise<MemberDetails> {
+  public async execute({ member_id, avatar, occupation, schooling, facebook_link, instagram_link }: IRequest): Promise<MemberDetails> {
 
     const memberDetails = await this.membersDetailsRepository.create({
+      member_id,
       avatar,
       occupation,
       schooling,

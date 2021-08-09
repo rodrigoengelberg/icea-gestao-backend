@@ -1,3 +1,6 @@
+import ICreateMemberContactDTO from "./ICreateMemberContactDTO";
+import ICreateMemberDetailsDTO from "./ICreateMemberDetailsDTO";
+
 export default interface ICreateMemberDTO {
   first_name: string
   last_name: string

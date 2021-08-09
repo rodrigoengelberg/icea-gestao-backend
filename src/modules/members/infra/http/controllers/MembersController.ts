@@ -6,6 +6,7 @@ import CreateMemberService from '@modules/members/services/CreateMemberService'
 import UpdateMemberService from '@modules/members/services/UpdateMemberService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
+import CreateMemberContactService from '@modules/members/services/CreateMemberContactService'
 
 export default class MembersController {
 
@@ -39,12 +40,20 @@ export default class MembersController {
       member_type,
       marital_status,
       nationality,
-      birth_date
+      birth_date,
+      member_contact: {
+        address,
+        state,
+        city,
+        zipcode,
+        phoneType,
+        phoneNumber
+      }
     } = request.body
 
     const createMember = container.resolve(CreateMemberService)
 
-    const member = await createMember.execute({
+    let member = await createMember.execute({
       first_name,
       last_name,
       email,
@@ -54,6 +63,21 @@ export default class MembersController {
       nationality,
       birth_date
     })
+
+    const member_id = member.id
+    const createMemberContact = container.resolve(CreateMemberContactService)
+
+    const member_contact = await createMemberContact.execute({
+      member_id,
+      address,
+      state,
+      city,
+      zipcode,
+      phoneType,
+      phoneNumber
+    })
+
+    member = Object.assign(member, member_contact)
 
     return response.json(classToClass(member))
   }
@@ -68,12 +92,20 @@ export default class MembersController {
       member_type,
       marital_status,
       nationality,
-      birth_date
+      birth_date,
+      member_contact: {
+        address,
+        state,
+        city,
+        zipcode,
+        phoneType,
+        phoneNumber
+      }
     } = request.body
 
-    const updateProfile = container.resolve(UpdateMemberService)
+    const updateMember = container.resolve(UpdateMemberService)
 
-    const member = await updateProfile.execute({
+    const member = await updateMember.execute({
       member_id,
       first_name,
       last_name,
@@ -85,6 +117,9 @@ export default class MembersController {
       birth_date
     });
 
+    //const updateMemberContact= container.resolve(UpdateMemberService)
+
     return response.json(classToClass(member));
   }
+
 }

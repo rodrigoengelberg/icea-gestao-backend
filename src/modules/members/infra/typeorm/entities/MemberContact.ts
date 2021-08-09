@@ -23,7 +23,7 @@ class MemberContact {
   member: Member;
 
   @Column()
-  street: string;
+  address: string;
 
   @Column()
   state: string;

@@ -25,28 +25,28 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: 'lougradouro',
+                        name: 'address',
                         type: 'varchar',
                     },
                     {
-                        name: 'estado',
+                        name: 'state',
                         type: 'varchar',
                     },
                     {
-                        name: 'cidade',
+                        name: 'city',
                         type: 'varchar',
                     },
                     {
-                        name: 'cep',
-                        type: 'integer',
+                        name: 'zipcode',
+                        type: 'bigint',
                     },
                     {
-                        name: 'tipoTelefone',
+                        name: 'phoneType',
                         type: 'varchar',
                     },
                     {
-                        name: 'numeroTelefone',
-                        type: 'integer',
+                        name: 'phoneNumber',
+                        type: 'bigint',
                     },
                     {
                         name: 'created_at',

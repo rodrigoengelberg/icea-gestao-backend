@@ -1,4 +1,5 @@
 export default interface ICreateMemberDetailsDTO {
+  member_id: string,
   avatar: string
   occupation: string
   schooling: string
