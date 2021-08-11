@@ -17,12 +17,11 @@ export class CreateMembersDetails1626490039296 implements MigrationInterface {
                         type: 'uuid',
                         isPrimary: true,
                         generationStrategy: 'uuid',
-                        default: 'uuid_generate_v4()',
+                        default: 'uuid_generate_v4()'
                     },
                     {
                         name: 'member_id',
                         type: 'uuid',
-                        isNullable: true,
                     },
                     {
                         name: 'avatar',
@@ -32,10 +31,12 @@ export class CreateMembersDetails1626490039296 implements MigrationInterface {
                     {
                         name: 'occupation',
                         type: 'varchar',
+                        isNullable: true,
                     },
                     {
                         name: 'schooling',
                         type: 'varchar',
+                        isNullable: true,
                     },
                     {
                         name: 'facebook_link',

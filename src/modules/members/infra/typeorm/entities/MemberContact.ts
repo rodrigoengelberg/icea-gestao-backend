@@ -8,14 +8,14 @@ import {
   UpdateDateColumn 
 } from 'typeorm'
 
-import Member from './Member';
+import Member from './Member'
 
 @Entity('membersContact')
 class MemberContact {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({nullable: false})
   member_id: string;
 
   @OneToOne(() => Member)
@@ -35,10 +35,13 @@ class MemberContact {
   zipcode: number;
 
   @Column()
-  phoneType: string;
+  phone_type: number;
+  
+  @Column()
+  phone_type_name: string;
 
   @Column()
-  phoneNumber: number;
+  phone_number: number;
 
   @CreateDateColumn()
   created_at: Date;

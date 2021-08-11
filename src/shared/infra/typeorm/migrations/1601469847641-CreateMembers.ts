@@ -23,25 +23,23 @@ export default class CreateAppointments1601469847641
             type: 'varchar',
           },
           {
-            name: 'last_name',
+            name: 'full_name',
             type: 'varchar',
           },
           {
             name: 'email',
             type: 'varchar',
-            isUnique: true
+            isUnique: true,
+            isNullable: true,
           },
           {
             name: 'gender',
             type: 'varchar',
           },
           {
-            name: 'member_type',
-            type: 'varchar',
-          },
-          {
             name: 'marital_status',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'nationality',
@@ -50,6 +48,7 @@ export default class CreateAppointments1601469847641
           {
             name: 'birth_date',
             type: 'date',
+            isNullable: true,
           },
           {
             name: 'created_at',

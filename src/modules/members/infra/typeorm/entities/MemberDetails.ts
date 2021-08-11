@@ -18,7 +18,7 @@ class MemberDetails {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({nullable: false})
   member_id: string;
 
   @OneToOne(() => Member)
@@ -34,10 +34,10 @@ class MemberDetails {
   @Column()
   schooling: string;
 
-  @Column()
+  @Column({unique: true})
   facebook_link: string;
 
-  @Column()
+  @Column({unique: true})
   instagram_link: string;
 
   @CreateDateColumn()

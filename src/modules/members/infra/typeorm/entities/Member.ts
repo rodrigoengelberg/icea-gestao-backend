@@ -11,25 +11,22 @@ class Member {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({nullable: false})
   first_name: string;
 
-  @Column()
-  last_name: string;
+  @Column({nullable: false})
+  full_name: string;
 
-  @Column()
+  @Column({unique: true})
   email: string;
 
-  @Column()
+  @Column({nullable: false})
   gender: string;
-
-  @Column()
-  member_type: string;
 
   @Column()
   marital_status: string;
 
-  @Column()
+  @Column({nullable: false})
   nationality: string;
 
   @Column()
