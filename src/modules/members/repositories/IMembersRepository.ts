@@ -6,5 +6,5 @@ export default interface IMembersRepository {
   findAllMembers(): Promise<Member[] | undefined>
   findByEmail(email: string): Promise<Member | undefined>
   create(data: ICreateMemberDTO): Promise<Member>
-  save(user: Member): Promise<Member>
+  save(member: Member): Promise<Member>
 }

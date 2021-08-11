@@ -34,10 +34,9 @@ export default class MembersController {
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       first_name,
-      last_name,
+      full_name,
       email,
       gender,
-      member_type,
       marital_status,
       nationality,
       birth_date,
@@ -46,8 +45,9 @@ export default class MembersController {
         state,
         city,
         zipcode,
-        phoneType,
-        phoneNumber
+        phone_type,
+        phone_type_name,
+        phone_number
       }
     } = request.body
 
@@ -55,10 +55,9 @@ export default class MembersController {
 
     let member = await createMember.execute({
       first_name,
-      last_name,
+      full_name,
       email,
       gender,
-      member_type,
       marital_status,
       nationality,
       birth_date
@@ -73,8 +72,9 @@ export default class MembersController {
       state,
       city,
       zipcode,
-      phoneType,
-      phoneNumber
+      phone_type,
+      phone_type_name,
+      phone_number
     })
 
     member = Object.assign(member, member_contact)

@@ -22,10 +22,9 @@ describe('CreateMember', () => {
   it('should be able to create a new member', async () => {
     const member = await createMember.execute({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date()
@@ -37,10 +36,9 @@ describe('CreateMember', () => {
   it('should not be able to create a new member with email from another', async () => {
     await createMember.execute({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date()
@@ -49,10 +47,9 @@ describe('CreateMember', () => {
     await expect(
       createMember.execute({
         first_name: 'John',
-        last_name: 'Doe',
+        full_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
-        member_type: 'Ativo',
         marital_status: 'Casado',
         nationality: 'Brasileiro',
         birth_date: new Date()

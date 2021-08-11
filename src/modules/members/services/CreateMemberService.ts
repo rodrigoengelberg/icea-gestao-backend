@@ -5,15 +5,12 @@ import AppError from '@shared/errors/AppError'
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
-import ICreateMemberContactDTO from '../dtos/ICreateMemberContactDTO'
-import ICreateMemberDetailsDTO from '../dtos/ICreateMemberDetailsDTO'
 
 interface IRequest {
   first_name: string
-  last_name: string
+  full_name: string
   email: string
   gender: string
-  member_type: string
   marital_status: string
   nationality: string
   birth_date: Date
@@ -29,12 +26,11 @@ class CreateMemberService {
     private cacheProvider: ICacheProvider,
   ) { }
 
-  public async execute({ 
+  public async execute({
     first_name,
-    last_name,
+    full_name,
     email,
     gender,
-    member_type,
     marital_status,
     nationality,
     birth_date
@@ -47,10 +43,9 @@ class CreateMemberService {
 
     const members = await this.membersRepository.create({
       first_name,
-      last_name,
+      full_name,
       email,
       gender,
-      member_type,
       marital_status,
       nationality,
       birth_date

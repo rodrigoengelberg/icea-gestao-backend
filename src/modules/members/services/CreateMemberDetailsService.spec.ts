@@ -19,6 +19,7 @@ describe('CreateMember', () => {
 
   it('should be able to create a new member', async () => {
     const memberDetails = await createMemberDetails.execute({
+      member_id: 'uuid',
       avatar: '/endereco/avatar.png',
       occupation: 'Autônomo',
       schooling: 'Superior',

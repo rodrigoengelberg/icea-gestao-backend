@@ -11,7 +11,7 @@ import {
 import { Expose } from 'class-transformer'
 
 import uploadConfig from '@config/upload'
-import Member from './Member';
+import Member from './Member'
 
 @Entity('membersDetails')
 class MemberDetails {

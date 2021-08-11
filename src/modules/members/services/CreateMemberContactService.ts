@@ -10,8 +10,9 @@ interface IRequest {
   state: string
   city: string
   zipcode: number
-  phoneType: string
-  phoneNumber: number
+  phone_type: number
+  phone_type_name: string
+  phone_number: number
 }
 
 @injectable()
@@ -24,7 +25,16 @@ class CreateMemberService {
     private cacheProvider: ICacheProvider
   ) { }
 
-  public async execute({ member_id, address, state, city, zipcode, phoneType, phoneNumber }: IRequest): Promise<MemberContact> {
+  public async execute({
+    member_id,
+    address,
+    state,
+    city,
+    zipcode,
+    phone_type,
+    phone_type_name,
+    phone_number
+  }: IRequest): Promise<MemberContact> {
 
     const memberContactData = await this.membersContactRepository.create({
       member_id,
@@ -32,8 +42,9 @@ class CreateMemberService {
       state,
       city,
       zipcode,
-      phoneType,
-      phoneNumber
+      phone_type,
+      phone_type_name,
+      phone_number
     })
 
     await this.cacheProvider.invalidatePrefix('membersContact-list')
