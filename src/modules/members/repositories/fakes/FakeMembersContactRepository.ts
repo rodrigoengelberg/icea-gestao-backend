@@ -9,15 +9,15 @@ class FakeMembersContactRepository implements IMembersContactRepository {
   private membersContact: MemberContact[] = []
 
   public async findById(id: string): Promise<MemberContact | undefined> {
-    const findUser = this.membersContact.find(memberContact => memberContact.id === id)
+    const findMemberContact = this.membersContact.find(memberContact => memberContact.id === id)
 
-    return findUser
+    return findMemberContact
   }
 
   public async findByMemberId(memberId: string): Promise<MemberContact | undefined> {
-    const findUser = this.membersContact.find(memberContact => memberContact.member_id === memberId)
+    const findMemberContact = this.membersContact.find(memberContact => memberContact.member_id === memberId)
 
-    return findUser
+    return findMemberContact
   }
 
   public async create(memberContactData: ICreateMemberContactDTO): Promise<MemberContact> {

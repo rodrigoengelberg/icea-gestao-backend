@@ -9,15 +9,15 @@ class FakeMembersDetailsRepository implements IMembersDetailsRepository {
   private membersDetails: MemberDetails[] = []
 
   public async findById(id: string): Promise<MemberDetails | undefined> {
-    const findUser = this.membersDetails.find(memberContact => memberContact.id === id)
+    const findMemberDetail = this.membersDetails.find(memberContact => memberContact.id === id)
 
-    return findUser
+    return findMemberDetail
   }
 
   public async findByMemberId(memberId: string): Promise<MemberDetails | undefined> {
-    const findUser = this.membersDetails.find(memberContact => memberContact.member_id === memberId)
+    const findMemberDetail = this.membersDetails.find(memberDetails => memberDetails.member_id === memberId)
 
-    return findUser
+    return findMemberDetail
   }
 
   public async create(memberContactData: ICreateMemberDetailsDTO): Promise<MemberDetails> {
