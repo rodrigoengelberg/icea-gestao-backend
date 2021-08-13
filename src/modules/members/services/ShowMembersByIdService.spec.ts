@@ -1,5 +1,7 @@
 import AppError from '@shared/errors/AppError'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberDetails from '../infra/typeorm/entities/MemberDetails'
+import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import ShowMembersByIdService from './ShowMembersByIdService'
@@ -23,7 +25,9 @@ describe('ShowProfile', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     const memberCreated = await showMembers.execute({

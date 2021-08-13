@@ -1,4 +1,6 @@
 import ICreateMemberContactDTO from "./ICreateMemberContactDTO";
+import ICreateMemberDetailsDTO from "./ICreateMemberDetailsDTO";
+import ICreateMemberSpiritualDTO from "./ICreateMemberSpiritualDTO";
 
 export default interface ICreateMemberDTO {
   first_name: string
@@ -9,4 +11,6 @@ export default interface ICreateMemberDTO {
   nationality: string
   birth_date: Date
   member_contact: ICreateMemberContactDTO
+  member_details: ICreateMemberDetailsDTO
+  member_spiritual: ICreateMemberSpiritualDTO
 }

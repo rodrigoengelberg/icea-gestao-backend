@@ -5,6 +5,9 @@ import AppError from '@shared/errors/AppError'
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
+import ICreateMemberContactDTO from '../dtos/ICreateMemberContactDTO'
+import ICreateMemberDetailsDTO from '../dtos/ICreateMemberDetailsDTO'
+import ICreateMemberSpiritualDTO from '../dtos/ICreateMemberSpiritualDTO'
 
 interface IRequest {
   member_id: string
@@ -15,6 +18,9 @@ interface IRequest {
   marital_status: string
   nationality: string
   birth_date: Date
+  member_contact: ICreateMemberContactDTO
+  member_details: ICreateMemberDetailsDTO
+  member_spiritual: ICreateMemberSpiritualDTO
 }
 
 @injectable()
@@ -35,7 +41,10 @@ class UpdateMemberService {
     gender,
     marital_status,
     nationality,
-    birth_date
+    birth_date,
+    member_contact,
+    member_details,
+    member_spiritual
   }: IRequest): Promise<Member> {
 
     const member = await this.membersRepository.findById(member_id)
@@ -53,7 +62,18 @@ class UpdateMemberService {
     Object.assign(
       member,
       { id: member_id },
-      { first_name, full_name, email, gender, marital_status, nationality, birth_date }
+      {
+        first_name,
+        full_name,
+        email,
+        gender,
+        marital_status,
+        nationality,
+        birth_date,
+        member_contact,
+        member_details,
+        member_spiritual
+      }
     )
 
     await this.membersRepository.save(member)

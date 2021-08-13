@@ -2,16 +2,12 @@ import { injectable, inject } from 'tsyringe'
 
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
-import IMembersContactRepository from '../repositories/IMembersContactRepository'
 
 @injectable()
 class ShowMembersService {
   constructor(
     @inject('MembersRepository')
-    private membersRepository: IMembersRepository,
-
-    @inject('MembersContactRepository')
-    private membersContactRepository: IMembersContactRepository
+    private membersRepository: IMembersRepository
   ) { }
 
   public async execute(): Promise<Member[]> {

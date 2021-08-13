@@ -11,7 +11,7 @@ import {
 import Member from './Member'
 
 @Entity('members_spiritual')
-class MemberSpirutal {
+class MemberSpiritual {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -51,4 +51,4 @@ class MemberSpirutal {
 
 }
 
-export default MemberSpirutal
+export default MemberSpiritual

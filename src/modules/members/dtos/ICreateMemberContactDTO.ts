@@ -1,4 +1,5 @@
 export default interface ICreateMemberContactDTO {
+  id?: string
   member_id?: string
   address: string
   state: string

@@ -32,6 +32,12 @@ class MembersRepository implements IMembersRepository {
     return findMembers
   }
 
+  public async delete(id: string): Promise<Member | undefined> {
+    const findMembers = await this.ormRepository.findOne(id)
+
+    return this.ormRepository.remove(findMembers)
+  }
+
   public async create(memberData: ICreateMemberDTO): Promise<Member> {
     const member = this.ormRepository.create(memberData)
 
@@ -40,8 +46,8 @@ class MembersRepository implements IMembersRepository {
     return member
   }
 
-  public async save(user: Member): Promise<Member> {
-    return this.ormRepository.save(user)
+  public async save(member: Member): Promise<Member> {
+    return this.ormRepository.save(member)
   }
 }
 

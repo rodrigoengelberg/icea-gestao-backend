@@ -26,6 +26,16 @@ class FakeMembersRepository implements IMembersRepository {
     return findMember
   }
 
+  // public async delete(member_id: string): Promise<Member | undefined> {
+  //   const member = new Member()
+
+  //   Object.assign(member, { id: uuid() }, memberData)
+
+  //   this.members.slice(member)
+
+  //   return member
+  // }
+
   public async create(memberData: ICreateMemberDTO): Promise<Member> {
     const member = new Member()
 

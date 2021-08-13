@@ -1,27 +1,36 @@
-import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
+import AppError from '@shared/errors/AppError'
+
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
+import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
+import CreateMemberService from './CreateMemberService'
+import DeleteMemberService from './DeleteMemberService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
 import MemberDetails from '../infra/typeorm/entities/MemberDetails'
 import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
-import ListMembersService from './ListMembersService'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
-let listMembers: ListMembersService
+let createMember: CreateMemberService
+let deleteMember: DeleteMemberService
 
-describe('ListMembers', () => {
+describe('CreateMember', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
     fakeCacheProvider = new FakeCacheProvider()
 
-    listMembers = new ListMembersService(
+    createMember = new CreateMemberService(
+      fakeMembersRepository,
+      fakeCacheProvider,
+    )
+
+    deleteMember = new DeleteMemberService(
       fakeMembersRepository,
       fakeCacheProvider,
     )
   })
 
-  it('should be able to list the members', async () => {
-    const member1 = await fakeMembersRepository.create({
+  it('should be able to create a delete a member', async () => {
+    const member = await createMember.execute({
       first_name: 'John',
       full_name: 'John Doe',
       email: 'johndoe@example.com',
@@ -34,21 +43,9 @@ describe('ListMembers', () => {
       member_spiritual: new MemberSpirutal()
     })
 
-    const member2 = await fakeMembersRepository.create({
-      first_name: 'John',
-      full_name: 'John Tru',
-      email: 'johntru@example.com',
-      gender: 'Male',
-      marital_status: 'Solteiro',
-      nationality: 'Brasileiro',
-      birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
-    })
+    const response = await deleteMember.execute({ member_id: member.id })
 
-    const members = await listMembers.execute()
 
-    expect(members).toEqual([member1, member2])
   })
+
 })

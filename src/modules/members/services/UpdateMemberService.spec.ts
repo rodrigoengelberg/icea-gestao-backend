@@ -4,6 +4,8 @@ import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/F
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberDetails from '../infra/typeorm/entities/MemberDetails'
+import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -29,7 +31,9 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     await updateMemberService.execute({
@@ -40,7 +44,10 @@ describe('UpdateUserAvatar', () => {
       gender: 'Male',
       marital_status: 'Solteiro(a)',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     expect(member.marital_status).toBe('Solteiro(a)')
@@ -57,7 +64,10 @@ describe('UpdateUserAvatar', () => {
         gender: 'Male',
         marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
-        birth_date: new Date()
+        birth_date: new Date(),
+        member_contact: new MemberContact(),
+        member_details: new MemberDetails(),
+        member_spiritual: new MemberSpirutal()
       }),
     ).rejects.toBeInstanceOf(AppError)
   })
@@ -72,7 +82,9 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     const member = await fakeMembersRepository.create({
@@ -83,7 +95,9 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     await expect(
@@ -95,7 +109,10 @@ describe('UpdateUserAvatar', () => {
         gender: 'Male',
         marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
-        birth_date: new Date()
+        birth_date: new Date(),
+        member_contact: new MemberContact(),
+        member_details: new MemberDetails(),
+        member_spiritual: new MemberSpirutal()
       }),
     ).rejects.toBeInstanceOf(AppError)
   })

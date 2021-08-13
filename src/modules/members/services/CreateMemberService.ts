@@ -6,6 +6,8 @@ import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICa
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
 import ICreateMemberContactDTO from '../dtos/ICreateMemberContactDTO'
+import ICreateMemberDetailsDTO from '../dtos/ICreateMemberDetailsDTO'
+import ICreateMemberSpiritualDTO from '../dtos/ICreateMemberSpiritualDTO'
 
 interface IRequest {
   first_name: string
@@ -16,6 +18,8 @@ interface IRequest {
   nationality: string
   birth_date: Date
   member_contact: ICreateMemberContactDTO
+  member_details: ICreateMemberDetailsDTO
+  member_spiritual: ICreateMemberSpiritualDTO
 }
 
 @injectable()
@@ -44,6 +48,22 @@ class CreateMemberService {
       phone_type,
       phone_type_name,
       phone_number
+    },
+    member_details: {
+      avatar,
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link
+    },
+    member_spiritual: {
+      member_function,
+      member_status,
+      baptism_date,
+      joined_date,
+      tithe_member,
+      problems,
+      testimony
     }
   }: IRequest): Promise<Member> {
     const checkUserExists = await this.membersRepository.findByEmail(email)
@@ -68,6 +88,22 @@ class CreateMemberService {
         phone_type,
         phone_type_name,
         phone_number
+      },
+      member_details: {
+        avatar,
+        occupation,
+        schooling,
+        facebook_link,
+        instagram_link
+      },
+      member_spiritual: {
+        member_function,
+        member_status,
+        baptism_date,
+        joined_date,
+        tithe_member,
+        problems,
+        testimony
       }
     })
 

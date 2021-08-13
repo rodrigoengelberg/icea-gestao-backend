@@ -1,18 +1,17 @@
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
-import FakeMembersContactRepository from '../repositories/fakes/FakeMembersContactRepository'
 import ShowMembersService from './ShowMembersService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberDetails from '../infra/typeorm/entities/MemberDetails'
+import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
-let fakeMembersContactRepository: FakeMembersContactRepository
 let showMembers: ShowMembersService
 
 describe('ShowMembers', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
-    fakeMembersRepository = new FakeMembersRepository()
 
-    showMembers = new ShowMembersService(fakeMembersRepository, fakeMembersContactRepository)
+    showMembers = new ShowMembersService(fakeMembersRepository)
   })
 
   it('should be able to show the members', async () => {
@@ -24,7 +23,9 @@ describe('ShowMembers', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     await fakeMembersRepository.create({
@@ -35,7 +36,9 @@ describe('ShowMembers', () => {
       marital_status: 'Solteiro',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact()
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
     })
 
     const members = await showMembers.execute()

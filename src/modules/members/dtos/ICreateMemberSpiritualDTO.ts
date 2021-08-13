@@ -1,5 +1,6 @@
 export default interface ICreateMemberSpiritualDTO {
-  member_id: string
+  id?: string
+  member_id?: string
   member_function: string
   member_status: string
   baptism_date: Date

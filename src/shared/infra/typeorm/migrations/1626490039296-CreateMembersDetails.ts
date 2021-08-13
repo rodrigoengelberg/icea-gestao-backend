@@ -41,12 +41,14 @@ export class CreateMembersDetails1626490039296 implements MigrationInterface {
                     {
                         name: 'facebook_link',
                         type: 'varchar',
-                        isUnique: true
+                        isUnique: true,
+                        isNullable: true
                     },
                     {
                         name: 'instagram_link',
                         type: 'varchar',
-                        isUnique: true
+                        isUnique: true,
+                        isNullable: true
                     },
                     {
                         name: 'created_at',

@@ -21,22 +21,9 @@ membersRouter.post(
       marital_status: Joi.string(),
       nationality: Joi.string().required(),
       birth_date: Joi.date().iso(),
-      member_contact: {
-        address: Joi.string().required(),
-        state: Joi.string(),
-        city: Joi.string(),
-        zipcode: Joi.number(),
-        phone_type: Joi.number(),
-        phone_type_name: Joi.string(),
-        phone_number: Joi.number()
-      },
-      member_details: {
-        avatar: Joi.string(),
-        occupation: Joi.string(),
-        schooling: Joi.string(),
-        facebook_link: Joi.string(),
-        instagram_link: Joi.string()
-      }
+      member_contact: Joi.any(),
+      member_details: Joi.any(),
+      member_spiritual: Joi.any()
     },
   }),
   membersController.create
@@ -54,22 +41,9 @@ membersRouter.put(
       marital_status: Joi.string(),
       nationality: Joi.string().required(),
       birth_date: Joi.date().iso(),
-      member_contact: {
-        address: Joi.string().required(),
-        state: Joi.string(),
-        city: Joi.string(),
-        zipcode: Joi.number(),
-        phone_type: Joi.number(),
-        phone_type_name: Joi.string(),
-        phone_number: Joi.number()
-      },
-      member_details: {
-        avatar: Joi.string(),
-        occupation: Joi.string(),
-        schooling: Joi.string(),
-        facebook_link: Joi.string(),
-        instagram_link: Joi.string()
-      },
+      member_contact: Joi.any(),
+      member_details: Joi.any(),
+      member_spiritual: Joi.any(),
       created_at: Joi.string().optional(),
       updated_at: Joi.string().optional()
     },

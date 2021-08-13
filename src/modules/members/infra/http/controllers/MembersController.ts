@@ -39,15 +39,9 @@ export default class MembersController {
       marital_status,
       nationality,
       birth_date,
-      member_contact: {
-        address,
-        state,
-        city,
-        zipcode,
-        phone_type,
-        phone_type_name,
-        phone_number
-      }
+      member_contact,
+      member_details,
+      member_spiritual
     } = request.body
 
     const createMember = container.resolve(CreateMemberService)
@@ -60,15 +54,9 @@ export default class MembersController {
       marital_status,
       nationality,
       birth_date,
-      member_contact: {
-        address,
-        state,
-        city,
-        zipcode,
-        phone_type,
-        phone_type_name,
-        phone_number
-      }
+      member_contact,
+      member_details,
+      member_spiritual
     })
 
     return response.json(classToClass(member))
@@ -84,14 +72,9 @@ export default class MembersController {
       marital_status,
       nationality,
       birth_date,
-      member_contact: {
-        address,
-        state,
-        city,
-        zipcode,
-        phoneType,
-        phoneNumber
-      }
+      member_contact,
+      member_details,
+      member_spiritual
     } = request.body
 
     const updateMember = container.resolve(UpdateMemberService)
@@ -104,10 +87,11 @@ export default class MembersController {
       gender,
       marital_status,
       nationality,
-      birth_date
+      birth_date,
+      member_contact,
+      member_details,
+      member_spiritual
     });
-
-    //const updateMemberContact= container.resolve(UpdateMemberService)
 
     return response.json(classToClass(member));
   }

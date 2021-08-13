@@ -1,5 +1,5 @@
 import ICreateMemberSpiritualDTO from '../dtos/ICreateMemberSpiritualDTO'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpirutal'
+import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 export default interface IMembersSpiritualRepository {
   findById(id: string): Promise<MemberSpirutal | undefined>

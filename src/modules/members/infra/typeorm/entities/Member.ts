@@ -6,7 +6,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
+
 import MemberContact from './MemberContact';
+import MemberDetails from './MemberDetails';
+import MemberSpiritual from './MemberSpiritual';
 
 @Entity('members')
 class Member {
@@ -37,6 +40,14 @@ class Member {
   @OneToOne(() => MemberContact, memberContact => memberContact.member,
     { cascade: true, eager: true })
   member_contact: MemberContact;
+
+  @OneToOne(() => MemberDetails, memberDetails => memberDetails.member,
+    { cascade: true, eager: true })
+  member_details: MemberDetails;
+
+  @OneToOne(() => MemberSpiritual, memberSpiritual => memberSpiritual.member,
+    { cascade: true, eager: true })
+  member_spiritual: MemberSpiritual;
 
   @CreateDateColumn()
   created_at: Date;

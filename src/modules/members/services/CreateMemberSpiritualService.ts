@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe'
 
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpirutal'
+import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 import IMembersSpiritualRepository from '../repositories/IMembersSpiritualRepository'
 
 interface IRequest {

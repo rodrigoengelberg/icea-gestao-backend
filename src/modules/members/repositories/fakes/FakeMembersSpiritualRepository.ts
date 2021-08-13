@@ -3,7 +3,7 @@ import { uuid } from 'uuidv4'
 import IMembersSpiritualRepository from '../IMembersSpiritualRepository'
 import ICreateMemberSpiritualDTO from '@modules/members/dtos/ICreateMemberSpiritualDTO'
 
-import MemberSpirutal from '../../infra/typeorm/entities/MemberSpirutal'
+import MemberSpirutal from '../../infra/typeorm/entities/MemberSpiritual'
 
 class FakeMembersSpiritualRepository implements IMembersSpiritualRepository {
   private membersSpiritual: MemberSpirutal[] = []

@@ -3,7 +3,7 @@ import { getRepository, Repository } from 'typeorm'
 import IMembersSpiritualRepository from '@modules/members/repositories/IMembersSpiritualRepository'
 import ICreateMemberSpiritualDTO from '@modules/members/dtos/ICreateMemberSpiritualDTO'
 
-import MemberSpirutal from '../entities/MemberSpirutal'
+import MemberSpirutal from '../entities/MemberSpiritual'
 
 class MembersSpiriutalRepository implements IMembersSpiritualRepository {
   private ormRepository: Repository<MemberSpirutal>
