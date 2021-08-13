@@ -1,5 +1,6 @@
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
 import ListMembersService from './ListMembersService'
 
 let fakeMembersRepository: FakeMembersRepository
@@ -20,24 +21,24 @@ describe('ListMembers', () => {
   it('should be able to list the members', async () => {
     const member1 = await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     const member2 = await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Tru',
+      full_name: 'John Tru',
       email: 'johntru@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
       marital_status: 'Solteiro',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     const members = await listMembers.execute()

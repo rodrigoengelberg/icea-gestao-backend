@@ -10,7 +10,7 @@ import {
 
 import Member from './Member'
 
-@Entity('membersSpirutal')
+@Entity('members_spiritual')
 class MemberSpirutal {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -34,7 +34,7 @@ class MemberSpirutal {
   @Column()
   joined_date: Date;
 
-  @Column()
+  @Column('integer')
   tithe_member: number;
 
   @Column()

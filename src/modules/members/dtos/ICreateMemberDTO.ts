@@ -1,3 +1,5 @@
+import ICreateMemberContactDTO from "./ICreateMemberContactDTO";
+
 export default interface ICreateMemberDTO {
   first_name: string
   full_name: string
@@ -6,4 +8,5 @@ export default interface ICreateMemberDTO {
   marital_status: string
   nationality: string
   birth_date: Date
+  member_contact: ICreateMemberContactDTO
 }

@@ -3,6 +3,7 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -27,7 +28,8 @@ describe('CreateMember', () => {
       gender: 'Male',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     expect(member).toHaveProperty('id')
@@ -41,7 +43,8 @@ describe('CreateMember', () => {
       gender: 'Male',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     await expect(
@@ -52,7 +55,8 @@ describe('CreateMember', () => {
         gender: 'Male',
         marital_status: 'Casado',
         nationality: 'Brasileiro',
-        birth_date: new Date()
+        birth_date: new Date(),
+        member_contact: new MemberContact()
       }),
     ).rejects.toBeInstanceOf(AppError)
   })

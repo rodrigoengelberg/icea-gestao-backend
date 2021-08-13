@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
 
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import ShowMembersByIdService from './ShowMembersByIdService'
@@ -16,13 +17,13 @@ describe('ShowProfile', () => {
   it('should be able to show the member', async () => {
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
       marital_status: 'Casado',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     const memberCreated = await showMembers.execute({
@@ -30,7 +31,7 @@ describe('ShowProfile', () => {
     })
 
     expect(memberCreated.first_name).toBe('John')
-    expect(memberCreated.last_name).toBe('Doe')
+    expect(memberCreated.full_name).toBe('John Doe')
     expect(memberCreated.email).toBe('johndoe@example.com')
   })
 

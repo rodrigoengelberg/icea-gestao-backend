@@ -10,7 +10,7 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'membersContact',
+                name: 'members_contact',
                 columns: [
                     {
                         name: 'id',
@@ -73,21 +73,21 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
         )
 
         await queryRunner.createForeignKey(
-            'membersContact',
+            'members_contact',
             new TableForeignKey({
                 name: 'FKMemberContact',
                 columnNames: ['member_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'members',
-                onDelete: 'SET NULL',
+                onDelete: 'CASCADE',
                 onUpdate: 'CASCADE',
             }),
         )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey('membersContact', 'FKMemberContact')
-        await queryRunner.dropTable('membersContact')
+        await queryRunner.dropForeignKey('members_contact', 'FKMemberContact')
+        await queryRunner.dropTable('members_contact')
     }
 
 }

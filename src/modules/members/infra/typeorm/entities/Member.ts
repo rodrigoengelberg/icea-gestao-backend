@@ -1,36 +1,42 @@
 import {
-  Column, 
-  CreateDateColumn, 
-  Entity, 
-  PrimaryGeneratedColumn, 
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToOne,
+  PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
+import MemberContact from './MemberContact';
 
 @Entity('members')
 class Member {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   first_name: string;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   full_name: string;
 
-  @Column({unique: true})
+  @Column({ unique: true })
   email: string;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   gender: string;
 
   @Column()
   marital_status: string;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   nationality: string;
 
   @Column()
   birth_date: Date;
+
+  @OneToOne(() => MemberContact, memberContact => memberContact.member,
+    { cascade: true, eager: true })
+  member_contact: MemberContact;
 
   @CreateDateColumn()
   created_at: Date;

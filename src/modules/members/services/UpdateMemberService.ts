@@ -9,10 +9,9 @@ import IMembersRepository from '../repositories/IMembersRepository'
 interface IRequest {
   member_id: string
   first_name: string
-  last_name: string
+  full_name: string
   email: string
   gender: string
-  member_type: string
   marital_status: string
   nationality: string
   birth_date: Date
@@ -28,7 +27,16 @@ class UpdateMemberService {
     private cacheProvider: ICacheProvider
   ) { }
 
-  public async execute({ member_id, first_name, last_name, email, gender, member_type, marital_status, nationality, birth_date }: IRequest): Promise<Member> {
+  public async execute({
+    member_id,
+    first_name,
+    full_name,
+    email,
+    gender,
+    marital_status,
+    nationality,
+    birth_date
+  }: IRequest): Promise<Member> {
 
     const member = await this.membersRepository.findById(member_id)
 
@@ -45,7 +53,7 @@ class UpdateMemberService {
     Object.assign(
       member,
       { id: member_id },
-      { first_name, last_name, email, gender, member_type, marital_status, nationality, birth_date }
+      { first_name, full_name, email, gender, marital_status, nationality, birth_date }
     )
 
     await this.membersRepository.save(member)

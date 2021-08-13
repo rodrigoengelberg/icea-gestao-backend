@@ -1,21 +1,21 @@
-import { 
-  Column, 
-  CreateDateColumn, 
-  Entity, 
-  JoinColumn, 
-  OneToOne, 
-  PrimaryGeneratedColumn, 
-  UpdateDateColumn 
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from 'typeorm'
 
 import Member from './Member'
 
-@Entity('membersContact')
+@Entity('members_contact')
 class MemberContact {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   member_id: string;
 
   @OneToOne(() => Member)
@@ -31,16 +31,16 @@ class MemberContact {
   @Column()
   city: string;
 
-  @Column()
+  @Column('integer')
   zipcode: number;
 
-  @Column()
+  @Column('integer')
   phone_type: number;
-  
+
   @Column()
   phone_type_name: string;
 
-  @Column()
+  @Column('integer')
   phone_number: number;
 
   @CreateDateColumn()

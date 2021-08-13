@@ -11,7 +11,7 @@ export class CreateMembersSpirutal1628646882667 implements MigrationInterface {
 
         await queryRunner.createTable(
             new Table({
-                name: 'membersSpirutal',
+                name: 'members_spiritual',
                 columns: [
                     {
                         name: 'id',
@@ -74,13 +74,13 @@ export class CreateMembersSpirutal1628646882667 implements MigrationInterface {
         )
 
         await queryRunner.createForeignKey(
-            'membersSpirutal',
+            'members_spiritual',
             new TableForeignKey({
                 name: 'FKMembersSpirutal',
                 columnNames: ['member_id'],
-                referencedColumnNames: ['id'],
                 referencedTableName: 'members',
-                onDelete: 'SET NULL',
+                referencedColumnNames: ['id'],
+                onDelete: 'CASCADE',
                 onUpdate: 'CASCADE',
             }),
         )
@@ -88,8 +88,8 @@ export class CreateMembersSpirutal1628646882667 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey('membersSpirutal', 'FKMembersSpirutal')
-        await queryRunner.dropTable('membersSpirutal')
+        await queryRunner.dropForeignKey('members_spiritual', 'FKMembersSpirutal')
+        await queryRunner.dropTable('members_spiritual')
     }
 
 }

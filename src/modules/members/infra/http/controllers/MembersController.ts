@@ -6,7 +6,6 @@ import CreateMemberService from '@modules/members/services/CreateMemberService'
 import UpdateMemberService from '@modules/members/services/UpdateMemberService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
-import CreateMemberContactService from '@modules/members/services/CreateMemberContactService'
 
 export default class MembersController {
 
@@ -53,31 +52,24 @@ export default class MembersController {
 
     const createMember = container.resolve(CreateMemberService)
 
-    let member = await createMember.execute({
+    const member = await createMember.execute({
       first_name,
       full_name,
       email,
       gender,
       marital_status,
       nationality,
-      birth_date
+      birth_date,
+      member_contact: {
+        address,
+        state,
+        city,
+        zipcode,
+        phone_type,
+        phone_type_name,
+        phone_number
+      }
     })
-
-    const member_id = member.id
-    const createMemberContact = container.resolve(CreateMemberContactService)
-
-    const member_contact = await createMemberContact.execute({
-      member_id,
-      address,
-      state,
-      city,
-      zipcode,
-      phone_type,
-      phone_type_name,
-      phone_number
-    })
-
-    member = Object.assign(member, member_contact)
 
     return response.json(classToClass(member))
   }
@@ -86,10 +78,9 @@ export default class MembersController {
     const member_id = request.params.member_id
     const {
       first_name,
-      last_name,
+      full_name,
       email,
       gender,
-      member_type,
       marital_status,
       nationality,
       birth_date,
@@ -108,10 +99,9 @@ export default class MembersController {
     const member = await updateMember.execute({
       member_id,
       first_name,
-      last_name,
+      full_name,
       email,
       gender,
-      member_type,
       marital_status,
       nationality,
       birth_date

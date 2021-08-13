@@ -3,6 +3,7 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -22,28 +23,27 @@ describe('UpdateUserAvatar', () => {
   it('should be able to create a new member', async () => {
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
-      marital_status: 'Casado',
+      marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     await updateMemberService.execute({
       member_id: member.id,
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe_new@example.com',
       gender: 'Male',
-      member_type: 'Inativo',
-      marital_status: 'Casado',
+      marital_status: 'Solteiro(a)',
       nationality: 'Brasileiro',
       birth_date: new Date()
     })
 
-    expect(member.member_type).toBe('Inativo')
+    expect(member.marital_status).toBe('Solteiro(a)')
     expect(member.email).toBe('johndoe_new@example.com')
   })
 
@@ -52,11 +52,10 @@ describe('UpdateUserAvatar', () => {
       updateMemberService.execute({
         member_id: 'non-existing-user',
         first_name: 'John',
-        last_name: 'Doe',
+        full_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
-        member_type: 'Inativo',
-        marital_status: 'Casado',
+        marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
         birth_date: new Date()
       }),
@@ -67,35 +66,34 @@ describe('UpdateUserAvatar', () => {
 
     await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
-      marital_status: 'Casado',
+      marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      last_name: 'Doe',
+      full_name: 'John Doe',
       email: 'johndoe_new@example.com',
       gender: 'Male',
-      member_type: 'Ativo',
-      marital_status: 'Casado',
+      marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
-      birth_date: new Date()
+      birth_date: new Date(),
+      member_contact: new MemberContact()
     })
 
     await expect(
       updateMemberService.execute({
         member_id: member.id,
         first_name: 'John',
-        last_name: 'Doe',
+        full_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
-        member_type: 'Inativo',
-        marital_status: 'Casado',
+        marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
         birth_date: new Date()
       }),
