@@ -26,15 +26,21 @@ class FakeMembersRepository implements IMembersRepository {
     return findMember
   }
 
-  // public async delete(member_id: string): Promise<Member | undefined> {
-  //   const member = new Member()
+  public async delete(id: string): Promise<Member | undefined> {
 
-  //   Object.assign(member, { id: uuid() }, memberData)
+    let response = undefined
+    let newArray = [...this.members]
 
-  //   this.members.slice(member)
+    const findIndex = newArray.findIndex(member => member.id === id)
 
-  //   return member
-  // }
+    if(findIndex > -1) {
+      newArray = newArray.splice(findIndex, 1)
+    }
+    
+    response = newArray.find(member => member.id === id)
+
+    return response
+  }
 
   public async create(memberData: ICreateMemberDTO): Promise<Member> {
     const member = new Member()
@@ -47,7 +53,7 @@ class FakeMembersRepository implements IMembersRepository {
   }
 
   public async save(member: Member): Promise<Member> {
-    const findIndex = this.members.findIndex(findMember => findMember.id === member.id)
+    const findIndex = this.members.findIndex(member => member.id === member.id)
 
     this.members[findIndex] = member
 

@@ -13,7 +13,7 @@ let fakeCacheProvider: FakeCacheProvider
 let createMember: CreateMemberService
 let deleteMember: DeleteMemberService
 
-describe('CreateMember', () => {
+describe('DeleteMember', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
     fakeCacheProvider = new FakeCacheProvider()
@@ -29,7 +29,7 @@ describe('CreateMember', () => {
     )
   })
 
-  it('should be able to create a delete a member', async () => {
+  it('should be able to delete a member', async () => {
     const member = await createMember.execute({
       first_name: 'John',
       full_name: 'John Doe',
@@ -43,8 +43,43 @@ describe('CreateMember', () => {
       member_spiritual: new MemberSpirutal()
     })
 
-    const response = await deleteMember.execute({ member_id: member.id })
+    const memberDeleted = await deleteMember.execute({ member_id: member.id })
 
+    expect(memberDeleted.message).toBeDefined()
+  })
+
+  it('should NOT be able to delete a member', async () => {
+    await createMember.execute({
+      first_name: 'John',
+      full_name: 'John Doe',
+      email: 'johndoe@example.com',
+      gender: 'Male',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date(),
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
+    })
+
+    await createMember.execute({
+      first_name: 'John',
+      full_name: 'John Tru',
+      email: 'johntru@example.com',
+      gender: 'Male',
+      marital_status: 'Casado',
+      nationality: 'Brasileiro',
+      birth_date: new Date(),
+      member_contact: new MemberContact(),
+      member_details: new MemberDetails(),
+      member_spiritual: new MemberSpirutal()
+    })
+
+    await expect(
+      deleteMember.execute({
+        member_id: 'not exist'
+      }),
+    ).rejects.toBeInstanceOf(AppError)
 
   })
 

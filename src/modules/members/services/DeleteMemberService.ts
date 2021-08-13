@@ -23,7 +23,7 @@ class CreateMemberService {
   public async execute({ member_id }: IRequest): Promise<any> {
     const member = await this.membersRepository.delete(member_id)
 
-    if (member) {
+    if (!member) {
       throw new AppError('Something wrong to delete this member')
     }
 
