@@ -40,31 +40,9 @@ class CreateMemberService {
     marital_status,
     nationality,
     birth_date,
-    member_contact: {
-      address,
-      state,
-      city,
-      zipcode,
-      phone_type,
-      phone_type_name,
-      phone_number
-    },
-    member_details: {
-      avatar,
-      occupation,
-      schooling,
-      facebook_link,
-      instagram_link
-    },
-    member_spiritual: {
-      member_function,
-      member_status,
-      baptism_date,
-      joined_date,
-      tithe_member,
-      problems,
-      testimony
-    }
+    member_contact,
+    member_details,
+    member_spiritual
   }: IRequest): Promise<Member> {
     const checkUserExists = await this.membersRepository.findByEmail(email)
 
@@ -80,31 +58,9 @@ class CreateMemberService {
       marital_status,
       nationality,
       birth_date,
-      member_contact: {
-        address,
-        state,
-        city,
-        zipcode,
-        phone_type,
-        phone_type_name,
-        phone_number
-      },
-      member_details: {
-        avatar,
-        occupation,
-        schooling,
-        facebook_link,
-        instagram_link
-      },
-      member_spiritual: {
-        member_function,
-        member_status,
-        baptism_date,
-        joined_date,
-        tithe_member,
-        problems,
-        testimony
-      }
+      member_contact,
+      member_details,
+      member_spiritual
     })
 
     await this.cacheProvider.invalidatePrefix('members-list')

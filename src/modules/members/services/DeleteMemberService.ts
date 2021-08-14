@@ -3,7 +3,6 @@ import { injectable, inject } from 'tsyringe'
 import AppError from '@shared/errors/AppError'
 
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
-import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
 
 interface IRequest {
@@ -21,11 +20,14 @@ class CreateMemberService {
   ) { }
 
   public async execute({ member_id }: IRequest): Promise<any> {
-    const member = await this.membersRepository.delete(member_id)
+
+    const member = await this.membersRepository.findById(member_id)
 
     if (!member) {
       throw new AppError('Something wrong to delete this member')
     }
+
+    await this.membersRepository.delete(member_id)
 
     await this.cacheProvider.invalidatePrefix('members-list')
 

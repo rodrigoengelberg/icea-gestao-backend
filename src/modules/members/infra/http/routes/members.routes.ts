@@ -21,9 +21,9 @@ membersRouter.post(
       marital_status: Joi.string(),
       nationality: Joi.string().required(),
       birth_date: Joi.date().iso(),
-      member_contact: Joi.any(),
-      member_details: Joi.any(),
-      member_spiritual: Joi.any()
+      member_contact: Joi.any().optional(),
+      member_details: Joi.any().optional(),
+      member_spiritual: Joi.any().optional()
     },
   }),
   membersController.create
@@ -50,5 +50,6 @@ membersRouter.put(
   }),
   membersController.update
 )
+membersRouter.delete('/:member_id', membersController.delete)
 
 export default membersRouter

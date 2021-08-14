@@ -5,7 +5,7 @@ import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
 import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
+import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -33,7 +33,7 @@ describe('CreateMember', () => {
       birth_date: new Date(),
       member_contact: new MemberContact(),
       member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      member_spiritual: new MemberSpiritual()
     })
 
     expect(member).toHaveProperty('id')
@@ -50,7 +50,7 @@ describe('CreateMember', () => {
       birth_date: new Date(),
       member_contact: new MemberContact(),
       member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      member_spiritual: new MemberSpiritual()
     })
 
     await expect(
@@ -64,7 +64,7 @@ describe('CreateMember', () => {
         birth_date: new Date(),
         member_contact: new MemberContact(),
         member_details: new MemberDetails(),
-        member_spiritual: new MemberSpirutal()
+        member_spiritual: new MemberSpiritual()
       }),
     ).rejects.toBeInstanceOf(AppError)
   })

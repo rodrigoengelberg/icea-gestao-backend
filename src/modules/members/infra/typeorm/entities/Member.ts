@@ -37,6 +37,9 @@ class Member {
   @Column()
   birth_date: Date;
 
+  
+  pet_name: string;
+
   @OneToOne(() => MemberContact, memberContact => memberContact.member,
     { cascade: true, eager: true })
   member_contact: MemberContact;

@@ -31,6 +31,7 @@ class FakeMembersDetailsRepository implements IMembersDetailsRepository {
   }
 
   public async save(memberContact: MemberDetails): Promise<MemberDetails> {
+
     const findIndex = this.membersDetails.findIndex(findMemberContact => findMemberContact.id === memberContact.id)
 
     this.membersDetails[findIndex] = memberContact
