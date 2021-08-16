@@ -1,0 +1,42 @@
+[
+    {
+        "accounting_classification": 1,
+        "accounting_classification_name": "Móveis e Utensílios"
+    },
+    {
+        "accounting_classification": 2,
+        "accounting_classification_name": "Máquinas"
+    },
+    {
+        "accounting_classification": 3,
+        "accounting_classification_name": "Ferramentas"
+    },
+    {
+        "accounting_classification": 4,
+        "accounting_classification_name": "Materiais de Construção"
+    },
+    {
+        "accounting_classification": 5,
+        "accounting_classification_name": "Eletrônicos"
+    },
+    {
+        "accounting_classification": 6,
+        "accounting_classification_name": "Computadores e Periféricos"
+    },
+    {
+        "accounting_classification": 7,
+        "accounting_classification_name": "Instrumentos e Acessórios"
+    },
+    {
+        "accounting_classification": 8,
+        "accounting_classification_name": "Veículos"
+    },
+    {
+        "accounting_classification": 9,
+        "accounting_classification_name": "Terrenos"
+    },
+    {
+        "accounting_classification": 10,
+        "accounting_classification_name": "Outros"
+    }
+]

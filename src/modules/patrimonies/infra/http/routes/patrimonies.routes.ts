@@ -1,13 +1,17 @@
 import { celebrate, Joi, Segments } from 'celebrate'
 import { Router } from 'express'
 import PatrimonyController from '../controllers/PatrimonyController'
+import TypesDomainController from '../controllers/TypesDomainController'
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 
 const patrimoniesRouter = Router()
 
 const patrimonyController = new PatrimonyController()
+const typesDomainController = new TypesDomainController()
 
 patrimoniesRouter.use(ensureAuthenticated)
+
+patrimoniesRouter.get('/accountingClassification', typesDomainController.showAccountingClassification)
 
 patrimoniesRouter.get('/', patrimonyController.show)
 patrimoniesRouter.post(
