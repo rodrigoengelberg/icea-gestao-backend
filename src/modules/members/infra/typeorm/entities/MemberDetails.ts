@@ -15,6 +15,7 @@ import Member from './Member'
 
 @Entity('members_details')
 class MemberDetails {
+  
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

@@ -12,7 +12,7 @@ class ShowMembersService {
 
   public async execute(): Promise<Member[]> {
 
-    const members = await this.membersRepository.findAllMembers()
+    const members = await this.membersRepository.findAll()
 
     return members
   }

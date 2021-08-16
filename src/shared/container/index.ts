@@ -12,6 +12,9 @@ import MembersContactRepository from '@modules/members/infra/typeorm/repositorie
 import IMembersDetailsRepository from '@modules/members/repositories/IMembersDetailsRepository'
 import MembersDetailsRepository from '@modules/members/infra/typeorm/repositories/MembersDetailsRepository'
 
+import IPatrimonyRepository from '@modules/patrimonies/repositories/IPatrimonyRepository'
+import PatrimonyRepository from '@modules/patrimonies/infra/typeorm/repositories/PatrimonyRepository'
+
 import IUsersRepository from '@modules/users/repositories/IUsersRepository'
 import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository'
 
@@ -34,6 +37,11 @@ container.registerSingleton<IMembersContactRepository>(
 container.registerSingleton<IMembersDetailsRepository>(
   'MembersDetailsRepository',
   MembersDetailsRepository,
+)
+
+container.registerSingleton<IPatrimonyRepository>(
+  'PatrimonyRepository',
+  PatrimonyRepository,
 )
 
 container.registerSingleton<IUsersRepository>(

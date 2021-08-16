@@ -12,6 +12,7 @@ import Member from './Member'
 
 @Entity('members_spiritual')
 class MemberSpiritual {
+  
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

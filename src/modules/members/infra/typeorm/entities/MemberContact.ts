@@ -12,6 +12,7 @@ import Member from './Member'
 
 @Entity('members_contact')
 class MemberContact {
+
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -48,7 +49,7 @@ class MemberContact {
 
   @UpdateDateColumn()
   updated_at: Date;
-
+  
 }
 
 export default MemberContact

@@ -44,9 +44,9 @@ class CreateMemberService {
     member_details,
     member_spiritual
   }: IRequest): Promise<Member> {
-    const checkUserExists = await this.membersRepository.findByEmail(email)
+    const checkMemberExists = await this.membersRepository.findByEmail(email)
 
-    if (checkUserExists) {
+    if (checkMemberExists) {
       throw new AppError('Email address already used.')
     }
 

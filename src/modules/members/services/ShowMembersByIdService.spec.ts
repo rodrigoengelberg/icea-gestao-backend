@@ -9,7 +9,7 @@ import ShowMembersByIdService from './ShowMembersByIdService'
 let fakeMembersRepository: FakeMembersRepository
 let showMembers: ShowMembersByIdService
 
-describe('ShowProfile', () => {
+describe('ShowMemberById', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
 

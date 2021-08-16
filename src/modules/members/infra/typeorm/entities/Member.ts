@@ -7,12 +7,13 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 
-import MemberContact from './MemberContact';
-import MemberDetails from './MemberDetails';
-import MemberSpiritual from './MemberSpiritual';
+import MemberContact from './MemberContact'
+import MemberDetails from './MemberDetails'
+import MemberSpiritual from './MemberSpiritual'
 
 @Entity('members')
 class Member {
+
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -37,9 +38,6 @@ class Member {
   @Column()
   birth_date: Date;
 
-  
-  pet_name: string;
-
   @OneToOne(() => MemberContact, memberContact => memberContact.member,
     { cascade: true, eager: true })
   member_contact: MemberContact;
@@ -57,7 +55,7 @@ class Member {
 
   @UpdateDateColumn()
   updated_at: Date;
-
+  
 }
 
 export default Member

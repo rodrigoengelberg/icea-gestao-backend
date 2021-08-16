@@ -14,7 +14,7 @@ class FakeMembersRepository implements IMembersRepository {
     return findMember
   }
 
-  public async findAllMembers(): Promise<Member[] | undefined> {
+  public async findAll(): Promise<Member[] | undefined> {
     const findMembers = this.members
 
     return findMembers

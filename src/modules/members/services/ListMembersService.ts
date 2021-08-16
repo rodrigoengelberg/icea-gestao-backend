@@ -18,7 +18,7 @@ class ListMembersService {
     let members = await this.cacheProvider.recover<Member[]>(`members-list`);
 
     if (!members) {
-      members = await this.membersRepository.findAllMembers();
+      members = await this.membersRepository.findAll();
     }
 
     await this.cacheProvider.save(`members-list`, members);

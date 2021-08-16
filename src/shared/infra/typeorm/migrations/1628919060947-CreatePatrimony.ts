@@ -22,14 +22,15 @@ export class CreatePatrimony1628919060947 implements MigrationInterface {
                     {
                         name: 'description',
                         type: 'varchar',
+                        isUnique: true
                     },
                     {
                         name: 'accounting_classification',
                         type: 'integer',
-                        isUnique: true,
+                        isNullable: true
                     },
                     {
-                        name: 'accounting classification_name',
+                        name: 'accounting_classification_name',
                         type: 'varchar',
                         isNullable: true
                     },
@@ -39,7 +40,7 @@ export class CreatePatrimony1628919060947 implements MigrationInterface {
                         isNullable: true
                     },
                     {
-                        name: 'accounting classification_name',
+                        name: 'observations',
                         type: 'varchar',
                         isNullable: true
                     },

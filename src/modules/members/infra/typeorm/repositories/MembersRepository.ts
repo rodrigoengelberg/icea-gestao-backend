@@ -18,7 +18,7 @@ class MembersRepository implements IMembersRepository {
     return findMembers
   }
 
-  public async findAllMembers(): Promise<Member[] | undefined> {
+  public async findAll(): Promise<Member[] | undefined> {
     const findMembers = await this.ormRepository.find()
 
     return findMembers

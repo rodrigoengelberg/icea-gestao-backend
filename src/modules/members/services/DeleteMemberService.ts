@@ -10,7 +10,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateMemberService {
+class DeleteMemberService {
   constructor(
     @inject('MembersRepository')
     private membersRepository: IMembersRepository,
@@ -35,4 +35,4 @@ class CreateMemberService {
   }
 }
 
-export default CreateMemberService
+export default DeleteMemberService
