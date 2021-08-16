@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Membro"
+    },
+    {
+        "id": 2,
+        "name": "Assistente"
+    },
+    {
+        "id": 3,
+        "name": "Voluntário"
+    },
+    {
+        "id": 4,
+        "name": "Evangelizador"
+    }
+]

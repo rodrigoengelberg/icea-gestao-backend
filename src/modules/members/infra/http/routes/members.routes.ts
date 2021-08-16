@@ -1,13 +1,24 @@
 import { celebrate, Joi, Segments } from 'celebrate'
 import { Router } from 'express'
 import MembersController from '../controllers/MembersController'
+import TypesDomainController from '../controllers/TypesDomainController'
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 
 const membersRouter = Router()
 
 const membersController = new MembersController()
+const typesDomainController = new TypesDomainController()
 
 membersRouter.use(ensureAuthenticated)
+
+membersRouter.get('/genders', typesDomainController.showGenders)
+membersRouter.get('/maritalStatus', typesDomainController.showMaritalStatus)
+membersRouter.get('/memberFunction', typesDomainController.showMemberFunction)
+membersRouter.get('/memberStatus', typesDomainController.showMemberStatus)
+membersRouter.get('/nationalities', typesDomainController.showNationalities)
+membersRouter.get('/occupations', typesDomainController.showOccupations)
+membersRouter.get('/phoneTypes', typesDomainController.showPhoneTypes)
+membersRouter.get('/school', typesDomainController.showSchool)
 
 membersRouter.get('/', membersController.show)
 membersRouter.post(

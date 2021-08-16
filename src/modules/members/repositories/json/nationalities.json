@@ -1,0 +1,770 @@
+[
+    {
+        "id": 1,
+        "name": "Afegão"
+    },
+    {
+        "id": 63,
+        "name": "Alemão"
+    },
+    {
+        "id": 184,
+        "name": "Americano"
+    },
+    {
+        "id": 2,
+        "name": "Andorrano"
+    },
+    {
+        "id": 3,
+        "name": "Angolano"
+    },
+    {
+        "id": 4,
+        "name": "Antiguano"
+    },
+    {
+        "id": 182,
+        "name": "Árabe"
+    },
+    {
+        "id": 5,
+        "name": "Argelino"
+    },
+    {
+        "id": 6,
+        "name": "Argentino"
+    },
+    {
+        "id": 7,
+        "name": "Armênio"
+    },
+    {
+        "id": 8,
+        "name": "Australiano"
+    },
+    {
+        "id": 9,
+        "name": "Austríaco"
+    },
+    {
+        "id": 10,
+        "name": "Azeri"
+    },
+    {
+        "id": 11,
+        "name": "Bahamense"
+    },
+    {
+        "id": 12,
+        "name": "Bangladês"
+    },
+    {
+        "id": 13,
+        "name": "Barbadiano"
+    },
+    {
+        "id": 14,
+        "name": "Baremita"
+    },
+    {
+        "id": 21,
+        "name": "Bechuano"
+    },
+    {
+        "id": 16,
+        "name": "Belga"
+    },
+    {
+        "id": 17,
+        "name": "Belizenho"
+    },
+    {
+        "id": 18,
+        "name": "Beninense"
+    },
+    {
+        "id": 15,
+        "name": "Bielorrusso"
+    },
+    {
+        "id": 117,
+        "name": "Birmanês"
+    },
+    {
+        "id": 19,
+        "name": "Boliviano"
+    },
+    {
+        "id": 20,
+        "name": "Bósnio"
+    },
+    {
+        "id": 22,
+        "name": "Brasileiro"
+    },
+    {
+        "id": 183,
+        "name": "Britânico"
+    },
+    {
+        "id": 23,
+        "name": "Bruneano"
+    },
+    {
+        "id": 24,
+        "name": "Búlgaro"
+    },
+    {
+        "id": 25,
+        "name": "Burquinense"
+    },
+    {
+        "id": 26,
+        "name": "Burundês"
+    },
+    {
+        "id": 27,
+        "name": "Butanense"
+    },
+    {
+        "id": 28,
+        "name": "Cabo-Verdiano"
+    },
+    {
+        "id": 29,
+        "name": "Camaronense"
+    },
+    {
+        "id": 30,
+        "name": "Cambojano"
+    },
+    {
+        "id": 31,
+        "name": "Canadense"
+    },
+    {
+        "id": 139,
+        "name": "Catarense"
+    },
+    {
+        "id": 85,
+        "name": "Cazaque"
+    },
+    {
+        "id": 32,
+        "name": "Centroafricano"
+    },
+    {
+        "id": 33,
+        "name": "Chadiano"
+    },
+    {
+        "id": 35,
+        "name": "Chileno"
+    },
+    {
+        "id": 34,
+        "name": "Chinês"
+    },
+    {
+        "id": 42,
+        "name": "Cipriota"
+    },
+    {
+        "id": 37,
+        "name": "Colombiano"
+    },
+    {
+        "id": 38,
+        "name": "Comoriano"
+    },
+    {
+        "id": 44,
+        "name": "Congolense"
+    },
+    {
+        "id": 36,
+        "name": "Cookiano"
+    },
+    {
+        "id": 159,
+        "name": "Coreano"
+    },
+    {
+        "id": 81,
+        "name": "Costa-Marfinense"
+    },
+    {
+        "id": 39,
+        "name": "Costa-Riquenho"
+    },
+    {
+        "id": 40,
+        "name": "Croata"
+    },
+    {
+        "id": 41,
+        "name": "Cubano"
+    },
+    {
+        "id": 45,
+        "name": "Dinamarquês"
+    },
+    {
+        "id": 46,
+        "name": "Djibutiense"
+    },
+    {
+        "id": 48,
+        "name": "Dominicano"
+    },
+    {
+        "id": 47,
+        "name": "Dominiquense"
+    },
+    {
+        "id": 51,
+        "name": "Egípcio"
+    },
+    {
+        "id": 50,
+        "name": "Equatoriano"
+    },
+    {
+        "id": 55,
+        "name": "Eritreu"
+    },
+    {
+        "id": 149,
+        "name": "Escocês"
+    },
+    {
+        "id": 155,
+        "name": "Eslovaco"
+    },
+    {
+        "id": 161,
+        "name": "Espanhol"
+    },
+    {
+        "id": 56,
+        "name": "Estoniano"
+    },
+    {
+        "id": 57,
+        "name": "Fijiano"
+    },
+    {
+        "id": 136,
+        "name": "Filipino"
+    },
+    {
+        "id": 58,
+        "name": "Finlandês"
+    },
+    {
+        "id": 59,
+        "name": "Francês"
+    },
+    {
+        "id": 60,
+        "name": "Gabonense"
+    },
+    {
+        "id": 189,
+        "name": "Galês"
+    },
+    {
+        "id": 61,
+        "name": "Gambiano"
+    },
+    {
+        "id": 62,
+        "name": "Geórgico"
+    },
+    {
+        "id": 64,
+        "name": "Granadino"
+    },
+    {
+        "id": 65,
+        "name": "Grego"
+    },
+    {
+        "id": 66,
+        "name": "Guatemalteco"
+    },
+    {
+        "id": 69,
+        "name": "Guianense"
+    },
+    {
+        "id": 67,
+        "name": "Guineano"
+    },
+    {
+        "id": 68,
+        "name": "Guineense"
+    },
+    {
+        "id": 54,
+        "name": "Guinéu-Equatoriano"
+    },
+    {
+        "id": 70,
+        "name": "Haitiano"
+    },
+    {
+        "id": 71,
+        "name": "Holandês"
+    },
+    {
+        "id": 72,
+        "name": "Hondurenho"
+    },
+    {
+        "id": 73,
+        "name": "Húngaro"
+    },
+    {
+        "id": 190,
+        "name": "Iemenita"
+    },
+    {
+        "id": 75,
+        "name": "Indiano"
+    },
+    {
+        "id": 76,
+        "name": "Indonésio"
+    },
+    {
+        "id": 53,
+        "name": "Inglês"
+    },
+    {
+        "id": 77,
+        "name": "Iraniano"
+    },
+    {
+        "id": 78,
+        "name": "Irlandês"
+    },
+    {
+        "id": 74,
+        "name": "Islandês"
+    },
+    {
+        "id": 79,
+        "name": "Israelita"
+    },
+    {
+        "id": 80,
+        "name": "Italiano"
+    },
+    {
+        "id": 82,
+        "name": "Jamaicano"
+    },
+    {
+        "id": 83,
+        "name": "Japonês"
+    },
+    {
+        "id": 84,
+        "name": "Jordão"
+    },
+    {
+        "id": 89,
+        "name": "Kuwaitiano"
+    },
+    {
+        "id": 90,
+        "name": "Laosiano"
+    },
+    {
+        "id": 93,
+        "name": "Lesotiano"
+    },
+    {
+        "id": 91,
+        "name": "Letoniano"
+    },
+    {
+        "id": 92,
+        "name": "Libanês"
+    },
+    {
+        "id": 94,
+        "name": "Liberiano"
+    },
+    {
+        "id": 98,
+        "name": "Líbio"
+    },
+    {
+        "id": 95,
+        "name": "Liechtensteinense"
+    },
+    {
+        "id": 96,
+        "name": "Lituano"
+    },
+    {
+        "id": 97,
+        "name": "Luxemburguês"
+    },
+    {
+        "id": 99,
+        "name": "Macedônio"
+    },
+    {
+        "id": 100,
+        "name": "Madagascarense"
+    },
+    {
+        "id": 101,
+        "name": "Malaio"
+    },
+    {
+        "id": 102,
+        "name": "Malauiano"
+    },
+    {
+        "id": 103,
+        "name": "Maldivo"
+    },
+    {
+        "id": 104,
+        "name": "Maliano"
+    },
+    {
+        "id": 105,
+        "name": "Maltês"
+    },
+    {
+        "id": 111,
+        "name": "Marroquino"
+    },
+    {
+        "id": 108,
+        "name": "Marshallino"
+    },
+    {
+        "id": 106,
+        "name": "Mauriciano"
+    },
+    {
+        "id": 107,
+        "name": "Mauritano"
+    },
+    {
+        "id": 110,
+        "name": "Mexicano"
+    },
+    {
+        "id": 109,
+        "name": "Micronésio"
+    },
+    {
+        "id": 116,
+        "name": "Moçambicano"
+    },
+    {
+        "id": 112,
+        "name": "Moldávio"
+    },
+    {
+        "id": 113,
+        "name": "Monegasco"
+    },
+    {
+        "id": 114,
+        "name": "Mongol"
+    },
+    {
+        "id": 115,
+        "name": "Montenegrino"
+    },
+    {
+        "id": 118,
+        "name": "Namibiano"
+    },
+    {
+        "id": 119,
+        "name": "Nauruano"
+    },
+    {
+        "id": 121,
+        "name": "Neozelandês"
+    },
+    {
+        "id": 120,
+        "name": "Nepalês"
+    },
+    {
+        "id": 122,
+        "name": "Nicaraguense"
+    },
+    {
+        "id": 124,
+        "name": "Nigeriano"
+    },
+    {
+        "id": 123,
+        "name": "Nigerino"
+    },
+    {
+        "id": 125,
+        "name": "Niuano"
+    },
+    {
+        "id": 126,
+        "name": "Norte-Coreano"
+    },
+    {
+        "id": 127,
+        "name": "Norueguês"
+    },
+    {
+        "id": 128,
+        "name": "Omanense"
+    },
+    {
+        "id": 131,
+        "name": "Palauense"
+    },
+    {
+        "id": 129,
+        "name": "Palestino"
+    },
+    {
+        "id": 132,
+        "name": "Panamenho"
+    },
+    {
+        "id": 133,
+        "name": "Papuásio"
+    },
+    {
+        "id": 130,
+        "name": "Paquistanês"
+    },
+    {
+        "id": 134,
+        "name": "Paraguaio"
+    },
+    {
+        "id": 135,
+        "name": "Peruano"
+    },
+    {
+        "id": 137,
+        "name": "Polonês"
+    },
+    {
+        "id": 138,
+        "name": "Português"
+    },
+    {
+        "id": 86,
+        "name": "Queniano"
+    },
+    {
+        "id": 88,
+        "name": "Quirguistanês"
+    },
+    {
+        "id": 87,
+        "name": "Quiribatiano"
+    },
+    {
+        "id": 140,
+        "name": "Romeno"
+    },
+    {
+        "id": 142,
+        "name": "Ruandês"
+    },
+    {
+        "id": 141,
+        "name": "Russo"
+    },
+    {
+        "id": 156,
+        "name": "Salomônico"
+    },
+    {
+        "id": 52,
+        "name": "Salvadorenho"
+    },
+    {
+        "id": 143,
+        "name": "Samoano"
+    },
+    {
+        "id": 144,
+        "name": "Santa-Lucense"
+    },
+    {
+        "id": 145,
+        "name": "São-Cristovense"
+    },
+    {
+        "id": 146,
+        "name": "São-Marinense"
+    },
+    {
+        "id": 147,
+        "name": "São-Tomense"
+    },
+    {
+        "id": 148,
+        "name": "São-Vicentino"
+    },
+    {
+        "id": 152,
+        "name": "Seichelense"
+    },
+    {
+        "id": 150,
+        "name": "Senegalense"
+    },
+    {
+        "id": 153,
+        "name": "Serra-Leonês"
+    },
+    {
+        "id": 151,
+        "name": "Sérvio"
+    },
+    {
+        "id": 154,
+        "name": "Singapurense"
+    },
+    {
+        "id": 168,
+        "name": "Sírio"
+    },
+    {
+        "id": 157,
+        "name": "Somali"
+    },
+    {
+        "id": 162,
+        "name": "Srilankês"
+    },
+    {
+        "id": 165,
+        "name": "Suazi"
+    },
+    {
+        "id": 163,
+        "name": "Sudanense"
+    },
+    {
+        "id": 166,
+        "name": "Sueco"
+    },
+    {
+        "id": 167,
+        "name": "Suíço"
+    },
+    {
+        "id": 158,
+        "name": "Sul–Africano"
+    },
+    {
+        "id": 160,
+        "name": "Sul-Sudanense"
+    },
+    {
+        "id": 164,
+        "name": "Surinamês"
+    },
+    {
+        "id": 171,
+        "name": "Tailandês"
+    },
+    {
+        "id": 169,
+        "name": "Tajique"
+    },
+    {
+        "id": 170,
+        "name": "Tanzaniano"
+    },
+    {
+        "id": 43,
+        "name": "Tcheco"
+    },
+    {
+        "id": 49,
+        "name": "Timorense"
+    },
+    {
+        "id": 172,
+        "name": "Togolês"
+    },
+    {
+        "id": 173,
+        "name": "Tonganês"
+    },
+    {
+        "id": 174,
+        "name": "Trinitário"
+    },
+    {
+        "id": 175,
+        "name": "Tunisiano"
+    },
+    {
+        "id": 177,
+        "name": "Turco"
+    },
+    {
+        "id": 176,
+        "name": "Turcomeno"
+    },
+    {
+        "id": 178,
+        "name": "Tuvaluano"
+    },
+    {
+        "id": 179,
+        "name": "Ucraniano"
+    },
+    {
+        "id": 180,
+        "name": "Ugandês"
+    },
+    {
+        "id": 181,
+        "name": "Uruguaio"
+    },
+    {
+        "id": 185,
+        "name": "Uzbeque"
+    },
+    {
+        "id": 186,
+        "name": "Vanuatuano"
+    },
+    {
+        "id": 187,
+        "name": "Venezuelano"
+    },
+    {
+        "id": 188,
+        "name": "Vietnamita"
+    },
+    {
+        "id": 191,
+        "name": "Zambiano"
+    },
+    {
+        "id": 192,
+        "name": "Zimbabueano"
+    }
+]
