@@ -17,9 +17,6 @@ interface IRequest {
   marital_status: string
   nationality: string
   birth_date: Date
-  member_contact: ICreateMemberContactDTO
-  member_details: ICreateMemberDetailsDTO
-  member_spiritual: ICreateMemberSpiritualDTO
 }
 
 @injectable()
@@ -29,8 +26,8 @@ class CreateMemberService {
     private membersRepository: IMembersRepository,
 
     @inject('CacheProvider')
-    private cacheProvider: ICacheProvider,
-  ) { }
+    private cacheProvider: ICacheProvider
+  ) {}
 
   public async execute({
     first_name,
@@ -39,10 +36,7 @@ class CreateMemberService {
     gender,
     marital_status,
     nationality,
-    birth_date,
-    member_contact,
-    member_details,
-    member_spiritual
+    birth_date
   }: IRequest): Promise<Member> {
     const checkMemberExists = await this.membersRepository.findByEmail(email)
 
@@ -57,10 +51,7 @@ class CreateMemberService {
       gender,
       marital_status,
       nationality,
-      birth_date,
-      member_contact,
-      member_details,
-      member_spiritual
+      birth_date
     })
 
     await this.cacheProvider.invalidatePrefix('members-list')

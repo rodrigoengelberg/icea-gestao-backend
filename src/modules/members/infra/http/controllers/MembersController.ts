@@ -7,40 +7,42 @@ import UpdateMemberService from '@modules/members/services/UpdateMemberService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
 import DeleteMemberService from '@modules/members/services/DeleteMemberService'
+import CreateMemberDetailsService from '@modules/members/services/CreateMemberDetailsService'
 
 export default class MembersController {
-
   public async show(request: Request, response: Response): Promise<Response> {
+    const showMembers = container.resolve(ShowMembersService)
 
-    const showMembers = container.resolve(ShowMembersService);
+    const members = await showMembers.execute()
 
-    const members = await showMembers.execute();
-
-    return response.json(classToClass(members));
+    return response.json(classToClass(members))
   }
 
-  public async showById(request: Request, response: Response): Promise<Response> {
-    const member_id = request.params.member_id;
+  public async showById(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
+    const member_id = request.params.member_id
 
-    const showMembers = container.resolve(ShowMembersByIdService);
+    const showMembers = container.resolve(ShowMembersByIdService)
 
     const member = await showMembers.execute({
-      member_id,
-    });
+      member_id
+    })
 
-    return response.json(classToClass(member));
+    return response.json(classToClass(member))
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
-    const member_id = request.params.member_id;
+    const member_id = request.params.member_id
 
-    const deleteMember = container.resolve(DeleteMemberService);
+    const deleteMember = container.resolve(DeleteMemberService)
 
     const responseDeleted = await deleteMember.execute({
-      member_id,
-    });
+      member_id
+    })
 
-    return response.json(classToClass(responseDeleted));
+    return response.json(classToClass(responseDeleted))
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
@@ -52,9 +54,11 @@ export default class MembersController {
       marital_status,
       nationality,
       birth_date,
-      member_contact,
-      member_details,
-      member_spiritual
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link,
+      avatar
     } = request.body
 
     const createMember = container.resolve(CreateMemberService)
@@ -66,17 +70,30 @@ export default class MembersController {
       gender,
       marital_status,
       nationality,
-      birth_date,
-      member_contact,
-      member_details,
-      member_spiritual
+      birth_date
     })
+
+    const member_id = member.id
+
+    const createMemberDetails = container.resolve(CreateMemberDetailsService)
+
+    const member_details = await createMemberDetails.execute({
+      member_id,
+      avatar,
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link
+    })
+
+    member.member_details = member_details
 
     return response.json(classToClass(member))
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
     const member_id = request.params.member_id
+
     const {
       first_name,
       full_name,
@@ -85,9 +102,11 @@ export default class MembersController {
       marital_status,
       nationality,
       birth_date,
-      member_contact,
-      member_details,
-      member_spiritual
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link,
+      avatar
     } = request.body
 
     const updateMember = container.resolve(UpdateMemberService)
@@ -100,13 +119,22 @@ export default class MembersController {
       gender,
       marital_status,
       nationality,
-      birth_date,
-      member_contact,
-      member_details,
-      member_spiritual
-    });
+      birth_date
+    })
 
-    return response.json(classToClass(member));
+    const createMemberDetails = container.resolve(CreateMemberDetailsService)
+
+    const member_details = await createMemberDetails.execute({
+      member_id,
+      avatar,
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link
+    })
+
+    member.member_details = member_details
+
+    return response.json(classToClass(member))
   }
-
 }

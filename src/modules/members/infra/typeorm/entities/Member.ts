@@ -13,49 +13,68 @@ import MemberSpiritual from './MemberSpiritual'
 
 @Entity('members')
 class Member {
-
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column({ nullable: false })
-  first_name: string;
+  first_name: string
 
   @Column({ nullable: false })
-  full_name: string;
+  full_name: string
 
   @Column({ unique: true })
-  email: string;
+  email: string
 
   @Column({ nullable: false })
-  gender: string;
+  gender: string
 
   @Column()
-  marital_status: string;
+  marital_status: string
 
   @Column({ nullable: false })
-  nationality: string;
+  nationality: string
 
   @Column()
-  birth_date: Date;
+  birth_date: Date
 
-  @OneToOne(() => MemberContact, memberContact => memberContact.member,
-    { cascade: true, eager: true })
-  member_contact: MemberContact;
+  @Column()
+  occupation: string
 
-  @OneToOne(() => MemberDetails, memberDetails => memberDetails.member,
-    { cascade: true, eager: true })
-  member_details: MemberDetails;
+  @Column()
+  schooling: string
 
-  @OneToOne(() => MemberSpiritual, memberSpiritual => memberSpiritual.member,
-    { cascade: true, eager: true })
-  member_spiritual: MemberSpiritual;
+  @Column({ unique: true })
+  facebook_link: string
+
+  @Column({ unique: true })
+  instagram_link: string
+
+  @Column()
+  avatar: string
+
+  @OneToOne(() => MemberContact, memberContact => memberContact.member, {
+    cascade: true,
+    eager: true
+  })
+  member_contact: MemberContact
+
+  @OneToOne(() => MemberDetails, memberDetails => memberDetails.member, {
+    cascade: true,
+    eager: true
+  })
+  member_details: MemberDetails
+
+  @OneToOne(() => MemberSpiritual, memberSpiritual => memberSpiritual.member, {
+    cascade: true,
+    eager: true
+  })
+  member_spiritual: MemberSpiritual
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
 
   @UpdateDateColumn()
-  updated_at: Date;
-  
+  updated_at: Date
 }
 
 export default Member

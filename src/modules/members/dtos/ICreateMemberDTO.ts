@@ -1,7 +1,3 @@
-import ICreateMemberContactDTO from "./ICreateMemberContactDTO";
-import ICreateMemberDetailsDTO from "./ICreateMemberDetailsDTO";
-import ICreateMemberSpiritualDTO from "./ICreateMemberSpiritualDTO";
-
 export default interface ICreateMemberDTO {
   first_name: string
   full_name: string
@@ -10,7 +6,9 @@ export default interface ICreateMemberDTO {
   marital_status: string
   nationality: string
   birth_date: Date
-  member_contact: ICreateMemberContactDTO
-  member_details: ICreateMemberDetailsDTO
-  member_spiritual: ICreateMemberSpiritualDTO
+  occupation: string
+  schooling: string
+  facebook_link: string
+  instagram_link: string
+  avatar: string
 }
