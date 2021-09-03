@@ -5,9 +5,6 @@ import AppError from '@shared/errors/AppError'
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
-import ICreateMemberContactDTO from '../dtos/ICreateMemberContactDTO'
-import ICreateMemberDetailsDTO from '../dtos/ICreateMemberDetailsDTO'
-import ICreateMemberSpiritualDTO from '../dtos/ICreateMemberSpiritualDTO'
 
 interface IRequest {
   first_name: string
@@ -17,6 +14,11 @@ interface IRequest {
   marital_status: string
   nationality: string
   birth_date: Date
+  occupation: string
+  schooling: string
+  facebook_link: string
+  instagram_link: string
+  avatar: string
 }
 
 @injectable()
@@ -36,7 +38,12 @@ class CreateMemberService {
     gender,
     marital_status,
     nationality,
-    birth_date
+    birth_date,
+    occupation,
+    schooling,
+    facebook_link,
+    instagram_link,
+    avatar
   }: IRequest): Promise<Member> {
     const checkMemberExists = await this.membersRepository.findByEmail(email)
 
@@ -51,7 +58,12 @@ class CreateMemberService {
       gender,
       marital_status,
       nationality,
-      birth_date
+      birth_date,
+      occupation,
+      schooling,
+      facebook_link,
+      instagram_link,
+      avatar
     })
 
     await this.cacheProvider.invalidatePrefix('members-list')

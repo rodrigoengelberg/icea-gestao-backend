@@ -1,3 +1,4 @@
+import { Expose } from 'class-transformer'
 import {
   Column,
   CreateDateColumn,
@@ -7,8 +8,9 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 
+import uploadConfig from '@config/upload'
+
 import MemberContact from './MemberContact'
-import MemberDetails from './MemberDetails'
 import MemberSpiritual from './MemberSpiritual'
 
 @Entity('members')
@@ -43,10 +45,10 @@ class Member {
   @Column()
   schooling: string
 
-  @Column({ unique: true })
+  @Column()
   facebook_link: string
 
-  @Column({ unique: true })
+  @Column()
   instagram_link: string
 
   @Column()
@@ -57,12 +59,6 @@ class Member {
     eager: true
   })
   member_contact: MemberContact
-
-  @OneToOne(() => MemberDetails, memberDetails => memberDetails.member, {
-    cascade: true,
-    eager: true
-  })
-  member_details: MemberDetails
 
   @OneToOne(() => MemberSpiritual, memberSpiritual => memberSpiritual.member, {
     cascade: true,
@@ -75,6 +71,22 @@ class Member {
 
   @UpdateDateColumn()
   updated_at: Date
+
+  @Expose({ name: 'avatar_url' })
+  getAvatarUrl(): string | null {
+    if (!this.avatar) {
+      return null
+    }
+
+    switch (process.env.STORAGE_DRIVER) {
+      case 'disk':
+        return `${process.env.APP_API_URL}/files/${this.avatar}`
+      case 's3':
+        return `https://${uploadConfig.config.aws.bucket}.s3.amazonaws.com/${this.avatar}`
+      default:
+        return null
+    }
+  }
 }
 
 export default Member

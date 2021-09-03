@@ -1,12 +1,8 @@
-import AppError from '@shared/errors/AppError'
-
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
+import AppError from '@shared/errors/AppError'
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
 import DeleteMemberService from './DeleteMemberService'
-import MemberContact from '../infra/typeorm/entities/MemberContact'
-import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -20,12 +16,12 @@ describe('DeleteMember', () => {
 
     createMember = new CreateMemberService(
       fakeMembersRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
 
     deleteMember = new DeleteMemberService(
       fakeMembersRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
   })
 
@@ -38,9 +34,11 @@ describe('DeleteMember', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     const memberDeleted = await deleteMember.execute({ member_id: member.id })
@@ -57,9 +55,11 @@ describe('DeleteMember', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     await createMember.execute({
@@ -70,17 +70,17 @@ describe('DeleteMember', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     await expect(
       deleteMember.execute({
         member_id: 'not exist'
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError)
-
   })
-
 })

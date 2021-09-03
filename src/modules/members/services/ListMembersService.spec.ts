@@ -1,8 +1,5 @@
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
-import MemberContact from '../infra/typeorm/entities/MemberContact'
-import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 import ListMembersService from './ListMembersService'
 
 let fakeMembersRepository: FakeMembersRepository
@@ -16,7 +13,7 @@ describe('ListMembers', () => {
 
     listMembers = new ListMembersService(
       fakeMembersRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
   })
 
@@ -29,9 +26,11 @@ describe('ListMembers', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     const member2 = await fakeMembersRepository.create({
@@ -42,9 +41,11 @@ describe('ListMembers', () => {
       marital_status: 'Solteiro',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     const members = await listMembers.execute()

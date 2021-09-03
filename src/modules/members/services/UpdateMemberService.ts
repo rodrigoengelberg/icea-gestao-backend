@@ -15,6 +15,11 @@ interface IRequest {
   marital_status: string
   nationality: string
   birth_date: Date
+  occupation: string
+  schooling: string
+  facebook_link: string
+  instagram_link: string
+  avatar: string
 }
 
 @injectable()
@@ -35,7 +40,12 @@ class UpdateMemberService {
     gender,
     marital_status,
     nationality,
-    birth_date
+    birth_date,
+    occupation,
+    schooling,
+    facebook_link,
+    instagram_link,
+    avatar
   }: IRequest): Promise<Member> {
     const member = await this.membersRepository.findById(member_id)
 
@@ -59,7 +69,12 @@ class UpdateMemberService {
         gender,
         marital_status,
         nationality,
-        birth_date
+        birth_date,
+        occupation,
+        schooling,
+        facebook_link,
+        instagram_link,
+        avatar
       }
     )
 

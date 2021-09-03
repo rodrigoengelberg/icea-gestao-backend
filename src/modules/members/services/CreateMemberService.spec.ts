@@ -3,9 +3,6 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
-import MemberContact from '../infra/typeorm/entities/MemberContact'
-import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -18,7 +15,7 @@ describe('CreateMember', () => {
 
     createMember = new CreateMemberService(
       fakeMembersRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
   })
 
@@ -31,9 +28,11 @@ describe('CreateMember', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpiritual()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     expect(member).toHaveProperty('id')
@@ -48,9 +47,11 @@ describe('CreateMember', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpiritual()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     await expect(
@@ -62,11 +63,12 @@ describe('CreateMember', () => {
         marital_status: 'Casado',
         nationality: 'Brasileiro',
         birth_date: new Date(),
-        member_contact: new MemberContact(),
-        member_details: new MemberDetails(),
-        member_spiritual: new MemberSpiritual()
-      }),
+        occupation: 'Autônomo',
+        schooling: 'Superior',
+        facebook_link: 'facebook.com/johndole',
+        instagram_link: 'instagram.com/johndole',
+        avatar: '/endereco/avatar.png'
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
-
 })

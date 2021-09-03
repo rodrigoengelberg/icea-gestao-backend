@@ -1,8 +1,4 @@
 import AppError from '@shared/errors/AppError'
-import MemberContact from '../infra/typeorm/entities/MemberContact'
-import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
-
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import ShowMembersByIdService from './ShowMembersByIdService'
 
@@ -25,13 +21,15 @@ describe('ShowMemberById', () => {
       marital_status: 'Casado',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     const memberCreated = await showMembers.execute({
-      member_id: member.id,
+      member_id: member.id
     })
 
     expect(memberCreated.first_name).toBe('John')
@@ -42,8 +40,8 @@ describe('ShowMemberById', () => {
   it('should not be able to show the member from a non-existing', async () => {
     await expect(
       showMembers.execute({
-        member_id: 'non-existing-user-id',
-      }),
+        member_id: 'non-existing-user-id'
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
 })

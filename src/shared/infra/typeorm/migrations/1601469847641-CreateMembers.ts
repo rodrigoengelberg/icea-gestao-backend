@@ -64,13 +64,11 @@ export default class CreateAppointments1601469847641
           {
             name: 'facebook_link',
             type: 'varchar',
-            isUnique: true,
             isNullable: true
           },
           {
             name: 'instagram_link',
             type: 'varchar',
-            isUnique: true,
             isNullable: true
           },
           {

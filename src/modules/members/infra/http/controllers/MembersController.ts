@@ -7,7 +7,6 @@ import UpdateMemberService from '@modules/members/services/UpdateMemberService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
 import DeleteMemberService from '@modules/members/services/DeleteMemberService'
-import CreateMemberDetailsService from '@modules/members/services/CreateMemberDetailsService'
 
 export default class MembersController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -70,23 +69,13 @@ export default class MembersController {
       gender,
       marital_status,
       nationality,
-      birth_date
-    })
-
-    const member_id = member.id
-
-    const createMemberDetails = container.resolve(CreateMemberDetailsService)
-
-    const member_details = await createMemberDetails.execute({
-      member_id,
-      avatar,
+      birth_date,
       occupation,
       schooling,
       facebook_link,
-      instagram_link
+      instagram_link,
+      avatar
     })
-
-    member.member_details = member_details
 
     return response.json(classToClass(member))
   }
@@ -119,21 +108,13 @@ export default class MembersController {
       gender,
       marital_status,
       nationality,
-      birth_date
-    })
-
-    const createMemberDetails = container.resolve(CreateMemberDetailsService)
-
-    const member_details = await createMemberDetails.execute({
-      member_id,
-      avatar,
+      birth_date,
       occupation,
       schooling,
       facebook_link,
-      instagram_link
+      instagram_link,
+      avatar
     })
-
-    member.member_details = member_details
 
     return response.json(classToClass(member))
   }

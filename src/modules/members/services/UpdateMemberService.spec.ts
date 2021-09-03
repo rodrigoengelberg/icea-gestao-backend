@@ -3,9 +3,6 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
-import MemberContact from '../infra/typeorm/entities/MemberContact'
-import MemberDetails from '../infra/typeorm/entities/MemberDetails'
-import MemberSpirutal from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -18,7 +15,7 @@ describe('UpdateUserAvatar', () => {
 
     updateMemberService = new UpdateMemberService(
       fakeMembersRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
   })
 
@@ -31,9 +28,11 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     await updateMemberService.execute({
@@ -45,9 +44,11 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Solteiro(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     expect(member.marital_status).toBe('Solteiro(a)')
@@ -65,15 +66,16 @@ describe('UpdateUserAvatar', () => {
         marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
         birth_date: new Date(),
-        member_contact: new MemberContact(),
-        member_details: new MemberDetails(),
-        member_spiritual: new MemberSpirutal()
-      }),
+        occupation: 'Autônomo',
+        schooling: 'Superior',
+        facebook_link: 'facebook.com/johndole',
+        instagram_link: 'instagram.com/johndole',
+        avatar: '/endereco/avatar.png'
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
 
   it('should not be able update member with existing email', async () => {
-
     await fakeMembersRepository.create({
       first_name: 'John',
       full_name: 'John Doe',
@@ -82,9 +84,11 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     const member = await fakeMembersRepository.create({
@@ -95,9 +99,11 @@ describe('UpdateUserAvatar', () => {
       marital_status: 'Casado(a)',
       nationality: 'Brasileiro',
       birth_date: new Date(),
-      member_contact: new MemberContact(),
-      member_details: new MemberDetails(),
-      member_spiritual: new MemberSpirutal()
+      occupation: 'Autônomo',
+      schooling: 'Superior',
+      facebook_link: 'facebook.com/johndole',
+      instagram_link: 'instagram.com/johndole',
+      avatar: '/endereco/avatar.png'
     })
 
     await expect(
@@ -110,11 +116,12 @@ describe('UpdateUserAvatar', () => {
         marital_status: 'Casado(a)',
         nationality: 'Brasileiro',
         birth_date: new Date(),
-        member_contact: new MemberContact(),
-        member_details: new MemberDetails(),
-        member_spiritual: new MemberSpirutal()
-      }),
+        occupation: 'Autônomo',
+        schooling: 'Superior',
+        facebook_link: 'facebook.com/johndole',
+        instagram_link: 'instagram.com/johndole',
+        avatar: '/endereco/avatar.png'
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
-
 })
