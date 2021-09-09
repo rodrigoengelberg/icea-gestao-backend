@@ -3,7 +3,7 @@ import { container } from 'tsyringe'
 import { classToClass } from 'class-transformer'
 
 import CreateMemberContactService from '@modules/members/services/CreateMemberContactService'
-import UpdateMemberService from '@modules/members/services/UpdateMemberService'
+import UpdateMemberContactService from '@modules/members/services/UpdateMemberContactService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
 import DeleteMemberService from '@modules/members/services/DeleteMemberService'
@@ -73,7 +73,7 @@ export default class MembersContactController {
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
-    const member_id = request.params.member_id
+    const member_contact_id = request.params.member_contact_id
 
     const {
       member_id,
@@ -86,9 +86,10 @@ export default class MembersContactController {
       phone_number
     } = request.body
 
-    const updateMember = container.resolve(UpdateMemberService)
+    const updateMember = container.resolve(UpdateMemberContactService)
 
     const member = await updateMember.execute({
+      member_contact_id,
       member_id,
       address,
       state,

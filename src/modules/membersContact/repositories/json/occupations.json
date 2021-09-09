@@ -1,0 +1,570 @@
+[
+    {
+        "occupation": 1,
+        "occupation_name": "Açougueiro(a)"
+    },
+    {
+        "occupation": 2,
+        "occupation_name": "Acupunturista"
+    },
+    {
+        "occupation": 3,
+        "occupation_name": "Administrador(a)"
+    },
+    {
+        "occupation": 4,
+        "occupation_name": "Administrador de Banco de Dados"
+    },
+    {
+        "occupation": 5,
+        "occupation_name": "Advogado(a)"
+    },
+    {
+        "occupation": 6,
+        "occupation_name": "Agente de Seguros"
+    },
+    {
+        "occupation": 7,
+        "occupation_name": "Agente de Viagens"
+    },
+    {
+        "occupation": 8,
+        "occupation_name": "Agricultor(a)"
+    },
+    {
+        "occupation": 9,
+        "occupation_name": "Alfaiate"
+    },
+    {
+        "occupation": 10,
+        "occupation_name": "Analista de Gestão"
+    },
+    {
+        "occupation": 11,
+        "occupation_name": "Analista de Software"
+    },
+    {
+        "occupation": 12,
+        "occupation_name": "Analista financeiro"
+    },
+    {
+        "occupation": 13,
+        "occupation_name": "Arquiteto(a)"
+    },
+    {
+        "occupation": 14,
+        "occupation_name": "Assistente de Dentista"
+    },
+    {
+        "occupation": 15,
+        "occupation_name": "Assistente de Escritório"
+    },
+    {
+        "occupation": 16,
+        "occupation_name": "Assistente de Professor"
+    },
+    {
+        "occupation": 17,
+        "occupation_name": "Assistente Executivo"
+    },
+    {
+        "occupation": 18,
+        "occupation_name": "Assistente Jurídico"
+    },
+    {
+        "occupation": 19,
+        "occupation_name": "Assistente Médico"
+    },
+    {
+        "occupation": 20,
+        "occupation_name": "Assistente Social"
+    },
+    {
+        "occupation": 21,
+        "occupation_name": "Assistente Social Clínico"
+    },
+    {
+        "occupation": 22,
+        "occupation_name": "Atleta"
+    },
+    {
+        "occupation": 23,
+        "occupation_name": "Auditor(a)"
+    },
+    {
+        "occupation": 24,
+        "occupation_name": "Autor(a)"
+    },
+    {
+        "occupation": 25,
+        "occupation_name": "Auxiliar Administrativo"
+    },
+    {
+        "occupation": 26,
+        "occupation_name": "Auxiliar de Cuidados Pessoais"
+    },
+    {
+        "occupation": 27,
+        "occupation_name": "Auxiliar de Enfermagem"
+    },
+    {
+        "occupation": 28,
+        "occupation_name": "Auxiliar de Saúde em Casa"
+    },
+    {
+        "occupation": 29,
+        "occupation_name": "Babá"
+    },
+    {
+        "occupation": 30,
+        "occupation_name": "Banqueiro(a)"
+    },
+    {
+        "occupation": 31,
+        "occupation_name": "Barbeiro(a)"
+    },
+    {
+        "occupation": 32,
+        "occupation_name": "Bibliotecário(a)"
+    },
+    {
+        "occupation": 33,
+        "occupation_name": "Biomédico(a)"
+    },
+    {
+        "occupation": 34,
+        "occupation_name": "Bombeiro(a)"
+    },
+    {
+        "occupation": 35,
+        "occupation_name": "Cabeleireiro(a)"
+    },
+    {
+        "occupation": 36,
+        "occupation_name": "Caixa"
+    },
+    {
+        "occupation": 37,
+        "occupation_name": "Caminhoneiro(a)"
+    },
+    {
+        "occupation": 38,
+        "occupation_name": "Carpinteiro(a)"
+    },
+    {
+        "occupation": 39,
+        "occupation_name": "Carteiro(a)"
+    },
+    {
+        "occupation": 40,
+        "occupation_name": "Chefe de Cozinha"
+    },
+    {
+        "occupation": 41,
+        "occupation_name": "Coletor de Impostos"
+    },
+    {
+        "occupation": 42,
+        "occupation_name": "Comissário(a) de bordo"
+    },
+    {
+        "occupation": 43,
+        "occupation_name": "Conferencista"
+    },
+    {
+        "occupation": 44,
+        "occupation_name": "Conselheiro(a) financeiro"
+    },
+    {
+        "occupation": 45,
+        "occupation_name": "Conselheiro de Saúde Mental"
+    },
+    {
+        "occupation": 46,
+        "occupation_name": "Conselheiro escolar"
+    },
+    {
+        "occupation": 47,
+        "occupation_name": "Consultor(a)"
+    },
+    {
+        "occupation": 48,
+        "occupation_name": "Contador(a)"
+    },
+    {
+        "occupation": 49,
+        "occupation_name": "Corretor de Imóveis"
+    },
+    {
+        "occupation": 50,
+        "occupation_name": "Cozinheiro(a) de Restaurante"
+    },
+    {
+        "occupation": 51,
+        "occupation_name": "Dentista"
+    },
+    {
+        "occupation": 52,
+        "occupation_name": "Desenvolvedor(a) Web"
+    },
+    {
+        "occupation": 53,
+        "occupation_name": "Desenvolvedor de software"
+    },
+    {
+        "occupation": 54,
+        "occupation_name": "Designer"
+    },
+    {
+        "occupation": 55,
+        "occupation_name": "Detetive"
+    },
+    {
+        "occupation": 56,
+        "occupation_name": "Diretor(a) de Arte"
+    },
+    {
+        "occupation": 57,
+        "occupation_name": "Dona de casa"
+    },
+    {
+        "occupation": 58,
+        "occupation_name": "Eletricista"
+    },
+    {
+        "occupation": 59,
+        "occupation_name": "Empregada"
+    },
+    {
+        "occupation": 60,
+        "occupation_name": "Empregado(a) Doméstico(a)"
+    },
+    {
+        "occupation": 61,
+        "occupation_name": "Empresária"
+    },
+    {
+        "occupation": 62,
+        "occupation_name": "Empresário"
+    },
+    {
+        "occupation": 63,
+        "occupation_name": "Encanador(a)"
+    },
+    {
+        "occupation": 64,
+        "occupation_name": "Endocrinologista"
+    },
+    {
+        "occupation": 65,
+        "occupation_name": "Enfermeiro(a)"
+    },
+    {
+        "occupation": 66,
+        "occupation_name": "Engenheiro"
+    },
+    {
+        "occupation": 67,
+        "occupation_name": "Engenheiro Civil"
+    },
+    {
+        "occupation": 68,
+        "occupation_name": "Engenheiro Mecânico"
+    },
+    {
+        "occupation": 69,
+        "occupation_name": "Escrituração"
+    },
+    {
+        "occupation": 70,
+        "occupation_name": "Especialista em Relações Públicas"
+    },
+    {
+        "occupation": 71,
+        "occupation_name": "Especialista em RH"
+    },
+    {
+        "occupation": 72,
+        "occupation_name": "Esteticista"
+    },
+    {
+        "occupation": 73,
+        "occupation_name": "Estudante"
+    },
+    {
+        "occupation": 74,
+        "occupation_name": "Fabricante"
+    },
+    {
+        "occupation": 75,
+        "occupation_name": "Farmacêutico(a)"
+    },
+    {
+        "occupation": 76,
+        "occupation_name": "Faxineiro(a)"
+    },
+    {
+        "occupation": 77,
+        "occupation_name": "Ferreiro(a)"
+    },
+    {
+        "occupation": 78,
+        "occupation_name": "Fisioterapeuta"
+    },
+    {
+        "occupation": 79,
+        "occupation_name": "Fisioterapeuta Assistente"
+    },
+    {
+        "occupation": 80,
+        "occupation_name": "Florista"
+    },
+    {
+        "occupation": 81,
+        "occupation_name": "Fotógrafo(a)"
+    },
+    {
+        "occupation": 82,
+        "occupation_name": "Garçom"
+    },
+    {
+        "occupation": 83,
+        "occupation_name": "Gerente de Construção"
+    },
+    {
+        "occupation": 84,
+        "occupation_name": "Gerente de Marketing"
+    },
+    {
+        "occupation": 85,
+        "occupation_name": "Gerente de Operações Comerciais"
+    },
+    {
+        "occupation": 86,
+        "occupation_name": "Gerente de TI"
+    },
+    {
+        "occupation": 87,
+        "occupation_name": "Gerente de Vendas"
+    },
+    {
+        "occupation": 88,
+        "occupation_name": "Gerente financeiro"
+    },
+    {
+        "occupation": 89,
+        "occupation_name": "Guarda de Trânsito"
+    },
+    {
+        "occupation": 90,
+        "occupation_name": "Inspetor(a)"
+    },
+    {
+        "occupation": 91,
+        "occupation_name": "Instrutor(a)"
+    },
+    {
+        "occupation": 92,
+        "occupation_name": "Intérprete e tradutor(a)"
+    },
+    {
+        "occupation": 93,
+        "occupation_name": "Jardineiro(a)"
+    },
+    {
+        "occupation": 94,
+        "occupation_name": "Jornalista"
+    },
+    {
+        "occupation": 95,
+        "occupation_name": "Limpador(a) de janelas"
+    },
+    {
+        "occupation": 96,
+        "occupation_name": "Logística"
+    },
+    {
+        "occupation": 97,
+        "occupation_name": "Massoterapeuta"
+    },
+    {
+        "occupation": 98,
+        "occupation_name": "Mecânico(a)"
+    },
+    {
+        "occupation": 99,
+        "occupation_name": "Médico(a)"
+    },
+    {
+        "occupation": 100,
+        "occupation_name": "Modelo"
+    },
+    {
+        "occupation": 101,
+        "occupation_name": "Motorista"
+    },
+    {
+        "occupation": 102,
+        "occupation_name": "Motorista de ônibus"
+    },
+    {
+        "occupation": 103,
+        "occupation_name": "Oficial de patrulha"
+    },
+    {
+        "occupation": 104,
+        "occupation_name": "Operador(a)"
+    },
+    {
+        "occupation": 105,
+        "occupation_name": "Operador(a) de Telemarketing"
+    },
+    {
+        "occupation": 106,
+        "occupation_name": "Operário(a)"
+    },
+    {
+        "occupation": 107,
+        "occupation_name": "Padeiro(a)"
+    },
+    {
+        "occupation": 108,
+        "occupation_name": "Paisagista e Jardineiro(a)"
+    },
+    {
+        "occupation": 109,
+        "occupation_name": "Pastor(a)"
+    },
+    {
+        "occupation": 110,
+        "occupation_name": "Pedreiro(a)"
+    },
+    {
+        "occupation": 111,
+        "occupation_name": "Piloto(a)"
+    },
+    {
+        "occupation": 112,
+        "occupation_name": "Pintor(a)"
+    },
+    {
+        "occupation": 113,
+        "occupation_name": "Policial"
+    },
+    {
+        "occupation": 114,
+        "occupation_name": "Político(a)"
+    },
+    {
+        "occupation": 115,
+        "occupation_name": "Professor(a) de ensino médio"
+    },
+    {
+        "occupation": 116,
+        "occupation_name": "Professor(a) de escola fundamental"
+    },
+    {
+        "occupation": 117,
+        "occupation_name": "Professor(a) pré-escolar"
+    },
+    {
+        "occupation": 118,
+        "occupation_name": "Profissional de Recreação e Fitness"
+    },
+    {
+        "occupation": 119,
+        "occupation_name": "Programador(a)"
+    },
+    {
+        "occupation": 120,
+        "occupation_name": "Psicólogo(a) Escolar"
+    },
+    {
+        "occupation": 121,
+        "occupation_name": "Químico(a)"
+    },
+    {
+        "occupation": 122,
+        "occupation_name": "Recepcionista"
+    },
+    {
+        "occupation": 123,
+        "occupation_name": "Representante de Atendimento ao Cliente"
+    },
+    {
+        "occupation": 124,
+        "occupation_name": "Representante de Vendas"
+    },
+    {
+        "occupation": 125,
+        "occupation_name": "Sapateiro(a)"
+    },
+    {
+        "occupation": 126,
+        "occupation_name": "Secretária Médica"
+    },
+    {
+        "occupation": 127,
+        "occupation_name": "Secretário(a)"
+    },
+    {
+        "occupation": 128,
+        "occupation_name": "Segurança"
+    },
+    {
+        "occupation": 129,
+        "occupation_name": "Soldado"
+    },
+    {
+        "occupation": 130,
+        "occupation_name": "Supervisor(a)"
+    },
+    {
+        "occupation": 131,
+        "occupation_name": "Supervisor(a) De Manutenção"
+    },
+    {
+        "occupation": 132,
+        "occupation_name": "Taxista"
+    },
+    {
+        "occupation": 133,
+        "occupation_name": "Técnico(a) de Laboratório Clínico"
+    },
+    {
+        "occupation": 134,
+        "occupation_name": "Técnico(a) farmacêutico(a)"
+    },
+    {
+        "occupation": 135,
+        "occupation_name": "Trabalhador(a) da Construção"
+    },
+    {
+        "occupation": 136,
+        "occupation_name": "Trabalhador(a) de Manutenção e Reparos"
+    },
+    {
+        "occupation": 137,
+        "occupation_name": "Tradutor(a)"
+    },
+    {
+        "occupation": 138,
+        "occupation_name": "Treinador de Esportes"
+    },
+    {
+        "occupation": 139,
+        "occupation_name": "Vendedor"
+    },
+    {
+        "occupation": 140,
+        "occupation_name": "Vendedora"
+    },
+    {
+        "occupation": 141,
+        "occupation_name": "Veterinário(a)"
+    },
+    {
+        "occupation": 142,
+        "occupation_name": "Zelador(a)"
+    }
+]

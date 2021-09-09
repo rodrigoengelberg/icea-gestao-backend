@@ -19,7 +19,7 @@ describe('UpdateUserAvatar', () => {
     )
   })
 
-  it('should be able to create a new member', async () => {
+  it('should be able to update a member', async () => {
     const member = await fakeMembersRepository.create({
       first_name: 'John',
       full_name: 'John Doe',
