@@ -22,7 +22,7 @@ class Member {
   first_name: string
 
   @Column({ nullable: false })
-  full_name: string
+  last_name: string
 
   @Column({ unique: true })
   email: string

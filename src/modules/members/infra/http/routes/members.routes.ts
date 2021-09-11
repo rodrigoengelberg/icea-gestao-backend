@@ -26,7 +26,7 @@ membersRouter.post(
   celebrate({
     [Segments.BODY]: {
       first_name: Joi.string().required(),
-      full_name: Joi.string().required(),
+      last_name: Joi.string().required(),
       email: Joi.string().email().allow(null, ''),
       gender: Joi.string().required(),
       marital_status: Joi.string().allow(null, ''),
@@ -70,7 +70,7 @@ membersRouter.put(
     [Segments.BODY]: {
       id: Joi.string().optional().allow(null, ''),
       first_name: Joi.string().required(),
-      full_name: Joi.string().required(),
+      last_name: Joi.string().required(),
       email: Joi.string().email().allow(null, ''),
       gender: Joi.string().required(),
       marital_status: Joi.string().allow(null, ''),

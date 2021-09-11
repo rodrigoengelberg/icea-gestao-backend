@@ -47,7 +47,7 @@ export default class MembersController {
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       first_name,
-      full_name,
+      last_name,
       email,
       gender,
       marital_status,
@@ -66,7 +66,7 @@ export default class MembersController {
 
     const member = await createMember.execute({
       first_name,
-      full_name,
+      last_name,
       email,
       gender,
       marital_status,
@@ -89,7 +89,7 @@ export default class MembersController {
 
     const {
       first_name,
-      full_name,
+      last_name,
       email,
       gender,
       marital_status,
@@ -109,7 +109,7 @@ export default class MembersController {
     const member = await updateMember.execute({
       member_id,
       first_name,
-      full_name,
+      last_name,
       email,
       gender,
       marital_status,

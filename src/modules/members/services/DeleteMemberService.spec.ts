@@ -30,7 +30,7 @@ describe('DeleteMember', () => {
   it('should be able to delete a member', async () => {
     const member = await createMember.execute({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -53,7 +53,7 @@ describe('DeleteMember', () => {
   it('should NOT be able to delete a member', async () => {
     await createMember.execute({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -70,7 +70,7 @@ describe('DeleteMember', () => {
 
     await createMember.execute({
       first_name: 'John',
-      full_name: 'John Tru',
+      last_name: 'John Tru',
       email: 'johntru@example.com',
       gender: 'Male',
       marital_status: 'Casado',

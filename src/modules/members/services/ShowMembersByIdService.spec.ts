@@ -17,7 +17,7 @@ describe('ShowMemberById', () => {
   it('should be able to show the member', async () => {
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -37,7 +37,7 @@ describe('ShowMemberById', () => {
     })
 
     expect(memberCreated.first_name).toBe('John')
-    expect(memberCreated.full_name).toBe('John Doe')
+    expect(memberCreated.last_name).toBe('John Doe')
     expect(memberCreated.email).toBe('johndoe@example.com')
   })
 

@@ -19,7 +19,7 @@ export default class CreateAppointments1601469847641
             type: 'varchar'
           },
           {
-            name: 'full_name',
+            name: 'last_name',
             type: 'varchar'
           },
           {

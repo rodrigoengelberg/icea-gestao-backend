@@ -16,7 +16,7 @@ describe('ShowMembers', () => {
   it('should be able to show the members', async () => {
     await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -33,7 +33,7 @@ describe('ShowMembers', () => {
 
     await fakeMembersRepository.create({
       first_name: 'Peter',
-      full_name: 'Peter Doe',
+      last_name: 'Peter Doe',
       email: 'johndoe_new@example.com',
       gender: 'Male',
       marital_status: 'Solteiro',
@@ -52,7 +52,7 @@ describe('ShowMembers', () => {
 
     expect(members.length).toBeGreaterThan(0)
     expect(members[0].first_name).toBe('John')
-    expect(members[0].full_name).toBe('John Doe')
+    expect(members[0].last_name).toBe('John Doe')
     expect(members[0].email).toBe('johndoe@example.com')
   })
 })

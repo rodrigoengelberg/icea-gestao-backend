@@ -30,7 +30,7 @@ interface IRequestMemberSpiritual {
 
 interface IRequest {
   first_name: string
-  full_name: string
+  last_name: string
   email: string
   gender: string
   marital_status: string
@@ -57,7 +57,7 @@ class CreateMemberService {
 
   public async execute({
     first_name,
-    full_name,
+    last_name,
     email,
     gender,
     marital_status,
@@ -79,7 +79,7 @@ class CreateMemberService {
 
     const members = await this.membersRepository.create({
       first_name,
-      full_name,
+      last_name,
       email,
       gender,
       marital_status,

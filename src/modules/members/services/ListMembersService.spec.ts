@@ -22,7 +22,7 @@ describe('ListMembers', () => {
   it('should be able to list the members', async () => {
     const member1 = await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -39,7 +39,7 @@ describe('ListMembers', () => {
 
     const member2 = await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Tru',
+      last_name: 'John Tru',
       email: 'johntru@example.com',
       gender: 'Male',
       marital_status: 'Solteiro',

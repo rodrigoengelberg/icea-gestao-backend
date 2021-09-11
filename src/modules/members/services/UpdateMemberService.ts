@@ -33,7 +33,7 @@ interface IRequestMemberSpiritual {
 interface IRequest {
   member_id: string
   first_name: string
-  full_name: string
+  last_name: string
   email: string
   gender: string
   marital_status: string
@@ -61,7 +61,7 @@ class UpdateMemberService {
   public async execute({
     member_id,
     first_name,
-    full_name,
+    last_name,
     email,
     gender,
     marital_status,
@@ -92,7 +92,7 @@ class UpdateMemberService {
       { id: member_id },
       {
         first_name,
-        full_name,
+        last_name,
         email,
         gender,
         marital_status,

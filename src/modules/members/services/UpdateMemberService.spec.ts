@@ -24,7 +24,7 @@ describe('UpdateUserAvatar', () => {
   it('should be able to update a member', async () => {
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado(a)',
@@ -42,7 +42,7 @@ describe('UpdateUserAvatar', () => {
     await updateMemberService.execute({
       member_id: member.id,
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe_new@example.com',
       gender: 'Male',
       marital_status: 'Solteiro(a)',
@@ -66,7 +66,7 @@ describe('UpdateUserAvatar', () => {
       updateMemberService.execute({
         member_id: 'non-existing-user',
         first_name: 'John',
-        full_name: 'John Doe',
+        last_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
         marital_status: 'Casado(a)',
@@ -86,7 +86,7 @@ describe('UpdateUserAvatar', () => {
   it('should not be able update member with existing email', async () => {
     await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado(a)',
@@ -103,7 +103,7 @@ describe('UpdateUserAvatar', () => {
 
     const member = await fakeMembersRepository.create({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe_new@example.com',
       gender: 'Male',
       marital_status: 'Casado(a)',
@@ -122,7 +122,7 @@ describe('UpdateUserAvatar', () => {
       updateMemberService.execute({
         member_id: member.id,
         first_name: 'John',
-        full_name: 'John Doe',
+        last_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
         marital_status: 'Casado(a)',

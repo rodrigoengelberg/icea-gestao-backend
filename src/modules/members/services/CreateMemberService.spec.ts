@@ -24,7 +24,7 @@ describe('CreateMember', () => {
   it('should be able to create a new member', async () => {
     const member = await createMember.execute({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -45,7 +45,7 @@ describe('CreateMember', () => {
   it('should not be able to create a new member with email from another', async () => {
     await createMember.execute({
       first_name: 'John',
-      full_name: 'John Doe',
+      last_name: 'John Doe',
       email: 'johndoe@example.com',
       gender: 'Male',
       marital_status: 'Casado',
@@ -63,7 +63,7 @@ describe('CreateMember', () => {
     await expect(
       createMember.execute({
         first_name: 'John',
-        full_name: 'John Doe',
+        last_name: 'John Doe',
         email: 'johndoe@example.com',
         gender: 'Male',
         marital_status: 'Casado',
