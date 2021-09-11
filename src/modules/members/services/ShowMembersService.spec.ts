@@ -1,5 +1,7 @@
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import ShowMembersService from './ShowMembersService'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let showMembers: ShowMembersService
@@ -24,7 +26,9 @@ describe('ShowMembers', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await fakeMembersRepository.create({
@@ -39,7 +43,9 @@ describe('ShowMembers', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     const members = await showMembers.execute()

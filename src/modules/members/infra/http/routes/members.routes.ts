@@ -1,14 +1,12 @@
 import { celebrate, Joi, Segments } from 'celebrate'
 import { Router } from 'express'
 import MembersController from '../controllers/MembersController'
-import MembersContactController from '../controllers/MembersContactController'
 import TypesDomainController from '../controllers/TypesDomainController'
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 
 const membersRouter = Router()
 
 const membersController = new MembersController()
-const membersContactController = new MembersContactController()
 const typesDomainController = new TypesDomainController()
 
 membersRouter.use(ensureAuthenticated)
@@ -29,14 +27,38 @@ membersRouter.post(
     [Segments.BODY]: {
       first_name: Joi.string().required(),
       full_name: Joi.string().required(),
-      email: Joi.string().email(),
+      email: Joi.string().email().allow(null, ''),
       gender: Joi.string().required(),
-      marital_status: Joi.string(),
+      marital_status: Joi.string().allow(null, ''),
       nationality: Joi.string().required(),
-      birth_date: Joi.date().iso(),
-      member_contact: Joi.any().optional(),
-      member_details: Joi.any().optional(),
-      member_spiritual: Joi.any().optional()
+      birth_date: Joi.date().iso().allow(null, ''),
+      occupation: Joi.string().optional().allow(null, ''),
+      schooling: Joi.string().optional().allow(null, ''),
+      facebook_link: Joi.string().optional().allow(null, ''),
+      instagram_link: Joi.string().optional().allow(null, ''),
+      avatar: Joi.string().optional().allow(null, ''),
+      member_contact: Joi.object({
+        address: Joi.string().optional().allow(null, ''),
+        state: Joi.string().optional().allow(null, ''),
+        city: Joi.string().optional().allow(null, ''),
+        zipcode: Joi.number().optional().allow(null, ''),
+        phone_type: Joi.number().optional().allow(null, ''),
+        phone_type_name: Joi.string().optional().allow(null, ''),
+        phone_number: Joi.number().optional().allow(null, '')
+      })
+        .optional()
+        .allow(null, ''),
+      member_spiritual: Joi.object({
+        member_function: Joi.string().optional().allow(null, ''),
+        member_status: Joi.string().optional().allow(null, ''),
+        baptism_date: Joi.date().iso().optional().allow(null, ''),
+        joined_date: Joi.date().iso().optional().allow(null, ''),
+        tithe_member: Joi.number().optional().allow(null, ''),
+        problems: Joi.string().optional().allow(null, ''),
+        testimony: Joi.string().optional().allow(null, '')
+      })
+        .optional()
+        .allow(null, '')
     }
   }),
   membersController.create
@@ -46,70 +68,55 @@ membersRouter.put(
   '/:member_id',
   celebrate({
     [Segments.BODY]: {
-      id: Joi.string().optional(),
+      id: Joi.string().optional().allow(null, ''),
       first_name: Joi.string().required(),
       full_name: Joi.string().required(),
-      email: Joi.string().email(),
+      email: Joi.string().email().allow(null, ''),
       gender: Joi.string().required(),
-      marital_status: Joi.string(),
+      marital_status: Joi.string().allow(null, ''),
       nationality: Joi.string().required(),
-      birth_date: Joi.date().iso(),
-      member_contact: Joi.any(),
-      member_details: Joi.any(),
-      member_spiritual: Joi.any(),
-      created_at: Joi.string().optional(),
-      updated_at: Joi.string().optional()
+      birth_date: Joi.date().iso().allow(null, ''),
+      occupation: Joi.string().optional().allow(null, ''),
+      schooling: Joi.string().optional().allow(null, ''),
+      facebook_link: Joi.string().optional().allow(null, ''),
+      instagram_link: Joi.string().optional().allow(null, ''),
+      avatar: Joi.string().optional().allow(null, ''),
+      member_contact: Joi.object({
+        id: Joi.string().optional().allow(null, ''),
+        member_id: Joi.string().optional().allow(null, ''),
+        address: Joi.string().optional().allow(null, ''),
+        state: Joi.string().optional().allow(null, ''),
+        city: Joi.string().optional().allow(null, ''),
+        zipcode: Joi.number().optional().allow(null, ''),
+        phone_type: Joi.number().optional().allow(null, ''),
+        phone_type_name: Joi.string().optional().allow(null, ''),
+        phone_number: Joi.number().optional().allow(null, ''),
+        created_at: Joi.string().optional().allow(null, ''),
+        updated_at: Joi.string().optional().allow(null, '')
+      })
+        .optional()
+        .allow(null, ''),
+      member_spiritual: Joi.object({
+        id: Joi.string().optional().allow(null, ''),
+        member_id: Joi.string().optional().allow(null, ''),
+        member_function: Joi.string().optional().allow(null, ''),
+        member_status: Joi.string().optional().allow(null, ''),
+        baptism_date: Joi.date().iso().optional().allow(null, ''),
+        joined_date: Joi.date().iso().optional().allow(null, ''),
+        tithe_member: Joi.number().optional().allow(null, ''),
+        problems: Joi.string().optional().allow(null, ''),
+        testimony: Joi.string().optional().allow(null, ''),
+        created_at: Joi.string().optional().allow(null, ''),
+        updated_at: Joi.string().optional().allow(null, '')
+      })
+        .optional()
+        .allow(null, ''),
+      created_at: Joi.string().optional().allow(null, ''),
+      updated_at: Joi.string().optional().allow(null, '')
     }
   }),
   membersController.update
 )
 membersRouter.delete('/:member_id', membersController.delete)
-
-membersRouter.get('/contact', membersContactController.show)
-membersRouter.post(
-  '/contact',
-  celebrate({
-    [Segments.BODY]: {
-      member_id: Joi.string().required(),
-      address: Joi.string().optional(),
-      state: Joi.string().optional(),
-      city: Joi.string().optional(),
-      zipcode: Joi.number().optional(),
-      phone_type: Joi.number().optional(),
-      phone_type_name: Joi.string().optional(),
-      phone_number: Joi.number().optional()
-    }
-  }),
-  membersContactController.create
-)
-membersRouter.get(
-  '/:member_id/contact/:member_contact_id',
-  membersContactController.showById
-)
-membersRouter.put(
-  '/:member_id/contact/:member_contact_id',
-  celebrate({
-    [Segments.BODY]: {
-      id: Joi.string().optional(),
-      first_name: Joi.string().required(),
-      full_name: Joi.string().required(),
-      email: Joi.string().email(),
-      gender: Joi.string().required(),
-      marital_status: Joi.string(),
-      nationality: Joi.string().required(),
-      birth_date: Joi.date().iso(),
-      member_contact: Joi.any(),
-      member_details: Joi.any(),
-      member_spiritual: Joi.any(),
-      created_at: Joi.string().optional(),
-      updated_at: Joi.string().optional()
-    }
-  }),
-  membersContactController.update
-)
-membersRouter.delete(
-  '/:member_id/contact/:member_contact_id',
-  membersContactController.delete
-)
 
 export default membersRouter

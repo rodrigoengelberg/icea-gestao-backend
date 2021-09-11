@@ -6,6 +6,30 @@ import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICa
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
 
+interface IRequestMemberContact {
+  id?: string
+  member_id?: string
+  address: string
+  state: string
+  city: string
+  zipcode: number
+  phone_type: number
+  phone_type_name: string
+  phone_number: number
+}
+
+interface IRequestMemberSpiritual {
+  id?: string
+  member_id?: string
+  member_function: string
+  member_status: string
+  baptism_date: Date
+  joined_date: Date
+  tithe_member: number
+  problems: string
+  testimony: string
+}
+
 interface IRequest {
   member_id: string
   first_name: string
@@ -20,6 +44,8 @@ interface IRequest {
   facebook_link: string
   instagram_link: string
   avatar: string
+  member_contact: IRequestMemberContact
+  member_spiritual: IRequestMemberSpiritual
 }
 
 @injectable()
@@ -45,7 +71,9 @@ class UpdateMemberService {
     schooling,
     facebook_link,
     instagram_link,
-    avatar
+    avatar,
+    member_contact,
+    member_spiritual
   }: IRequest): Promise<Member> {
     const member = await this.membersRepository.findById(member_id)
 
@@ -74,7 +102,9 @@ class UpdateMemberService {
         schooling,
         facebook_link,
         instagram_link,
-        avatar
+        avatar,
+        member_contact,
+        member_spiritual
       }
     )
 

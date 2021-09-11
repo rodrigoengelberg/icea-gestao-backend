@@ -3,6 +3,8 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -32,7 +34,9 @@ describe('UpdateUserAvatar', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await updateMemberService.execute({
@@ -48,7 +52,9 @@ describe('UpdateUserAvatar', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     expect(member.marital_status).toBe('Solteiro(a)')
@@ -70,7 +76,9 @@ describe('UpdateUserAvatar', () => {
         schooling: 'Superior',
         facebook_link: 'facebook.com/johndole',
         instagram_link: 'instagram.com/johndole',
-        avatar: '/endereco/avatar.png'
+        avatar: '/endereco/avatar.png',
+        member_contact: new MemberContact(),
+        member_spiritual: new MemberSpiritual()
       })
     ).rejects.toBeInstanceOf(AppError)
   })
@@ -88,7 +96,9 @@ describe('UpdateUserAvatar', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     const member = await fakeMembersRepository.create({
@@ -103,7 +113,9 @@ describe('UpdateUserAvatar', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await expect(
@@ -120,7 +132,9 @@ describe('UpdateUserAvatar', () => {
         schooling: 'Superior',
         facebook_link: 'facebook.com/johndole',
         instagram_link: 'instagram.com/johndole',
-        avatar: '/endereco/avatar.png'
+        avatar: '/endereco/avatar.png',
+        member_contact: new MemberContact(),
+        member_spiritual: new MemberSpiritual()
       })
     ).rejects.toBeInstanceOf(AppError)
   })

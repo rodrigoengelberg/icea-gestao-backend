@@ -15,7 +15,7 @@ describe('CreatePatrimonies', () => {
 
     createPatrimony = new CreatePatrimoniesService(
       fakePatrimonyRepository,
-      fakeCacheProvider,
+      fakeCacheProvider
     )
   })
 
@@ -33,7 +33,7 @@ describe('CreatePatrimonies', () => {
 
   it('should not be able to create a new patrimony with description from another', async () => {
     await createPatrimony.execute({
-      description: 'Computador',
+      description: 'Mesa de Som',
       accounting_classification: 1,
       accounting_classification_name: 'Eletrônicos',
       localization: 'Escritório',
@@ -42,13 +42,12 @@ describe('CreatePatrimonies', () => {
 
     await expect(
       createPatrimony.execute({
-        description: 'Computador',
+        description: 'Mesa de Som',
         accounting_classification: 1,
         accounting_classification_name: 'Eletrônicos',
         localization: 'Escritório',
         observations: 'Computador utilizado pelo pastor'
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
-
 })

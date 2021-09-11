@@ -3,6 +3,8 @@ import AppError from '@shared/errors/AppError'
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
 import DeleteMemberService from './DeleteMemberService'
+import MemberContact from '@modules/members/infra/typeorm/entities/MemberContact'
+import MemberSpiritual from '@modules/members/infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -38,7 +40,9 @@ describe('DeleteMember', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     const memberDeleted = await deleteMember.execute({ member_id: member.id })
@@ -59,7 +63,9 @@ describe('DeleteMember', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await createMember.execute({
@@ -74,7 +80,9 @@ describe('DeleteMember', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await expect(

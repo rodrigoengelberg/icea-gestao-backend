@@ -57,7 +57,9 @@ export default class MembersController {
       schooling,
       facebook_link,
       instagram_link,
-      avatar
+      avatar,
+      member_contact,
+      member_spiritual
     } = request.body
 
     const createMember = container.resolve(CreateMemberService)
@@ -74,7 +76,9 @@ export default class MembersController {
       schooling,
       facebook_link,
       instagram_link,
-      avatar
+      avatar,
+      member_contact,
+      member_spiritual
     })
 
     return response.json(classToClass(member))
@@ -95,7 +99,9 @@ export default class MembersController {
       schooling,
       facebook_link,
       instagram_link,
-      avatar
+      avatar,
+      member_contact,
+      member_spiritual
     } = request.body
 
     const updateMember = container.resolve(UpdateMemberService)
@@ -113,7 +119,9 @@ export default class MembersController {
       schooling,
       facebook_link,
       instagram_link,
-      avatar
+      avatar,
+      member_contact,
+      member_spiritual
     })
 
     return response.json(classToClass(member))

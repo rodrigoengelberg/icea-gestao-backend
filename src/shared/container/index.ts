@@ -9,9 +9,6 @@ import MembersRepository from '@modules/members/infra/typeorm/repositories/Membe
 import IMembersContactRepository from '@modules/members/repositories/IMembersContactRepository'
 import MembersContactRepository from '@modules/members/infra/typeorm/repositories/MembersContactRepository'
 
-import IMembersDetailsRepository from '@modules/members/repositories/IMembersDetailsRepository'
-import MembersDetailsRepository from '@modules/members/infra/typeorm/repositories/MembersDetailsRepository'
-
 import IPatrimonyRepository from '@modules/patrimonies/repositories/IPatrimonyRepository'
 import PatrimonyRepository from '@modules/patrimonies/infra/typeorm/repositories/PatrimonyRepository'
 
@@ -26,35 +23,30 @@ import NotificationsRepository from '@modules/notifications/infra/typeorm/reposi
 
 container.registerSingleton<IMembersRepository>(
   'MembersRepository',
-  MembersRepository,
+  MembersRepository
 )
 
 container.registerSingleton<IMembersContactRepository>(
   'MembersContactRepository',
-  MembersContactRepository,
-)
-
-container.registerSingleton<IMembersDetailsRepository>(
-  'MembersDetailsRepository',
-  MembersDetailsRepository,
+  MembersContactRepository
 )
 
 container.registerSingleton<IPatrimonyRepository>(
   'PatrimonyRepository',
-  PatrimonyRepository,
+  PatrimonyRepository
 )
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
-  UsersRepository,
+  UsersRepository
 )
 
 container.registerSingleton<IUserTokensRepository>(
   'UserTokensRepository',
-  UserTokensRepository,
+  UserTokensRepository
 )
 
 container.registerSingleton<INotificationsRepository>(
   'NotificationsRepository',
-  NotificationsRepository,
+  NotificationsRepository
 )

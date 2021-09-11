@@ -3,6 +3,8 @@ import AppError from '@shared/errors/AppError'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '../repositories/fakes/FakeMembersRepository'
 import CreateMemberService from './CreateMemberService'
+import MemberContact from '../infra/typeorm/entities/MemberContact'
+import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
 let fakeCacheProvider: FakeCacheProvider
@@ -32,7 +34,9 @@ describe('CreateMember', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     expect(member).toHaveProperty('id')
@@ -51,7 +55,9 @@ describe('CreateMember', () => {
       schooling: 'Superior',
       facebook_link: 'facebook.com/johndole',
       instagram_link: 'instagram.com/johndole',
-      avatar: '/endereco/avatar.png'
+      avatar: '/endereco/avatar.png',
+      member_contact: new MemberContact(),
+      member_spiritual: new MemberSpiritual()
     })
 
     await expect(
@@ -67,7 +73,9 @@ describe('CreateMember', () => {
         schooling: 'Superior',
         facebook_link: 'facebook.com/johndole',
         instagram_link: 'instagram.com/johndole',
-        avatar: '/endereco/avatar.png'
+        avatar: '/endereco/avatar.png',
+        member_contact: new MemberContact(),
+        member_spiritual: new MemberSpiritual()
       })
     ).rejects.toBeInstanceOf(AppError)
   })
