@@ -12,44 +12,39 @@ import Member from './Member'
 
 @Entity('members_contact')
 class MemberContact {
-
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column({ nullable: false })
-  member_id: string;
+  member_id: string
 
   @OneToOne(() => Member)
   @JoinColumn({ name: 'member_id' })
-  member: Member;
+  member: Member
 
   @Column()
-  address: string;
+  address: string
 
   @Column()
-  state: string;
+  state: string
 
   @Column()
-  city: string;
+  city: string
 
   @Column('integer')
-  zipcode: number;
-
-  @Column('integer')
-  phone_type: number;
+  zipcode: number
 
   @Column()
-  phone_type_name: string;
+  phone_type_name: string
 
   @Column('integer')
-  phone_number: number;
+  phone_number: number
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
 
   @UpdateDateColumn()
-  updated_at: Date;
-  
+  updated_at: Date
 }
 
 export default MemberContact

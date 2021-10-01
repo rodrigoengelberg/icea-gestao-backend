@@ -42,7 +42,6 @@ membersRouter.post(
         state: Joi.string().optional().allow(null, ''),
         city: Joi.string().optional().allow(null, ''),
         zipcode: Joi.number().optional().allow(null, ''),
-        phone_type: Joi.number().optional().allow(null, ''),
         phone_type_name: Joi.string().optional().allow(null, ''),
         phone_number: Joi.number().optional().allow(null, '')
       })
@@ -88,7 +87,6 @@ membersRouter.put(
         state: Joi.string().optional().allow(null, ''),
         city: Joi.string().optional().allow(null, ''),
         zipcode: Joi.number().optional().allow(null, ''),
-        phone_type: Joi.number().optional().allow(null, ''),
         phone_type_name: Joi.string().optional().allow(null, ''),
         phone_number: Joi.number().optional().allow(null, ''),
         created_at: Joi.string().optional().allow(null, ''),
