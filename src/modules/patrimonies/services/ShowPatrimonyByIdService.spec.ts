@@ -16,14 +16,13 @@ describe('ShowPatrimonyById', () => {
   it('should be able to show the member', async () => {
     const patrimony = await fakePatrimonyRepository.create({
       description: 'Computador',
-      accounting_classification: 1,
-      accounting_classification_name: 'Eletrônicos',
+      accounting_classification: 'Eletrônicos',
       localization: 'Escritório',
       observations: 'Computador utilizado pelo pastor'
     })
 
     const patrimonyCreated = await showPatrimonies.execute({
-      patrimony_id: patrimony.id,
+      patrimony_id: patrimony.id
     })
 
     expect(patrimonyCreated.description).toBe('Computador')
@@ -34,8 +33,8 @@ describe('ShowPatrimonyById', () => {
   it('should not be able to show the patrimony from a non-existing', async () => {
     await expect(
       showPatrimonies.execute({
-        patrimony_id: 'non-existing-user-id',
-      }),
+        patrimony_id: 'non-existing-user-id'
+      })
     ).rejects.toBeInstanceOf(AppError)
   })
 })

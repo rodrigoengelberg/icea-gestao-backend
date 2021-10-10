@@ -8,8 +8,7 @@ import IPatrimonyRepository from '../repositories/IPatrimonyRepository'
 
 interface IRequest {
   description: string
-  accounting_classification: number
-  accounting_classification_name: string
+  accounting_classification: string
   localization: string
   observations: string
 }
@@ -21,17 +20,18 @@ class CreatePatrimoniesService {
     private patrimonyRepository: IPatrimonyRepository,
 
     @inject('CacheProvider')
-    private cacheProvider: ICacheProvider,
-  ) { }
+    private cacheProvider: ICacheProvider
+  ) {}
 
   public async execute({
     description,
     accounting_classification,
-    accounting_classification_name,
     localization,
     observations
   }: IRequest): Promise<Patrimony> {
-    const checkPatrimonyExists = await this.patrimonyRepository.findByDescription(description)
+    const checkPatrimonyExists = await this.patrimonyRepository.findByDescription(
+      description
+    )
 
     if (checkPatrimonyExists) {
       throw new AppError('Patrimony description already used.')
@@ -40,7 +40,6 @@ class CreatePatrimoniesService {
     const patrimonies = await this.patrimonyRepository.create({
       description,
       accounting_classification,
-      accounting_classification_name,
       localization,
       observations
     })

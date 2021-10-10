@@ -22,8 +22,7 @@ describe('CreatePatrimonies', () => {
   it('should be able to create a new member', async () => {
     const patrimony = await createPatrimony.execute({
       description: 'Computador',
-      accounting_classification: 1,
-      accounting_classification_name: 'Eletrônicos',
+      accounting_classification: 'Eletrônicos',
       localization: 'Escritório',
       observations: 'Computador utilizado pelo pastor'
     })
@@ -34,8 +33,7 @@ describe('CreatePatrimonies', () => {
   it('should not be able to create a new patrimony with description from another', async () => {
     await createPatrimony.execute({
       description: 'Mesa de Som',
-      accounting_classification: 1,
-      accounting_classification_name: 'Eletrônicos',
+      accounting_classification: 'Eletrônicos',
       localization: 'Escritório',
       observations: 'Computador utilizado pelo pastor'
     })
@@ -43,8 +41,7 @@ describe('CreatePatrimonies', () => {
     await expect(
       createPatrimony.execute({
         description: 'Mesa de Som',
-        accounting_classification: 1,
-        accounting_classification_name: 'Eletrônicos',
+        accounting_classification: 'Eletrônicos',
         localization: 'Escritório',
         observations: 'Computador utilizado pelo pastor'
       })

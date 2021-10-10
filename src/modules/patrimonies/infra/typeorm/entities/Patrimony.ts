@@ -1,37 +1,33 @@
 import {
   Column,
   CreateDateColumn,
-  Entity, PrimaryGeneratedColumn,
+  Entity,
+  PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
+} from 'typeorm'
 
 @Entity('patrimony')
 class Patrimony {
-
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column({ nullable: false, unique: true })
-  description: string;
+  description: string
 
   @Column()
-  accounting_classification: number;
+  accounting_classification: string
 
   @Column()
-  accounting_classification_name: string;
+  localization: string
 
   @Column()
-  localization: string;
-
-  @Column()
-  observations: string;
+  observations: string
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
 
   @UpdateDateColumn()
-  updated_at: Date;
-
+  updated_at: Date
 }
 
 export default Patrimony

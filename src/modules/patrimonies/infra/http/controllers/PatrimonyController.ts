@@ -9,45 +9,45 @@ import ShowPatrimonyByIdService from '@modules/patrimonies/services/ShowPatrimon
 import DeletePatrimonyService from '@modules/patrimonies/services/DeletePatrimonyService'
 
 export default class PatrimonyController {
-
   public async show(request: Request, response: Response): Promise<Response> {
+    const showPatrimonies = container.resolve(ShowPatrimoniesService)
 
-    const showPatrimonies = container.resolve(ShowPatrimoniesService);
+    const patrimonies = await showPatrimonies.execute()
 
-    const patrimonies = await showPatrimonies.execute();
-
-    return response.json(classToClass(patrimonies));
+    return response.json(classToClass(patrimonies))
   }
 
-  public async showById(request: Request, response: Response): Promise<Response> {
-    const patrimony_id = request.params.patrimony_id;
+  public async showById(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
+    const patrimony_id = request.params.patrimony_id
 
-    const showPatrimonies = container.resolve(ShowPatrimonyByIdService);
+    const showPatrimonies = container.resolve(ShowPatrimonyByIdService)
 
     const patrimony = await showPatrimonies.execute({
-      patrimony_id,
-    });
+      patrimony_id
+    })
 
-    return response.json(classToClass(patrimony));
+    return response.json(classToClass(patrimony))
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
-    const patrimony_id = request.params.patrimony_id;
+    const patrimony_id = request.params.patrimony_id
 
-    const deletePatrimony = container.resolve(DeletePatrimonyService);
+    const deletePatrimony = container.resolve(DeletePatrimonyService)
 
     const responseDeleted = await deletePatrimony.execute({
-      patrimony_id,
-    });
+      patrimony_id
+    })
 
-    return response.json(classToClass(responseDeleted));
+    return response.json(classToClass(responseDeleted))
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       description,
       accounting_classification,
-      accounting_classification_name,
       localization,
       observations
     } = request.body
@@ -57,7 +57,6 @@ export default class PatrimonyController {
     const patrimony = await createPatrimony.execute({
       description,
       accounting_classification,
-      accounting_classification_name,
       localization,
       observations
     })
@@ -70,7 +69,6 @@ export default class PatrimonyController {
     const {
       description,
       accounting_classification,
-      accounting_classification_name,
       localization,
       observations
     } = request.body
@@ -81,12 +79,10 @@ export default class PatrimonyController {
       patrimony_id,
       description,
       accounting_classification,
-      accounting_classification_name,
       localization,
       observations
-    });
+    })
 
-    return response.json(classToClass(patrimony));
+    return response.json(classToClass(patrimony))
   }
-
 }

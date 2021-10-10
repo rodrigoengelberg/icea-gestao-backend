@@ -14,16 +14,14 @@ describe('ShowPatrimonies', () => {
   it('should be able to show the members', async () => {
     await fakePatrimonyRepository.create({
       description: 'Computador',
-      accounting_classification: 1,
-      accounting_classification_name: 'Eletrônicos',
+      accounting_classification: 'Eletrônicos',
       localization: 'Escritório',
       observations: 'Computador utilizado pelo pastor'
     })
 
     await fakePatrimonyRepository.create({
       description: 'Mesa de Som',
-      accounting_classification: 2,
-      accounting_classification_name: 'Áudio e vídeo',
+      accounting_classification: 'Áudio e vídeo',
       localization: 'Templo',
       observations: 'Mesa para templo e tranmissão'
     })
@@ -35,5 +33,4 @@ describe('ShowPatrimonies', () => {
     expect(patrimonies[0].accounting_classification).toBe(1)
     expect(patrimonies[0].localization).toBe('Escritório')
   })
-
 })
