@@ -11,7 +11,10 @@ const typesDomainController = new TypesDomainController()
 
 patrimoniesRouter.use(ensureAuthenticated)
 
-patrimoniesRouter.get('/accountingClassification', typesDomainController.showAccountingClassification)
+patrimoniesRouter.get(
+  '/accountingClassification',
+  typesDomainController.showAccountingClassification
+)
 
 patrimoniesRouter.get('/', patrimonyController.show)
 patrimoniesRouter.post(
@@ -19,11 +22,10 @@ patrimoniesRouter.post(
   celebrate({
     [Segments.BODY]: {
       description: Joi.string().required(),
-      accounting_classification: Joi.number().optional(),
-      accounting_classification_name: Joi.string().optional(),
+      accounting_classification: Joi.string().optional(),
       localization: Joi.string().optional(),
       observations: Joi.string().optional()
-    },
+    }
   }),
   patrimonyController.create
 )
@@ -34,13 +36,12 @@ patrimoniesRouter.put(
     [Segments.BODY]: {
       id: Joi.string().optional(),
       description: Joi.string().required(),
-      accounting_classification: Joi.number().optional(),
-      accounting_classification_name: Joi.string().optional(),
+      accounting_classification: Joi.string().optional(),
       localization: Joi.string().optional(),
       observations: Joi.string().optional(),
       created_at: Joi.string().optional(),
       updated_at: Joi.string().optional()
-    },
+    }
   }),
   patrimonyController.update
 )
