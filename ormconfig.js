@@ -13,17 +13,17 @@ module.exports = [
     // "password": "docker",
     // "database": "gostack_gobarber",
     entities: [
-      './' + process.env.LOCAL_DIR + '/modules/**/infra/typeorm/entities/*.ts'
-      //"./dist/modules/**/infra/typeorm/entities/*.js"
+      // './src/modules/**/infra/typeorm/entities/*.ts'
+      './dist/modules/**/infra/typeorm/entities/*.js'
     ],
     migrations: [
-      './' + process.env.LOCAL_DIR + '/shared/infra/typeorm/migrations/*.ts'
-      //"./dist/shared/infra/typeorm/migrations/*.js"
+      // './src/shared/infra/typeorm/migrations/*.ts'
+      './dist/shared/infra/typeorm/migrations/*.js'
     ],
     cli: {
       migrationsDir:
-        './' + process.env.LOCAL_DIR + '/shared/infra/typeorm/migrations'
-      //"migrationsDir": "./dist/shared/infra/typeorm/migrations"
+        // './src/shared/infra/typeorm/migrations'
+        './dist/shared/infra/typeorm/migrations'
     }
   }
   // {
