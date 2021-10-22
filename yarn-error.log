@@ -1,45 +1,46 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @babel/plugin-proposal-calss-properties
+  C:\Program Files\nodejs\node.exe C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\OpenJDK\openjdk-11.0.10_9\bin;D:\Softwares\apache-maven-3.6.3\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;D:\Softwares\Android\Sdk\emulator;D:\Softwares\Android\Sdk\tools;D:\Softwares\Android\Sdk\tools\bin;D:\Softwares\Android\Sdk\platform-tools;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\rodri\.windows-build-tools\python27\;C:\Users\rodri\AppData\Local\Microsoft\WindowsApps;C:\Users\rodri\AppData\Local\GitHubDesktop\bin;C:\Users\rodri\AppData\Roaming\npm;C:\Users\rodri\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\rodri\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin
+  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_261\bin;D:\Softwares\apache-maven-3.8.1\bin;C:\ProgramData\chocolatey\bin;D:\Softwares\Android\Sdk\emulator;D:\Softwares\Android\Sdk\tools;D:\Softwares\Android\Sdk\tools\bin;D:\Softwares\Android\Sdk\platform-tools;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\rodri\AppData\Roaming\nvm;C:\Program Files\nodejs;;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\rodri\.windows-build-tools\python27\;C:\Users\rodri\AppData\Local\Microsoft\WindowsApps;C:\Users\rodri\AppData\Local\GitHubDesktop\bin;C:\Users\rodri\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\rodri\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\rodri\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\rodri\AppData\Roaming\npm
 
 Yarn version: 
   1.22.10
 
 Node version: 
-  14.16.0
+  14.17.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel%2fplugin-proposal-calss-properties: Not found
+  Error: https://registry.yarnpkg.com/@babel%2flugin-proposal-class-properties: Not found
       at Request.params.callback [as _callback] (C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
-      at Request.emit (events.js:315:20)
+      at Request.emit (events.js:376:20)
       at Request.<anonymous> (C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141634:10)
-      at Request.emit (events.js:315:20)
+      at Request.emit (events.js:376:20)
       at IncomingMessage.<anonymous> (C:\Users\rodri\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141556:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (internal/streams/readable.js:1327:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+      at Object.onceWrapper (events.js:482:28)
+      at IncomingMessage.emit (events.js:388:22)
+      at endReadableNT (internal/streams/readable.js:1336:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
-    "name": "osiris-backend",
+    "name": "icea-gestao-backend",
     "version": "0.1.0",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-      "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
-      "start": "ts-node dist/shared/infra/http/server.js",
+      "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+      "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+      "start": "node dist/shared/infra/http/server.js",
       "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
       "test": "jest"
     },
     "dependencies": {
+      "@hapi/joi-date": "^2.0.1",
       "aws-sdk": "^2.822.0",
       "bcryptjs": "^2.4.3",
       "celebrate": "^13.0.4",
@@ -69,6 +70,7 @@ npm manifest:
       "@babel/core": "^7.13.10",
       "@babel/node": "^7.13.10",
       "@babel/plugin-proposal-decorators": "^7.13.5",
+      "@babel/lugin-proposal-class-properties": "^7.13.5",
       "@babel/preset-env": "^7.13.10",
       "@babel/preset-typescript": "^7.13.0",
       "@types/bcryptjs": "^2.4.2",
@@ -1253,6 +1255,13 @@ Lockfile:
     version "9.1.1"
     resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
     integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
+  
+  "@hapi/joi-date@^2.0.1":
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/@hapi/joi-date/-/joi-date-2.0.1.tgz#9d63bcc320fa64d9bb7a9b7f6ee3c1831019cbbb"
+    integrity sha512-8be8JUEC8Wm1Do3ryJy+TXmkAL13b2JwXn7gILBoor8LopY/M+hJskodzOOxfJdckkfWnbmbnMEyJW3d/gZMfA==
+    dependencies:
+      moment "2.x.x"
   
   "@hapi/topo@^5.0.0":
     version "5.0.0"
@@ -5220,6 +5229,11 @@ Lockfile:
     integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
     dependencies:
       minimist "^1.2.5"
+  
+  moment@2.x.x:
+    version "2.29.1"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+    integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
   
   mongodb@^3.6.3:
     version "3.6.3"
