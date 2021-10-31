@@ -15,7 +15,8 @@ if (!process.env.REDIS_TLS_URL) {
 } else {
   redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
     tls: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
+      ignoreUnauthorized: true
     }
   })
 }
