@@ -13,20 +13,11 @@ if (!process.env.REDIS_TLS_URL) {
     password: process.env.REDIS_PASS || undefined
   })
 } else {
-  const redisURL = (new URL(process.env.REDIS_URL) as unknown) as {
-    port: number
-    hostname: string
-    password: string
-  }
-  redisClient = redis.createClient(redisURL.port, redisURL.hostname, {
-    no_ready_check: true
+  redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
+    tls: {
+      rejectUnauthorized: false
+    }
   })
-  redisClient.auth(redisURL.password)
-  // redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
-  //   tls: {
-  //     rejectUnauthorized: false
-  //   }
-  // })
 }
 
 const limiter = new RateLimiterRedis({
