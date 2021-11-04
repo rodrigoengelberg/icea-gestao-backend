@@ -26,7 +26,7 @@ describe('ShowPatrimonyById', () => {
     })
 
     expect(patrimonyCreated.description).toBe('Computador')
-    expect(patrimonyCreated.accounting_classification).toBe(1)
+    expect(patrimonyCreated.accounting_classification).toBe('Eletrônicos')
     expect(patrimonyCreated.localization).toBe('Escritório')
   })
 

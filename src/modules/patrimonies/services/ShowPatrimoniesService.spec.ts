@@ -30,7 +30,7 @@ describe('ShowPatrimonies', () => {
 
     expect(patrimonies.length).toBeGreaterThan(0)
     expect(patrimonies[0].description).toBe('Computador')
-    expect(patrimonies[0].accounting_classification).toBe(1)
+    expect(patrimonies[0].accounting_classification).toBe('Eletrônicos')
     expect(patrimonies[0].localization).toBe('Escritório')
   })
 })

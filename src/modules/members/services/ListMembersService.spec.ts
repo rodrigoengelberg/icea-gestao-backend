@@ -1,22 +1,16 @@
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import ListMembersService from './ListMembersService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
 import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
-let fakeCacheProvider: FakeCacheProvider
 let listMembers: ListMembersService
 
 describe('ListMembers', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
-    fakeCacheProvider = new FakeCacheProvider()
 
-    listMembers = new ListMembersService(
-      fakeMembersRepository,
-      fakeCacheProvider
-    )
+    listMembers = new ListMembersService(fakeMembersRepository)
   })
 
   it('should be able to list the members', async () => {

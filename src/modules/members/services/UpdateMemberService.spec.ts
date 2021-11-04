@@ -1,24 +1,18 @@
 import AppError from '@shared/errors/AppError'
 
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakeMembersRepository from '@modules/members/repositories/fakes/FakeMembersRepository'
 import UpdateMemberService from './UpdateMemberService'
 import MemberContact from '../infra/typeorm/entities/MemberContact'
 import MemberSpiritual from '../infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
-let fakeCacheProvider: FakeCacheProvider
 let updateMemberService: UpdateMemberService
 
 describe('UpdateUserAvatar', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
-    fakeCacheProvider = new FakeCacheProvider()
 
-    updateMemberService = new UpdateMemberService(
-      fakeMembersRepository,
-      fakeCacheProvider
-    )
+    updateMemberService = new UpdateMemberService(fakeMembersRepository)
   })
 
   it('should be able to update a member', async () => {
