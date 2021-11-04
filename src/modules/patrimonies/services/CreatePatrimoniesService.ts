@@ -17,10 +17,7 @@ interface IRequest {
 class CreatePatrimoniesService {
   constructor(
     @inject('PatrimonyRepository')
-    private patrimonyRepository: IPatrimonyRepository,
-
-    @inject('CacheProvider')
-    private cacheProvider: ICacheProvider
+    private patrimonyRepository: IPatrimonyRepository
   ) {}
 
   public async execute({
@@ -43,8 +40,6 @@ class CreatePatrimoniesService {
       localization,
       observations
     })
-
-    await this.cacheProvider.invalidatePrefix('patrimonies-list')
 
     return patrimonies
   }

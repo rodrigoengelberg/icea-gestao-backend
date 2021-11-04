@@ -2,7 +2,6 @@ import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import Member from '../infra/typeorm/entities/Member'
 import IMembersRepository from '../repositories/IMembersRepository'
 
@@ -51,10 +50,7 @@ interface IRequest {
 class UpdateMemberService {
   constructor(
     @inject('MembersRepository')
-    private membersRepository: IMembersRepository,
-
-    @inject('CacheProvider')
-    private cacheProvider: ICacheProvider
+    private membersRepository: IMembersRepository
   ) {}
 
   public async execute({
@@ -108,8 +104,6 @@ class UpdateMemberService {
     )
 
     await this.membersRepository.save(member)
-
-    await this.cacheProvider.invalidatePrefix('members-list')
 
     return member
   }

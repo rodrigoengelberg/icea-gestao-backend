@@ -1,22 +1,16 @@
 import AppError from '@shared/errors/AppError'
 
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider'
 import FakePatrimonyRepository from '../repositories/fakes/FakePatrimonyRepository'
 import CreatePatrimoniesService from './CreatePatrimoniesService'
 
 let fakePatrimonyRepository: FakePatrimonyRepository
-let fakeCacheProvider: FakeCacheProvider
 let createPatrimony: CreatePatrimoniesService
 
 describe('CreatePatrimonies', () => {
   beforeEach(() => {
     fakePatrimonyRepository = new FakePatrimonyRepository()
-    fakeCacheProvider = new FakeCacheProvider()
 
-    createPatrimony = new CreatePatrimoniesService(
-      fakePatrimonyRepository,
-      fakeCacheProvider
-    )
+    createPatrimony = new CreatePatrimoniesService(fakePatrimonyRepository)
   })
 
   it('should be able to create a new member', async () => {

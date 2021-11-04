@@ -2,7 +2,6 @@ import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import Patrimony from '../infra/typeorm/entities/Patrimony'
 import IPatrimonyRepository from '../repositories/IPatrimonyRepository'
 
@@ -18,10 +17,7 @@ interface IRequest {
 class UpdatePatrimonyService {
   constructor(
     @inject('PatrimonyRepository')
-    private patrimonyRepository: IPatrimonyRepository,
-
-    @inject('CacheProvider')
-    private cacheProvider: ICacheProvider
+    private patrimonyRepository: IPatrimonyRepository
   ) {}
 
   public async execute({
@@ -57,8 +53,6 @@ class UpdatePatrimonyService {
     )
 
     await this.patrimonyRepository.save(patrimony)
-
-    await this.cacheProvider.invalidatePrefix('patrimonies-list')
 
     return patrimony
   }

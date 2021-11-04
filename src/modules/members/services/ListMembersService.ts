@@ -1,30 +1,20 @@
-import { injectable, inject } from 'tsyringe';
+import { injectable, inject } from 'tsyringe'
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
-import Member from '@modules/members/infra/typeorm/entities/Member';
-import IMembersRepository from '@modules/members/repositories/IMembersRepository';
+import Member from '@modules/members/infra/typeorm/entities/Member'
+import IMembersRepository from '@modules/members/repositories/IMembersRepository'
 
 @injectable()
 class ListMembersService {
   constructor(
     @inject('MembersRepository')
-    private membersRepository: IMembersRepository,
-
-    @inject('CacheProvider')
-    private cacheProvider: ICacheProvider,
-  ) { }
+    private membersRepository: IMembersRepository
+  ) {}
 
   public async execute(): Promise<Member[]> {
-    let members = await this.cacheProvider.recover<Member[]>(`members-list`);
+    let members = await this.membersRepository.findAll()
 
-    if (!members) {
-      members = await this.membersRepository.findAll();
-    }
-
-    await this.cacheProvider.save(`members-list`, members);
-
-    return members;
+    return members
   }
 }
 
-export default ListMembersService;
+export default ListMembersService
