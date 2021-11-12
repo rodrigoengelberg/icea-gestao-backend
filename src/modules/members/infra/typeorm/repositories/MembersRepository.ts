@@ -25,8 +25,10 @@ class MembersRepository implements IMembersRepository {
   }
 
   public async findByEmail(email: string): Promise<Member | undefined> {
+    if (!email || email !== '') return undefined
+
     const findMembers = await this.ormRepository.findOne({
-      where: { email },
+      where: { email }
     })
 
     return findMembers
