@@ -27,7 +27,7 @@ membersRouter.post(
     [Segments.BODY]: {
       first_name: Joi.string().required(),
       last_name: Joi.string().required(),
-      email: Joi.string().email().allow(null, ''),
+      email: Joi.string().email().allow(null, '').empty('').default(null),
       gender: Joi.string().required(),
       marital_status: Joi.string().allow(null, ''),
       nationality: Joi.string().required(),
@@ -94,7 +94,7 @@ membersRouter.put(
       id: Joi.string().optional().allow(null, ''),
       first_name: Joi.string().required(),
       last_name: Joi.string().required(),
-      email: Joi.string().email().allow(null, ''),
+      email: Joi.string().email().allow(null, '').empty('').default(null),
       gender: Joi.string().required(),
       marital_status: Joi.string().allow(null, ''),
       nationality: Joi.string().required(),
