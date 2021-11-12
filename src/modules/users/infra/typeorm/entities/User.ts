@@ -3,36 +3,34 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+  UpdateDateColumn
+} from 'typeorm'
 
-import { Expose, Exclude } from 'class-transformer';
-
-import uploadConfig from '@config/upload';
+import { Exclude } from 'class-transformer'
 
 @Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column()
-  name: string;
+  name: string
 
   @Column()
-  email: string;
+  email: string
 
   @Column()
   @Exclude()
-  password: string;
+  password: string
 
   @Column()
-  role: string;
+  role: string
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at: Date
 }
 
-export default User;
+export default User

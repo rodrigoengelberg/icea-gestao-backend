@@ -31,7 +31,7 @@ membersRouter.post(
       gender: Joi.string().required(),
       marital_status: Joi.string().allow(null, ''),
       nationality: Joi.string().required(),
-      birth_date: Joi.date().iso().allow(null, ''),
+      birth_date: Joi.date().iso().allow(null, '').empty('').default(null),
       occupation: Joi.string().optional().allow(null, ''),
       schooling: Joi.string().optional().allow(null, ''),
       facebook_link: Joi.string().optional().allow(null, ''),
@@ -41,23 +41,47 @@ membersRouter.post(
         address: Joi.string().optional().allow(null, ''),
         state: Joi.string().optional().allow(null, ''),
         city: Joi.string().optional().allow(null, ''),
-        zipcode: Joi.number().optional().allow(null, ''),
+        zipcode: Joi.number()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
         phone_type_name: Joi.string().optional().allow(null, ''),
-        phone_number: Joi.number().optional().allow(null, '')
+        phone_number: Joi.number()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null)
       })
         .optional()
         .allow(null, ''),
       member_spiritual: Joi.object({
         member_function: Joi.string().optional().allow(null, ''),
         member_status: Joi.string().optional().allow(null, ''),
-        baptism_date: Joi.date().iso().optional().allow(null, ''),
-        joined_date: Joi.date().iso().optional().allow(null, ''),
-        tithe_member: Joi.number().optional().allow(null, ''),
+        baptism_date: Joi.date()
+          .iso()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
+        joined_date: Joi.date()
+          .iso()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
+        tithe_member: Joi.number()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
         problems: Joi.string().optional().allow(null, ''),
         testimony: Joi.string().optional().allow(null, '')
       })
         .optional()
         .allow(null, '')
+        .empty('')
+        .default(null)
     }
   }),
   membersController.create
@@ -86,9 +110,17 @@ membersRouter.put(
         address: Joi.string().optional().allow(null, ''),
         state: Joi.string().optional().allow(null, ''),
         city: Joi.string().optional().allow(null, ''),
-        zipcode: Joi.number().optional().allow(null, ''),
+        zipcode: Joi.number()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
         phone_type_name: Joi.string().optional().allow(null, ''),
-        phone_number: Joi.number().optional().allow(null, ''),
+        phone_number: Joi.number()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
         created_at: Joi.string().optional().allow(null, ''),
         updated_at: Joi.string().optional().allow(null, '')
       })
@@ -99,8 +131,18 @@ membersRouter.put(
         member_id: Joi.string().optional().allow(null, ''),
         member_function: Joi.string().optional().allow(null, ''),
         member_status: Joi.string().optional().allow(null, ''),
-        baptism_date: Joi.date().iso().optional().allow(null, ''),
-        joined_date: Joi.date().iso().optional().allow(null, ''),
+        baptism_date: Joi.date()
+          .iso()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
+        joined_date: Joi.date()
+          .iso()
+          .optional()
+          .allow(null, '')
+          .empty('')
+          .default(null),
         tithe_member: Joi.number().optional().allow(null, ''),
         problems: Joi.string().optional().allow(null, ''),
         testimony: Joi.string().optional().allow(null, ''),
