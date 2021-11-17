@@ -19,7 +19,11 @@ class MembersRepository implements IMembersRepository {
   }
 
   public async findAll(): Promise<Member[] | undefined> {
-    const findMembers = await this.ormRepository.find()
+    const findMembers = await this.ormRepository.find({
+      order: {
+        first_name: 'ASC'
+      }
+    })
 
     return findMembers
   }
