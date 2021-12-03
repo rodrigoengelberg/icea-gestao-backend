@@ -7,14 +7,14 @@
 </h1>
 
 <h4 align="center">
-  🚀 Projeto de desenvolvimento do Backend em NodeJS - ICEA Gestao
+  🚀 Projeto de desenvolvimento do Backend em NodeJS - ICEA Gestão
 </h4>
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rodrigoengelberg/proffy-nwl-02">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/rodrigoengelberg/icea-gestao-backend">
-  
+
   <a href="https://github.com/rodrigoengelberg/icea-gestao-backend/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rodrigoengelberg/icea-gestao-backend">
   </a>
@@ -51,7 +51,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.js](https://nodejs.org/en/) | [Express](https://expressjs.com/pt-br/)
 - [React](https://reactjs.org/) | [React Native](https://reactnative.dev/)
 - [Knex](http://knexjs.org/) | [SQLite3](https://www.sqlite.org/index.html)
-- [React Native Picker](https://github.com/react-native-picker/picker) 
+- [React Native Picker](https://github.com/react-native-picker/picker)
 - [React Native Collapsible ](https://github.com/oblador/react-native-collapsible)
 
 ## :rocket: Executando
@@ -59,25 +59,31 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Para rodar esse projeto existem duas maneiras para você escolher, a Live Version que é a versão que está rodando em nuvem para que você conferir, e a versão em Localhost, que é onde você baixa o projeto completo e roda a partir do seu terminal.
 
 ### Local Host:
+
 Também é possível rodar essa aplicação localmente em um computador ou notebook, para isso é necessário ter alguns programas instalados:
 
 #### Node.js e NPM
 
 É necessário instalar o node e npm(ou yarn) para rodar essa aplicação localmente. Para verificar se já tem instalado, execulte em seu terminal os seguintes comandos:
+
 ```sh
 node -v
 ```
+
 ```sh
 npm -v
 ```
+
 Caso o retorno de algum dos dois comandos sejam um erro, é necessário instalar o Node.js e o NPM.
 
 ##### Guias para download e instalação do Node.js e NPM:
+
 Para download: acesse o [site oficial](https://nodejs.org/en/) do Node.js e siga o passo a passo.
 
-Com o Node.js e NPM instalados corretamente, abra o seu terminal na pasta do projeto e  execute o seguinte comando:
+Com o Node.js e NPM instalados corretamente, abra o seu terminal na pasta do projeto e execute o seguinte comando:
 
 Inicie o servidor:
+
 ```sh
 npm start
 ```
@@ -93,4 +99,3 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 ---
 
 Feito com horas em frente ao :computer: por [Rodrigo Engelberg](https://www.linkedin.com/in/rodrigoengelberg/)
-
