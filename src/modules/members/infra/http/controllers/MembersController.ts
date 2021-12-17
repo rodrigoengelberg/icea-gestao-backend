@@ -6,6 +6,7 @@ import CreateMemberService from '@modules/members/services/CreateMemberService'
 import UpdateMemberService from '@modules/members/services/UpdateMemberService'
 import ShowMembersService from '@modules/members/services/ShowMembersService'
 import ShowMembersByIdService from '@modules/members/services/ShowMembersByIdService'
+import ShowMembersByFunctionAndStatus from '@modules/members/services/ShowMembersByFunctionAndStatus'
 import DeleteMemberService from '@modules/members/services/DeleteMemberService'
 
 export default class MembersController {
@@ -30,6 +31,24 @@ export default class MembersController {
     })
 
     return response.json(classToClass(member))
+  }
+
+  public async showByMemberFunctionAndStatus(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
+
+    const member_function = request.query.member_function ? request.query.member_function.toString() : undefined
+    const member_status = request.query.member_status ? request.query.member_status.toString() : undefined
+
+    const showMembers = container.resolve(ShowMembersByFunctionAndStatus)
+
+    const members = await showMembers.execute({
+      member_function,
+      member_status
+    })
+
+    return response.json(classToClass(members))
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

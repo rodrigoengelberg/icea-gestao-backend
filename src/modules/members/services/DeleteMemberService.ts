@@ -2,7 +2,6 @@ import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
 import IMembersRepository from '../repositories/IMembersRepository'
 
 interface IRequest {
@@ -13,14 +12,10 @@ interface IRequest {
 class DeleteMemberService {
   constructor(
     @inject('MembersRepository')
-    private membersRepository: IMembersRepository,
-
-    @inject('CacheProvider')
-    private cacheProvider: ICacheProvider,
-  ) { }
+    private membersRepository: IMembersRepository
+  ) {}
 
   public async execute({ member_id }: IRequest): Promise<any> {
-
     const member = await this.membersRepository.findById(member_id)
 
     if (!member) {
@@ -28,8 +23,6 @@ class DeleteMemberService {
     }
 
     await this.membersRepository.delete(member_id)
-
-    await this.cacheProvider.invalidatePrefix('members-list')
 
     return { message: 'Member deleted succesfull' }
   }
