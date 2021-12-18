@@ -7,24 +7,16 @@ import MemberContact from '@modules/members/infra/typeorm/entities/MemberContact
 import MemberSpiritual from '@modules/members/infra/typeorm/entities/MemberSpiritual'
 
 let fakeMembersRepository: FakeMembersRepository
-let fakeCacheProvider: FakeCacheProvider
 let createMember: CreateMemberService
 let deleteMember: DeleteMemberService
 
 describe('DeleteMember', () => {
   beforeEach(() => {
     fakeMembersRepository = new FakeMembersRepository()
-    fakeCacheProvider = new FakeCacheProvider()
 
-    createMember = new CreateMemberService(
-      fakeMembersRepository,
-      fakeCacheProvider
-    )
+    createMember = new CreateMemberService(fakeMembersRepository)
 
-    deleteMember = new DeleteMemberService(
-      fakeMembersRepository,
-      fakeCacheProvider
-    )
+    deleteMember = new DeleteMemberService(fakeMembersRepository)
   })
 
   it('should be able to delete a member', async () => {

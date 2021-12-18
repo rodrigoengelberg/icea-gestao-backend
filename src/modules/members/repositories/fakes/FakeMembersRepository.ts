@@ -6,24 +6,37 @@ import ICreateMemberDTO from '@modules/members/dtos/ICreateMemberDTO'
 import Member from '../../infra/typeorm/entities/Member'
 
 class FakeMembersRepository implements IMembersRepository {
+
   private members: Member[] = []
 
   public async findById(id: string): Promise<Member | undefined> {
+
     const findMember = this.members.find(member => member.id === id)
 
     return findMember
   }
 
   public async findAll(): Promise<Member[] | undefined> {
+
     const findMembers = this.members
 
     return findMembers
   }
 
   public async findByEmail(email: string): Promise<Member | undefined> {
+
     const findMember = this.members.find(member => member.email === email)
 
     return findMember
+  }
+
+  public async findByMemberFunctionAndStatus(memberFunction: string, memberStatus: string): Promise<Member[]> {
+
+    if (!memberFunction || !memberStatus) return undefined
+
+    const findMembers = this.members.filter(member => ((member.member_spiritual.member_function === memberFunction) && (member.member_spiritual.member_status === memberStatus)))
+
+    return findMembers
   }
 
   public async delete(id: string): Promise<Member | undefined> {
@@ -36,13 +49,14 @@ class FakeMembersRepository implements IMembersRepository {
     if(findIndex > -1) {
       newArray = newArray.splice(findIndex, 1)
     }
-    
+
     response = newArray.find(member => member.id === id)
 
     return response
   }
 
   public async create(memberData: ICreateMemberDTO): Promise<Member> {
+
     const member = new Member()
 
     Object.assign(member, { id: uuid() }, memberData)
@@ -53,6 +67,7 @@ class FakeMembersRepository implements IMembersRepository {
   }
 
   public async save(member: Member): Promise<Member> {
+
     const findIndex = this.members.findIndex(member => member.id === member.id)
 
     this.members[findIndex] = member

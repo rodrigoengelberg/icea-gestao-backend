@@ -86,6 +86,7 @@ membersRouter.post(
   }),
   membersController.create
 )
+membersRouter.get('/search', membersController.showByMemberFunctionAndStatus)
 membersRouter.get('/:member_id', membersController.showById)
 membersRouter.put(
   '/:member_id',
