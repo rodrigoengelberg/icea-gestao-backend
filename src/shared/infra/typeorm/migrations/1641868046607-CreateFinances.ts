@@ -34,6 +34,11 @@ export class CreateFinances1641868046607 implements MigrationInterface {
               isNullable: true
             },
             {
+              name: 'value',
+              type: 'decimal(12,2)',
+              isNullable: true
+            },
+            {
               name: 'created_at',
               type: 'timestamp',
               default: 'now()'
