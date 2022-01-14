@@ -37,4 +37,5 @@ module.exports = [
   //     "./src/modules/**/infra/typeorm/schemas/*.ts"
   //   ]
   // }
+
 ]
