@@ -51,6 +51,24 @@ export default class MembersController {
     return response.json(classToClass(members))
   }
 
+  public async showBirthdaysMonth(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
+
+    const member_function = request.query.member_function ? request.query.member_function.toString() : undefined
+    const member_status = request.query.member_status ? request.query.member_status.toString() : undefined
+
+    const showMembers = container.resolve(ShowMembersByFunctionAndStatus)
+
+    const members = await showMembers.execute({
+      member_function,
+      member_status
+    })
+
+    return response.json(classToClass(members))
+  }
+
   public async delete(request: Request, response: Response): Promise<Response> {
     const member_id = request.params.member_id
 
