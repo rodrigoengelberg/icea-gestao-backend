@@ -21,6 +21,7 @@ membersRouter.get('/phoneTypes', typesDomainController.showPhoneTypes)
 membersRouter.get('/school', typesDomainController.showSchool)
 
 membersRouter.get('/', membersController.show)
+membersRouter.get('/birthdays-month', membersController.showBirthdaysMonth)
 membersRouter.post(
   '/',
   celebrate({
