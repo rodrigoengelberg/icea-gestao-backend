@@ -8,7 +8,7 @@
     "removeComments": true,
     "strictPropertyInitialization": false,
     "baseUrl": ".",
-    // "allowJs": true,
+    "allowJs": true,
     "paths": {
       "@modules/*": ["./src/modules/*"],
       "@config/*": ["./src/config/*"],
