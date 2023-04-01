@@ -16,7 +16,7 @@ RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 RUN npm install --quite --no-daemon
 RUN npm run build --quite --no-daemon
 
-COPY --from=build /api/build/ ./
+COPY . .
 
 EXPOSE 3333
 
