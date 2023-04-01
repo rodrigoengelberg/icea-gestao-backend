@@ -13,7 +13,7 @@ WORKDIR /api
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 
-COPY package.json /api
+# COPY package.json /api
 
 COPY --from=build /api/build/package.json ./
 
