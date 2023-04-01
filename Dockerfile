@@ -13,15 +13,11 @@ WORKDIR /api
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 
-# COPY package.json /api
-
-COPY --from=build /api/build/package.json ./
-
 RUN npm install --quite --no-daemon
 RUN npm run build --quite --no-daemon
 
-COPY . .
-
-CMD ["npm", "run", "dev"]
+COPY --from=build /api/build/ ./
 
 EXPOSE 3333
+
+CMD ["npm", "run", "dev"]
