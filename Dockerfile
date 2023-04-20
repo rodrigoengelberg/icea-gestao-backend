@@ -17,7 +17,7 @@ RUN npm install --quite --no-daemon
 RUN npm run build --quite --no-daemon
 
 # COPY . .
-COPY --from=build /api/build/ ./
+COPY --from=build /api/ ./
 
 EXPOSE 3333
 
