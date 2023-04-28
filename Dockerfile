@@ -9,16 +9,17 @@ ENV DB_USER=admicea
 ENV DB_PASSWORD=postgres
 ENV FRONT_SERVER=http://localhost:3005
 
-WORKDIR /api
+WORKDIR /usr/src/app
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 
-RUN npm install --quite --no-daemon
-RUN npm run build --quite --no-daemon
+COPY package*.json ./
+
+RUN npm install
+RUN npm run build
+
+COPY . .
 
 EXPOSE 3333
-WORKDIR /api
-
-COPY --from=build /api/build .
 
 CMD ["npm", "run", "start"]
