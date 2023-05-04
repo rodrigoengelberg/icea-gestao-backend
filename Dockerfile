@@ -11,12 +11,13 @@ ENV FRONT_SERVER=http://localhost:3005
 
 WORKDIR /api
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
+COPY --chown=node:node . .
 
 RUN npm install
 RUN npm run build
 
 WORKDIR /api
-COPY . .
+COPY --chown=node:node --from=build /api .
 
 EXPOSE 3333
 
