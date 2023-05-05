@@ -18,6 +18,8 @@ COPY . .
 RUN npm install
 RUN npm run build
 
+FROM node:14-alpine
+
 WORKDIR /api
 
 COPY --from=build /api/dist/ ./
