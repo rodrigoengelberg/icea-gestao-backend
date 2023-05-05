@@ -1,6 +1,8 @@
-FROM node:14.20.1-alpine3.15 AS build
+FROM node:14-alpine AS build
 
 RUN apk add git
+
+WORKDIR /api
 
 ENV DB_SERVER=localhost
 ENV DB_PORT=5432
@@ -9,15 +11,16 @@ ENV DB_USER=admicea
 ENV DB_PASSWORD=postgres
 ENV FRONT_SERVER=http://localhost:3005
 
-WORKDIR /api
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
-COPY --chown=node:node . .
+
+COPY . .
 
 RUN npm install
 RUN npm run build
 
 WORKDIR /api
-COPY --chown=node:node --from=build /api .
+
+COPY --from=build /api/dist/ ./
 
 EXPOSE 3333
 
