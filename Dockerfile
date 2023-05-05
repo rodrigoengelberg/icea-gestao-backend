@@ -13,8 +13,6 @@ ENV FRONT_SERVER=http://localhost:3005
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 
-COPY . .
-
 RUN npm install
 RUN npm run build
 
