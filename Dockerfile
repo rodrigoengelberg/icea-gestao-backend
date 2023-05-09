@@ -24,4 +24,4 @@ COPY --from=build /api/dist/ ./
 
 EXPOSE 3333
 
-CMD ["npm", "run", "start"]
+CMD ["node", "shared/infra/http/server.js"]
