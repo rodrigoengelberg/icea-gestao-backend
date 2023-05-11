@@ -16,12 +16,10 @@ RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 RUN npm install
 RUN npm run build
 
-FROM node:14-alpine
-
 WORKDIR /api
 
-COPY --from=build /api/dist/ ./
+COPY --from=build /api/ ./
 
 EXPOSE 3333
 
-CMD ["node", "shared/infra/http/server.js"]
+CMD ["npm", "run", "dev"]
