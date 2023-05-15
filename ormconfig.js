@@ -13,17 +13,17 @@ module.exports = [
     // password: "1234",
     // database: "postgres",
     entities: [
-       './src/modules/**/infra/typeorm/entities/*.ts'
-      // './dist/modules/**/infra/typeorm/entities/*.js'
+      //  './src/modules/**/infra/typeorm/entities/*.ts'
+      './dist/modules/**/infra/typeorm/entities/*.js'
     ],
     migrations: [
-       './src/shared/infra/typeorm/migrations/*.ts'
-      // './dist/shared/infra/typeorm/migrations/*.js'
+      //  './src/shared/infra/typeorm/migrations/*.ts'
+      './dist/shared/infra/typeorm/migrations/*.js'
     ],
     cli: {
       migrationsDir:
-         './src/shared/infra/typeorm/migrations'
-        // './dist/shared/infra/typeorm/migrations'
+        //  './src/shared/infra/typeorm/migrations'
+        './dist/shared/infra/typeorm/migrations'
     }
   }
   // {
