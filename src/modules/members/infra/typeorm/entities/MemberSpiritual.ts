@@ -12,44 +12,42 @@ import Member from './Member'
 
 @Entity('members_spiritual')
 class MemberSpiritual {
-  
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column({ nullable: false })
-  member_id: string;
+  member_id: string
 
   @OneToOne(() => Member)
   @JoinColumn({ name: 'member_id' })
-  member: Member;
+  member: Member
 
   @Column()
-  member_function: string;
+  member_function: string
 
   @Column()
-  member_status: string;
+  member_status: string
 
   @Column()
-  baptism_date: Date;
+  baptism_date: Date
 
   @Column()
-  joined_date: Date;
+  joined_date: Date
 
   @Column('integer')
-  tithe_member: number;
+  tithe_member: number
 
   @Column()
-  problems: string;
+  problems: string
 
   @Column()
-  testimony: string;
+  testimony: string
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date
 
   @UpdateDateColumn()
-  updated_at: Date;
-
+  updated_at: Date
 }
 
 export default MemberSpiritual

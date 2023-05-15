@@ -1,8 +1,4 @@
-import { 
-  MigrationInterface, 
-  QueryRunner, 
-  Table 
-} from 'typeorm'
+import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
 export default class CreateUserTokens1607635190265
   implements MigrationInterface {
@@ -16,28 +12,28 @@ export default class CreateUserTokens1607635190265
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
+            default: 'uuid_generate_v4()'
           },
           {
             name: 'token',
             type: 'uuid',
             generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
+            default: 'uuid_generate_v4()'
           },
           {
             name: 'user_id',
-            type: 'uuid',
+            type: 'uuid'
           },
           {
             name: 'created_at',
             type: 'timestamp',
-            default: 'now()',
+            default: 'now()'
           },
           {
             name: 'updated_at',
             type: 'timestamp',
-            default: 'now()',
-          },
+            default: 'now()'
+          }
         ],
         foreignKeys: [
           {
@@ -46,11 +42,11 @@ export default class CreateUserTokens1607635190265
             referencedColumnNames: ['id'],
             columnNames: ['user_id'],
             onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
-          },
-        ],
-      }),
-    );
+            onUpdate: 'CASCADE'
+          }
+        ]
+      })
+    )
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

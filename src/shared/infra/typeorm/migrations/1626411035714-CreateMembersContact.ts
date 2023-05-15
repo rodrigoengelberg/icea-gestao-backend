@@ -1,8 +1,7 @@
 import {
   MigrationInterface,
   QueryRunner,
-  Table,
-  TableForeignKey
+  Table
 } from 'typeorm'
 
 export class CreateMembersContact1626411035714 implements MigrationInterface {
@@ -62,19 +61,17 @@ export class CreateMembersContact1626411035714 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()'
           }
+        ],
+        foreignKeys: [
+          {
+            name: 'FKMemberContact',
+            referencedTableName: 'members',
+            referencedColumnNames: ['id'],
+            columnNames: ['member_id'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
+          }
         ]
-      })
-    )
-
-    await queryRunner.createForeignKey(
-      'members_contact',
-      new TableForeignKey({
-        name: 'FKMemberContact',
-        columnNames: ['member_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'members',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
       })
     )
   }
