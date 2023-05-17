@@ -17,6 +17,14 @@ RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 RUN npm install
 RUN npm run build
 
+FROM node:14-alpine AS install
+
+WORKDIR /api
+
+COPY --from=build /api/ ./
+
+CMD ["npm", "run", "typeorm", "migration:run"]
+
 FROM node:14-alpine AS publish
 
 ARG db_server
