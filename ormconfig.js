@@ -2,9 +2,9 @@ module.exports = [
   {
     name: 'default',
     type: 'postgres',
-    // url: process.env.DATABASE_URL,
+    url: process.env.DATABASE_URL,
     // ssl: {
-    //   rejectUnauthorized: true
+    //   rejectUnauthorized: false
     // },
     // postgres://xlmiyfsxcayqzi:5c0c419bfb39d8f002d2f513c76ec94b67882e48ca716a090c91b13064955b30@ec2-54-208-17-82.compute-1.amazonaws.com:5432/d2r36ecrlgs719
     host: process.env.DB_SERVER,
