@@ -10,6 +10,7 @@ ENV DB_NAME=postgres
 ENV DB_USER=admicea
 ENV DB_PASSWORD=1234
 ENV FRONT_SERVER=http://localhost:8801
+ENV SSL_REJECT=false
 
 RUN git clone https://github.com/rodrigoengelberg/icea-gestao-backend.git .
 
@@ -24,6 +25,7 @@ ARG db_name
 ARG db_user
 ARG db_password
 ARG front_server
+ARG ssl_reject
 
 ENV DB_SERVER=${db_server}
 ENV DB_PORT=${db_port}
@@ -31,6 +33,7 @@ ENV DB_NAME=${db_name}
 ENV DB_USER=${db_user}
 ENV DB_PASSWORD=${db_password}
 ENV FRONT_SERVER=${front_server}
+ENV SSL_REJECT=${ssl_reject}
 
 WORKDIR /api
 
