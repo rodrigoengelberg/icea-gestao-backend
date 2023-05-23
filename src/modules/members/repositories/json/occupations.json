@@ -45,7 +45,7 @@
     },
     {
         "occupation": 12,
-        "occupation_name": "Analista financeiro"
+        "occupation_name": "Analista Financeiro"
     },
     {
         "occupation": 13,
@@ -81,15 +81,15 @@
     },
     {
         "occupation": 21,
-        "occupation_name": "Assistente Social Clínico"
-    },
-    {
-        "occupation": 22,
         "occupation_name": "Atleta"
     },
     {
-        "occupation": 23,
+        "occupation": 22,
         "occupation_name": "Auditor(a)"
+    },
+    {
+        "occupation": 23,
+        "occupation_name": "Autônomo(a)"
     },
     {
         "occupation": 24,
@@ -349,7 +349,7 @@
     },
     {
         "occupation": 88,
-        "occupation_name": "Gerente financeiro"
+        "occupation_name": "Gerente Financeiro"
     },
     {
         "occupation": 89,
@@ -457,15 +457,11 @@
     },
     {
         "occupation": 115,
-        "occupation_name": "Professor(a) de ensino médio"
+        "occupation_name": "Pedagogo(a)"
     },
     {
         "occupation": 116,
-        "occupation_name": "Professor(a) de escola fundamental"
-    },
-    {
-        "occupation": 117,
-        "occupation_name": "Professor(a) pré-escolar"
+        "occupation_name": "Professor(a)"
     },
     {
         "occupation": 118,
@@ -512,8 +508,12 @@
         "occupation_name": "Segurança"
     },
     {
+      "occupation": 117,
+      "occupation_name": "Servidor Público"
+    },
+    {
         "occupation": 129,
-        "occupation_name": "Soldado"
+        "occupation_name": "Soldado/Militar"
     },
     {
         "occupation": 130,
