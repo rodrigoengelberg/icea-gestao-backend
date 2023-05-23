@@ -12,12 +12,12 @@ module.exports = [
     // password: process.env.DB_PASSWORD,
     // database: process.env.DB_NAME,
     entities: [
-      //  './src/modules/**/infra/typeorm/entities/*.ts'
-      './dist/modules/**/infra/typeorm/entities/*.js'
+      //  './src/modules/**/infra/typeorm/entities/*{.ts,.js}'
+      './dist/modules/**/infra/typeorm/entities/*{.ts,.js}'
     ],
     migrations: [
-      //  './src/shared/infra/typeorm/migrations/*.ts'
-      './dist/shared/infra/typeorm/migrations/*.js'
+      //  './src/shared/infra/typeorm/migrations/*{.ts,.js}'
+      './dist/shared/infra/typeorm/migrations/*{.ts,.js}'
     ],
     cli: {
       migrationsDir:
@@ -25,5 +25,4 @@ module.exports = [
         './dist/shared/infra/typeorm/migrations'
     }
   }
-
 ]
